@@ -1,0 +1,36 @@
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 90vh;
+    margin-top: 5%;
+}
+
+.upper-menu {
+    display: flex;
+    justify-content: space-around;
+    height: 40vh;
+}
+
+.lower-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin: 0 0 0 2em;
+}
+
+.lower-menu-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: .5em;
+    width: 5em;
+}
+
+.lower-menu-card:hover {
+    background-color: rgba(255, 255, 255, .5);
+    padding: .5em;
+    border-radius: 10%;
+}

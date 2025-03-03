@@ -7,22 +7,28 @@ import {
     Typography,
 } from "@mui/material";
 import { styled } from '@mui/system';
-export default function Header() {
+import { redirect } from "next/navigation";
 
+export default function Header() {
+    const onClickHeader = (route: string) => {
+        redirect("/" + route)
+    }
     return (
         <Box
             sx={{
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
-                position: "absolute",
+                position: "fixed",
                 zIndex: 3,
                 bottom: 0,
+                left: 0,
                 width: "100%",
-                background: "linear-gradient(3150deg, rgba(255, 25, 25, 0.5), rgba(200, 25, 25, 1))"
+                background: "linear-gradient(3150deg, rgba(255, 25, 25, 0.7), rgba(200, 25, 25, 1))",
+                padding: "10px 0",
             }}
         >
-            <Box>
+            <Box sx={{ cursor: "pointer" }} onClick={() => onClickHeader("home")}>
                 <CardMedia
                     sx={{ width: 90, height: 60, margin: 1, mr: { xs: "auto", sm: 13, md: 20 } }}
                     image='https://res.cloudinary.com/dxyxg3egs/image/upload/v1724437471/skypasta/skypasta_logo_nobg_myujfv.png'
@@ -30,13 +36,13 @@ export default function Header() {
                 ></CardMedia>
             </Box>
             <Box sx={{ width: { xs: 1000, sm: 300, md: 600 }, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
-                <StyledLink >
+                <StyledLink onClick={() => onClickHeader("menu")} >
                     <Typography sx={{ fontWeight: 300, fontSize: { xs: 12, sm: 13, md: 18 } }}>Menu</Typography>
                 </StyledLink >
-                <StyledLink >
+                <StyledLink onClick={() => onClickHeader("about")}>
                     <Typography sx={{ fontWeight: 300, fontSize: { xs: 12, sm: 13, md: 18 } }}>About Sky Pasta</Typography>
                 </StyledLink >
-                <StyledLink >
+                <StyledLink onClick={() => onClickHeader("outlets")}>
                     <Typography sx={{ fontWeight: 300, fontSize: { xs: 12, sm: 13, md: 18 } }}>Our Outlets</Typography>
                 </StyledLink >
                 <StyledLink >
