@@ -13,14 +13,14 @@ export default function About() {
     const cards = [
         {
             id: 1,
-            title: 'Visi',
+            title: 'Vision',
             imageUrl: '/visi-card.png',
             bg: '/visi-bg.jpg',
             description: "Membangun Sky Pasta menjadi brand kuliner lokal berskala internasional yang menyajikan makanan berkelas terbaik dengan harga yang terjangkau dan bisa dinikmati seluruh lapisan masyarakat di Indonesia demi pemenuhan gaya hidup."
         },
         {
             id: 2,
-            title: 'Sejarah',
+            title: 'History',
             imageUrl: '/history-card.png',
             bg: 'sejarah-bg.jpg',
             bg2: 'sejarah2-bg.jpg',
@@ -33,14 +33,14 @@ export default function About() {
         },
         {
             id: 3,
-            title: 'Tim Manajemen',
+            title: 'The Team',
             imageUrl: '/team-card.png',
             bg: '/team-bg.jpg',
             description: ''
         },
         {
             id: 4,
-            title: 'Prestasi',
+            title: 'Honours',
             imageUrl: '/award-card.png',
             bg: '/prestasi-bg.jpg',
             description: (
@@ -51,7 +51,7 @@ export default function About() {
         },
         {
             id: 5,
-            title: 'Event',
+            title: 'Events',
             imageUrl: '/event-card.png',
             bg: 'event-bg.jpg',
             bg2: 'event2-bg.jpg',
@@ -60,7 +60,7 @@ export default function About() {
         },
         {
             id: 6,
-            title: 'Testimoni',
+            title: 'Reviews',
             imageUrl: '/testi-card.png',
             bg: '/testi-bg.png',
             bg2: '/testi2-bg.jpg',

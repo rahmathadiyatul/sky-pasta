@@ -35,11 +35,11 @@ const MenuDetails = ({ selectedMenu }) => {
             setCurrentData(menuData[selectedMenu]);
             setAnimateOut(false);
             setAnimateIn(true);
-        }, 500); 
+        }, 500);
 
         const timer2 = setTimeout(() => {
             setAnimateIn(false);
-        }, 1000); 
+        }, 1000);
 
         return () => {
             clearTimeout(timer1);
@@ -67,14 +67,14 @@ const MenuDetails = ({ selectedMenu }) => {
                         {currentData.menuPar}
                     </Typography>
                 </CardContent>
-                <CardActions disableSpacing>
+                {/* <CardActions disableSpacing>
                     <IconButton aria-label="add to favorites">
                         <LikeIcon />
                     </IconButton>
                     <IconButton aria-label="share">
                         <DislikeIcon />
                     </IconButton>
-                </CardActions>
+                </CardActions> */}
             </Card>
         </div>
     );

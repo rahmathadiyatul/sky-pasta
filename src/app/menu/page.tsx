@@ -31,7 +31,7 @@ export default function Home() {
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    backgroundImage: `url('/table-bg.jpg')`,
+                    //backgroundImage: `url('/table-bg.jpg')`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
