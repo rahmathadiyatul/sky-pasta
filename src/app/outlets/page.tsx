@@ -183,10 +183,10 @@ export default function Outlets() {
                 {selectedOutlet && (
                     <Card
                         sx={{
-                            width: "30%",
+                            width: { xs: "80%", md: "30%" },
                             padding: 2,
                             margin: 2,
-                            position: "relative",
+                            position: { xs: "absolute", md: "relative" },
                         }}
                     >
                         <IconButton
