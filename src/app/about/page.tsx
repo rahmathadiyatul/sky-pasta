@@ -99,7 +99,7 @@ export default function About() {
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
-                    minHeight: 500,
+                    minHeight: { xs: 450, md: 600 },
                     width: "100%",
                     mt: { xs: 5, sm: 5, md: 0 },
                     "&::before": {
@@ -121,7 +121,7 @@ export default function About() {
                     sx={{
                         width: '70%',
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fill, minmax(min(200px, 100%), 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fill, minmax(min(200px, 40%), 1fr))',
                         gap: 5,
                     }}
                 >
@@ -129,7 +129,7 @@ export default function About() {
                         <Card
                             key={index}
                             sx={{
-                                borderRadius: 5,
+                                borderRadius: 3,
                                 backgroundColor: "white",
                                 border: "1px solid silver",
                                 '&:hover': {
@@ -141,7 +141,6 @@ export default function About() {
                                 onClick={() => onClickCard(index)}
                                 data-active={selectedCard === index ? '' : undefined}
                                 sx={{
-                                    height: '100%',
                                     transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
                                     '&[data-active]': {
                                         backgroundColor: "rgba(0,0,0,.1)",
@@ -155,7 +154,7 @@ export default function About() {
                             >
                                 <CardMedia
                                     component="img"
-                                    height="140"
+                                    sx={{ height: { xs: 70, md: 140 } }}
                                     image={card.imageUrl}
                                     alt={card.title}
                                 />
@@ -164,7 +163,11 @@ export default function About() {
                                     data-active={selectedCard === index ? '' : undefined}
                                     sx={{
                                         backgroundColor: "#c72026",
-                                        height: '100%',
+                                        height: '1rem',
+                                        padding: { xs: "1rem 0", md: "1.5rem 0" },
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
                                         transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
                                         '&[data-active]': {
                                             backgroundColor: "#c72026",
@@ -176,6 +179,7 @@ export default function About() {
                                         }
                                     }}>
                                     <Typography
+                                        sx={{ fontSize: { xs: ".85rem", md: "1.25rem" } }}
                                         color="white"
                                         fontWeight={"bolder"}
                                         textAlign={"center"}
@@ -191,7 +195,6 @@ export default function About() {
                         </Card>
                     ))}
                 </Box>
-                <Box sx={{ display: "flex", flexDirection: "row" }}></Box>
             </Box>
         </Box >
     );

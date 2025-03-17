@@ -36,7 +36,6 @@ export default function Home() {
                 <WhatsAppComponent />
                 <Box
                     sx={{
-                        position: "relative",
                         height: "100vh",
                         width: "100vw",
                         backgroundImage: `url("/home-bg.JPG")`,
@@ -44,7 +43,7 @@ export default function Home() {
                         backgroundPosition: "center",
                         backgroundRepeat: "no-repeat",
                         display: "flex",
-                        alignItems: "center",
+                        alignItems: { xs: "flex-start", md: "center" },
                         justifyContent: "center",
                         overflow: "hidden",
                         '&::before': {
@@ -69,7 +68,7 @@ export default function Home() {
                             zIndex: 1,
                         }}
                     />
-                    <Box sx={{ justifyContent: { xs: "flex-start", md: "space-around" }, alignItems: "center", backgroundColor: "rgba(255,255,255,.4)", width: "100vw", height: { xs: "55vh", md: '50vh' }, flexDirection: { xs: "column", md: "row" } }} display={"flex"}>
+                    <Box sx={{ pb: { xs: "1rem", md: 0 }, mt: { xs: "15vh", md: 0 }, justifyContent: { xs: "flex-start", md: "space-around" }, alignItems: "center", backgroundColor: "rgba(255,255,255,.7)", width: "100vw", height: { xs: "55vh", md: '50vh' }, flexDirection: { xs: "column", md: "row" } }} display={"flex"}>
                         <CardMedia
                             image="logo.png"
                             sx={{
@@ -88,7 +87,7 @@ export default function Home() {
                                 backgroundImage: `url(${images[currentImage]})`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
-                                borderRadius: "20px",
+                                borderRadius: "10px",
                                 boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
                                 border: "4px solid rgba(255, 255, 255, 0.5)",
                                 transition: "background-image 0.5s ease-in-out, transform 0.5s ease-in-out",

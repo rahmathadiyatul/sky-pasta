@@ -14,7 +14,7 @@ export default function WhatsAppComponent() {
     return (
         <Box
             sx={{
-                position: "absolute",
+                position: "fixed",
                 right: "3%",
                 top: "4%",
                 zIndex: 15,

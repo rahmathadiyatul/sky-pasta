@@ -8,7 +8,7 @@ import MenuDetails from "./MenuDetails/MenuDetails.js"
 import theme from "@/lib/theme";
 import './page.css';
 
-export default function Home() {
+export default function Menu() {
     const [selectedMenu, setSelectedMenu] = useState('Samba Lado Spaghetti');
 
     const handleMenuChange = (menu: string) => {

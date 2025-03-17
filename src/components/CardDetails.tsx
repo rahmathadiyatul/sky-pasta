@@ -1,6 +1,7 @@
 "use client";
 
-import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
+import { Close } from "@mui/icons-material";
+import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography } from "@mui/material";
 import React, { useState } from "react";
 
 interface CardDetailsProps {
@@ -22,29 +23,46 @@ export default function CardDetails({ onClose, details }: CardDetailsProps) {
                 backgroundColor: "rgba(0, 0, 0, 0.5)",
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center",
+                alignItems: { xs: "flex-start", md: "center" },
                 zIndex: 9999,
             }}
             onClick={onClose}
         >
             <Card
                 sx={{
-                    maxWidth: 400,
+                    maxWidth: { xs: 350, md: 400 },
+                    maxHeight: { xs: "75vh", md: "100vh" },
                     minWidth: "50vw",
                     bgcolor: "white",
                     boxShadow: 24,
-                    p: 2,
+                    mt: { xs: "15%", md: 0 },
+                    p: 1,
                     borderRadius: 2,
                 }}
                 onClick={(e) => e.stopPropagation()}
             >
                 <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        image={showSecondPage && details.bg2 ? details.bg2 : details.bg}
-                        alt={`${details.title} Sky Pasta`}
-                        sx={{ maxHeight: 350 }}
-                    />
+                    <Box sx={{ position: "relative" }}>
+                        <IconButton
+                            onClick={onClose}
+                            sx={{
+                                position: "absolute",
+                                top: 8,
+                                right: 8,
+                                color: "#c72026",
+                                backgroundColor: "rgba(255,255,255,0.5)",
+                                "&:hover": { backgroundColor: "rgba(255,255,255,0.7)" },
+                            }}
+                        >
+                            <Close />
+                        </IconButton>
+                        <CardMedia
+                            component="img"
+                            image={showSecondPage && details.bg2 ? details.bg2 : details.bg}
+                            alt={`${details.title} Sky Pasta`}
+                            sx={{ maxHeight: { xs: 250, md: 350 } }}
+                        />
+                    </Box>
                     <CardContent>
                         <Typography
                             fontSize={30}

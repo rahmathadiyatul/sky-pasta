@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
-import { Box, Button, Card, CardActions, CardMedia, IconButton, Typography } from "@mui/material";
+import { Box, Button, Card, CardActions, CardContent, CardMedia, IconButton, Typography } from "@mui/material";
 import Header from "../header/page";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Close } from "@mui/icons-material";
@@ -138,7 +138,6 @@ export default function Outlets() {
 
         map.on("click", (e) => {
             const { lng, lat } = e.lngLat;
-            console.log("Clicked Coordinates:", lng, lat);
 
             let closestOutlet = null;
             let minDistance = Number.MAX_VALUE;
@@ -183,35 +182,41 @@ export default function Outlets() {
                 {selectedOutlet && (
                     <Card
                         sx={{
-                            width: { xs: "80%", md: "30%" },
+                            width: { xs: "80%", md: "35%" },
+                            height: "70vh",
                             padding: 2,
                             margin: 2,
                             position: { xs: "absolute", md: "relative" },
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between"
                         }}
                     >
-                        <IconButton
-                            onClick={() => setSelectedOutlet(null)}
-                            sx={{
-                                position: "absolute",
-                                top: 8,
-                                right: 8,
-                                color: "#c72026",
-                            }}
-                        >
-                            <Close />
-                        </IconButton>
-                        <CardMedia
-                            sx={{ mt: 5, mb: 2 }}
-                            component="img"
-                            height="140"
-                            image={`${selectedOutlet?.name}.jpg`}
-                            alt={selectedOutlet?.name}
-                        ></CardMedia>
-                        <Typography fontWeight="bolder" color="#c72026" variant="h5">{selectedOutlet?.name}</Typography>
-                        <Typography fontSize={14}>{selectedOutlet?.address}</Typography>
+                        <CardContent >
+                            <IconButton
+                                onClick={() => setSelectedOutlet(null)}
+                                sx={{
+                                    position: "absolute",
+                                    top: 8,
+                                    right: 8,
+                                    color: "#c72026",
+                                }}
+                            >
+                                <Close />
+                            </IconButton>
+                            <CardMedia
+                                sx={{ mt: 3, mb: 2 }}
+                                component="img"
+                                height="140"
+                                image={`${selectedOutlet?.name}.jpg`}
+                                alt={selectedOutlet?.name}
+                            ></CardMedia>
+                            <Typography mb={1} fontWeight="bolder" color="#c72026" variant="h5">{selectedOutlet?.name}</Typography>
+                            <Typography fontSize={14}>{selectedOutlet?.address}</Typography>
+                        </CardContent>
                         <CardActions sx={{ margin: 0, padding: 0 }}>
                             <Button
-                                sx={{ mt: 10, borderRadius: 3 }}
+                                sx={{ borderRadius: 3 }}
                                 variant="contained"
                                 color="primary"
                                 onClick={() => handleNavigation(selectedOutlet)}
