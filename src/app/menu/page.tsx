@@ -42,7 +42,7 @@ export default function Menu() {
                 sx={{
                     zIndex: 99,
                     position: "fixed",
-                    top: { xs: "5%", md: "65%" },
+                    top: { xs: "2%", md: "65%" },
                     left: { xs: "auto", md: "5%" },
                     "& button": {
                         all: "unset",

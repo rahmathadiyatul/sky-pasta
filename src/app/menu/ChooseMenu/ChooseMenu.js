@@ -120,7 +120,7 @@ const ChooseMenu = () => {
             <Box
                 sx={{
                     position: "absolute",
-                    left: { xs: "30%", md: "48.25%" },
+                    left: { xs: "28%", md: "48.25%" },
                     bottom: { xs: "8%", md: "10%" },
                     display: "flex",
                     flexDirection: "row",
