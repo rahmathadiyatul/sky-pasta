@@ -4,15 +4,9 @@ import React, { useState } from 'react';
 import { Box } from "@mui/material";
 import Header from "../header/page";
 import ChooseMenu from "./ChooseMenu/ChooseMenu.js"
-import MenuDetails from "./MenuDetails/MenuDetails.js"
 import './page.css';
 
 export default function Menu() {
-    const [selectedMenu, setSelectedMenu] = useState('Samba Lado Spaghetti');
-
-    const handleMenuChange = (menu: string) => {
-        setSelectedMenu(menu);
-    };
     return (
         <Box
             sx={{
@@ -51,8 +45,7 @@ export default function Menu() {
                 gap: "5%",
                 width: "100%",
             }}>
-                <ChooseMenu onMenuChange={handleMenuChange}></ChooseMenu>
-                <MenuDetails selectedMenu={selectedMenu}></MenuDetails>
+                <ChooseMenu></ChooseMenu>
             </Box>
         </Box>
     );

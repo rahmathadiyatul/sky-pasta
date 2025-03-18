@@ -10,66 +10,57 @@ import StarIcon from '@mui/icons-material/Star';
 import LikeIcon from '@mui/icons-material/ThumbUpAlt';
 import { Box } from '@mui/material';
 import './MenuDetails.css';
+import { ThumbUp } from '@mui/icons-material';
 
 const MenuDetails = ({ selectedMenu }) => {
-    const [currentData, setCurrentData] = useState({});
-    const [animateOut, setAnimateOut] = useState(false);
-    const [animateIn, setAnimateIn] = useState(false);
-
-    const menuData = {
-        'Samba Lado Spaghetti': {
-            menuTitle: 'Samba Lado Spaghetti',
-            menuRating: '4.6',
-            menuPar: 'This impressive spaghetti is a perfect party dish and a fun meal to cook together with your guests.'
-        },
-        'Pasta Apadah Tau': {
-            menuTitle: 'Pasta Apadah Tau',
-            menuRating: '4.8',
-            menuPar: 'This Pasta Apadah Tau, au dah rasanya gimana. Pokonya gitu dah, cobain aja dulu ntar juga ketagihan banget banget!'
-        }
-    };
-
-    useEffect(() => {
-        setAnimateOut(true);
-        const timer1 = setTimeout(() => {
-            setCurrentData(menuData[selectedMenu]);
-            setAnimateOut(false);
-            setAnimateIn(true);
-        }, 500);
-
-        const timer2 = setTimeout(() => {
-            setAnimateIn(false);
-        }, 1000);
-
-        return () => {
-            clearTimeout(timer1);
-            clearTimeout(timer2);
-        };
-    }, [selectedMenu]);
-
     return (
         <Box
             sx={{
                 display: { xs: "none", md: "flex" },
-                zIndex: 10
+                flexDirection: "space-between",
+                zIndex: 10,
+                height: "22em"
             }}
         >
-            <Card sx={{ maxWidth: 250, borderRadius: '20px', boxShadow: '0 0 20px rgba(0, 0, 0, 0.7)', backgroundColor: 'rgba(250,250,250,0.5)' }}>
-                <Box sx={{ position: 'relative', left: '1em', top: '2em', width: '4em', height: '5em', borderRadius: '35%', backgroundColor: 'rgba(255, 10, 194, 0.5)' }}>
-                    <Typography className={`${animateOut ? 'disappear' : ''} ${animateIn ? 'appear' : ''} ${animateOut ? 'slide-out' : (animateIn ? 'slide-in' : '')}`} sx={{ left: '.6em', fontSize: '2.8em', fontWeight: '900', position: 'relative', marginBottom: 'none' }}>
-                        {currentData.menuRating}
-                    </Typography>
-                    <StarIcon sx={{ position: 'relative', bottom: '.8em', width: '.5em' }}></StarIcon>
+            <Card sx={{ paddingLeft: "1rem", borderRadius: '20px', boxShadow: '0 0 20px rgba(0, 0, 0, 0.7)', backgroundColor: 'rgba(250,250,250,0.5)' }}>
+                <Box
+                    sx={{
+                        position: "relative",
+                        left: "1em",
+                        top: "2em",
+                        width: "5em",
+                        height: "5em",
+                        borderRadius: "35%",
+                        backgroundColor: "rgba(255, 10, 194, 0.5)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        boxShadow: "0 4px 10px rgba(255, 10, 194, 0.3)",
+                        backdropFilter: "blur(10px)",
+                        transition: "all 0.3s ease-in-out",
+                        "&:hover": {
+                            backgroundColor: "rgba(255, 10, 194, 0.7)",
+                            transform: "scale(1.1)",
+                        },
+                    }}
+                >
+                    <ThumbUp sx={{ fontSize: 40, color: "white", filter: "drop-shadow(2px 2px 5px rgba(255, 255, 255, 0.5))" }} />
                 </Box>
                 <CardHeader
-                    className={`${animateOut ? 'disappear' : ''} ${animateIn ? 'appear' : ''} ${animateOut ? 'slide-out' : (animateIn ? 'slide-in' : '')}`}
-                    sx={{ position: 'relative', top: '2em', textAlign: 'left' }}
+                    //className={`${animateOut ? 'disappear' : ''} ${animateIn ? 'appear' : ''} ${animateOut ? 'slide-out' : (animateIn ? 'slide-in' : '')}`}
+                    sx={{ position: 'relative', top: '2em', textAlign: 'left', mb: ".5em", color: "#c72026" }}
                     titleTypographyProps={{ fontSize: '1.2em', fontWeight: 'bolder' }}
-                    title={currentData.menuTitle}
+                    title={selectedMenu.menuName}
                 />
-                <CardContent>
-                    <Typography className={`${animateOut ? 'disappear' : ''} ${animateIn ? 'appear' : ''} ${animateOut ? 'slide-out' : (animateIn ? 'slide-in' : '')}`} sx={{ textAlign: 'left', width: '14em', fontWeight: 'bold' }} variant="body2" color="text.secondary">
-                        {currentData.menuPar}
+                <CardContent
+                    sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                    }}
+                >
+                    <Typography sx={{ textAlign: 'left', minWidth: '16em', fontWeight: 'bold' }} variant="body2" color="text.secondary">
+                        {selectedMenu.description}
                     </Typography>
                 </CardContent>
                 {/* <CardActions disableSpacing>

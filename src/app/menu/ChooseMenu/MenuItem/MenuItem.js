@@ -4,51 +4,7 @@ import '../MenuItem/MenuItem.css';
 import { Box, Button, CardMedia, Typography } from '@mui/material';
 import '@fontsource/roboto';
 
-const imageUrls = [
-    "/recommended/sky1.png",
-    "/recommended/sky2.png",
-    "/recommended/sky3.png",
-    "/recommended/sky4.png",
-    "/recommended/sky5.png",
-    "/recommended/sky6.png",
-    "/recommended/sky7.png",
-    "/recommended/sky8.png",
-    "/recommended/sky9.png"
-];
-
-const initialPositions = [
-    "translate(-400%, -170%)",
-    "translate(-310%, -120%)",
-    "translate(-210%, -80%)",
-    "translate(-110%, -40%)",
-    "translate(0%, 0%)",
-    "translate(110%, -40%)",
-    "translate(210%, -80%)",
-    "translate(310%, -120%)",
-    "translate(400%, -170%)"
-];
-
-const MenuItem = () => {
-    const [positions, setPositions] = useState(initialPositions);
-
-    const handleMovesLeft = () => {
-        setPositions((prev) => {
-            const shifted = [...prev];
-            const first = shifted.shift();
-            shifted.push(first);
-            return shifted;
-        });
-    };
-
-    const handleMovesRight = () => {
-        setPositions((prev) => {
-            const shifted = [...prev];
-            const last = shifted.pop();
-            shifted.unshift(last);
-            return shifted;
-        });
-    };
-
+const MenuItem = ({ imageUrls, positions }) => {
     return (
         <Box sx={{
             display: "flex",
@@ -59,7 +15,7 @@ const MenuItem = () => {
             gap: "2em",
         }}>
             <Box sx={{ position: "relative", width: "23vw", height: "23vw" }}>
-                {imageUrls.map((imgUrl, index) => (
+                {imageUrls.map((menuData, index) => (
                     <CardMedia
                         key={index}
                         sx={{
@@ -71,18 +27,10 @@ const MenuItem = () => {
                             filter: "drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.5))",
                         }}
                         component="img"
-                        image={imgUrl}
-                        alt={`Menu Item ${index}`}
+                        image={menuData.imgUrl}
+                        alt={menuData.menuName}
                     />
                 ))}
-                <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 50 }}>
-                    <Button sx={{ borderRadius: 3 }} variant="contained" onClick={handleMovesLeft}>
-                        Left
-                    </Button>
-                    <Button sx={{ borderRadius: 3 }} variant="contained" onClick={handleMovesRight}>
-                        Right
-                    </Button>
-                </Box>
                 {/* <Box className={`div-image ${slide ? 'slide-left' : ''}`}>
                 <CardMedia
                     component="img"
