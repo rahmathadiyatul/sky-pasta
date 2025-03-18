@@ -5,8 +5,13 @@ import { Box } from "@mui/material";
 import Header from "../header/page";
 import ChooseMenu from "./ChooseMenu/ChooseMenu.js"
 import './page.css';
+import { MenuBook } from '@mui/icons-material';
+import { redirect } from 'next/navigation';
 
 export default function Menu() {
+    const handleOpenMenu = () => {
+        redirect("/menu-details")
+    }
     return (
         <Box
             sx={{
@@ -33,6 +38,84 @@ export default function Menu() {
                 },
             }}
         >
+            <Box
+                sx={{
+                    zIndex: 99,
+                    position: "fixed",
+                    top: { xs: "5%", md: "65%" },
+                    left: { xs: "auto", md: "5%" },
+                    "& button": {
+                        all: "unset",
+                        width: "9rem",
+                        height: "30px",
+                        fontSize: "16px",
+                        background: "transparent",
+                        border: "none",
+                        position: "relative",
+                        color: "#f0f0f0",
+                        cursor: "pointer",
+                        zIndex: 1,
+                        padding: "10px 20px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        whiteSpace: "nowrap",
+                        userSelect: "none",
+                        WebkitUserSelect: "none",
+                        touchAction: "manipulation",
+                        gap: "0.3em",
+                        "&::before": {
+                            content: '""',
+                            position: "absolute",
+                            bottom: 0,
+                            right: 0,
+                            zIndex: -99999,
+                            transition: "all .4s",
+                            transform: "translate(0%, 0%)",
+                            width: "100%",
+                            height: "100%",
+                            background: "#28282d",
+                            borderRadius: "10px",
+                        },
+                        "&::after": {
+                            content: '""',
+                            position: "absolute",
+                            bottom: 0,
+                            right: 0,
+                            zIndex: -99999,
+                            transition: "all .4s",
+                            transform: "translate(10px, 10px)",
+                            width: "35px",
+                            height: "35px",
+                            background: "#ffffff15",
+                            backdropFilter: "blur(5px)",
+                            WebkitBackdropFilter: "blur(5px)",
+                            borderRadius: "50px",
+                        },
+                        "&:hover::before": {
+                            transform: "translate(5%, 20%)",
+                            width: "110%",
+                            height: "110%",
+                        },
+                        "&:hover::after": {
+                            borderRadius: "10px",
+                            transform: "translate(0, 0)",
+                            width: "100%",
+                            height: "100%",
+                        },
+                        "&:active::after": {
+                            transition: "0s",
+                            transform: "translate(0, 5%)",
+                        },
+                    },
+                }}
+                onClick={handleOpenMenu}
+            >
+                <button role="button">
+                    <MenuBook />
+                    <p>See Full Menu</p>
+                </button>
+            </Box>
             <Header></Header>
             <Box sx={{
                 position: "relative",
