@@ -190,12 +190,12 @@ export default function Header() {
                         top: "50%",
                         left: "50%",
                         transform: "translate(-50%, -50%)",
-                        bgcolor: "white",
+                        backgroundImage: "linear-gradient(to left,rgb(139, 50, 53), #c72026)",
                         boxShadow: 24,
                         p: 4,
                         borderRadius: 5,
                         minWidth: 320,
-                        maxWidth: 500,
+                        maxWidth: { xs: 100, md: 500 },
                         textAlign: "center",
                         animation: "fadeIn 0.3s ease-in-out",
                     }}
@@ -204,7 +204,7 @@ export default function Header() {
                         variant="h5"
                         sx={{
                             fontWeight: "bold",
-                            color: "#c72026",
+                            color: "white",
                             textTransform: "uppercase",
                             letterSpacing: 1.2
                         }}
@@ -214,7 +214,7 @@ export default function Header() {
                     <Typography
                         sx={{
                             mb: 2,
-                            color: "#c72026",
+                            color: "white",
                             textTransform: "capitalize",
                             letterSpacing: 1
                         }}
@@ -230,12 +230,12 @@ export default function Header() {
                                 //onClick={() => handleOrderByMerchant(merchant?.merchantUrl)}
                                 sx={{
                                     minHeight: 50,
-                                    paddingX: 20,
+                                    paddingX: 5,
                                     cursor: "pointer",
                                     paddingY: 5,
                                     textAlign: "center",
                                     width: "100%",
-                                    bgcolor: "rgba(255,255,255,.8)",
+                                    bgcolor: "rgba(255,255,255,.6)",
                                     color: "#c72026",
                                     borderRadius: 5,
                                     border: "none",
@@ -246,7 +246,7 @@ export default function Header() {
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
                                     "&:hover": {
-                                        bgcolor: "rgba(0,0,0,.2)",
+                                        bgcolor: "rgba(255,255,255,.9)",
                                         color: "white",
                                     },
                                 }}

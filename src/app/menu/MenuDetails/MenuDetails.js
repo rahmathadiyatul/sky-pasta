@@ -48,7 +48,12 @@ const MenuDetails = ({ selectedMenu }) => {
     }, [selectedMenu]);
 
     return (
-        <div className='right-data'>
+        <Box
+            sx={{
+                display: { xs: "none", md: "flex" },
+                zIndex: 10
+            }}
+        >
             <Card sx={{ maxWidth: 250, borderRadius: '20px', boxShadow: '0 0 20px rgba(0, 0, 0, 0.7)', backgroundColor: 'rgba(250,250,250,0.5)' }}>
                 <Box sx={{ position: 'relative', left: '1em', top: '2em', width: '4em', height: '5em', borderRadius: '35%', backgroundColor: 'rgba(255, 10, 194, 0.5)' }}>
                     <Typography className={`${animateOut ? 'disappear' : ''} ${animateIn ? 'appear' : ''} ${animateOut ? 'slide-out' : (animateIn ? 'slide-in' : '')}`} sx={{ left: '.6em', fontSize: '2.8em', fontWeight: '900', position: 'relative', marginBottom: 'none' }}>
@@ -76,7 +81,7 @@ const MenuDetails = ({ selectedMenu }) => {
                     </IconButton>
                 </CardActions> */}
             </Card>
-        </div>
+        </Box>
     );
 };
 

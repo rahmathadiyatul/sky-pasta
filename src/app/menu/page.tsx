@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { Box, CardMedia, ThemeProvider, CssBaseline, Typography } from "@mui/material";
+import React, { useState } from 'react';
+import { Box } from "@mui/material";
 import Header from "../header/page";
 import ChooseMenu from "./ChooseMenu/ChooseMenu.js"
 import MenuDetails from "./MenuDetails/MenuDetails.js"
-import theme from "@/lib/theme";
 import './page.css';
 
 export default function Menu() {
@@ -22,7 +21,8 @@ export default function Menu() {
                 alignItems: "center",
                 justifyContent: "center",
                 overflow: "hidden",
-                height: "100vh",
+                backgroundColor: "white",
+                height: "80vh",
                 width: "100%",
                 "&::before": {
                     content: '""',
@@ -31,7 +31,6 @@ export default function Menu() {
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    //backgroundImage: `url('/table-bg.jpg')`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
@@ -41,10 +40,20 @@ export default function Menu() {
             }}
         >
             <Header></Header>
-            <div className='container'>
+            <Box sx={{
+                position: "relative",
+                overflow: "hidden",
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" },
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+                gap: "5%",
+                width: "100%",
+            }}>
                 <ChooseMenu onMenuChange={handleMenuChange}></ChooseMenu>
                 <MenuDetails selectedMenu={selectedMenu}></MenuDetails>
-            </div>
+            </Box>
         </Box>
     );
 }
