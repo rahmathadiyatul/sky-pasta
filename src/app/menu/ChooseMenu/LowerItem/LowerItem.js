@@ -80,7 +80,7 @@ const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageU
                             <Typography
                                 variant="h2"
                                 sx={{
-                                    fontSize: isSelected ? ".8em" : ".7em",
+                                    fontSize: isSelected ? { xs: ",7rem", md: ".8em" } : ".7em",
                                     fontWeight: isSelected ? "bolder" : 550,
                                     textAlign: "center",
                                     color: isSelected ? "white" : "black",

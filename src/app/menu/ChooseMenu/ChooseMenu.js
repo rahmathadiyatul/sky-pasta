@@ -121,7 +121,7 @@ const ChooseMenu = () => {
                 sx={{
                     position: "absolute",
                     left: { xs: "28%", md: "48.25%" },
-                    bottom: { xs: "10%", md: "10%" },
+                    bottom: { xs: "12%", md: "10%" },
                     display: "flex",
                     flexDirection: "row",
                     alignItems: "center",
