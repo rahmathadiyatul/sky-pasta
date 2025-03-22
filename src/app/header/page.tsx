@@ -85,10 +85,10 @@ export default function Header() {
             >
                 <Box sx={{ cursor: "pointer" }} onClick={() => onClickHeader("home")}>
                     <CardMedia
-                        sx={{ width: 90, height: 60, margin: 1, mr: { xs: "auto", sm: 13, md: 20 } }}
+                        sx={{ userSelect: "none", pointerEvents: "none", width: 90, height: 60, margin: 1, mr: { xs: "auto", sm: 13, md: 20 } }}
                         image='https://res.cloudinary.com/dxyxg3egs/image/upload/v1724437471/skypasta/skypasta_logo_nobg_myujfv.png'
                         title='sky-pasta-logo'
-                    ></CardMedia>
+                    />
                 </Box>
                 <Box sx={{ width: { xs: 1000, sm: 300, md: 600 }, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
                     <StyledLink onClick={() => onClickHeader("about")}>

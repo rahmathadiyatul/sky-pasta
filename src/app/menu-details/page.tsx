@@ -135,7 +135,7 @@ export default function MenuDetails() {
                                     <Card onClick={() => onClickMenuDetails(menu)} key={idx} sx={{ width: { xs: "100%", md: "48%" } }}>
                                         <CardContent sx={{ display: "flex", flexDirection: "row", gap: 1.5, alignItems: "center" }}>
                                             <CardMedia
-                                                sx={{ padding: "1rem", borderRadius: "2rem", backgroundColor: "beige", height: { xs: 100, md: 115 }, width: { xs: 100, md: 125 } }}
+                                                sx={{ padding: "1rem", borderRadius: "2rem", backgroundColor: "beige", height: { xs: 100, md: 115 }, width: { xs: 100, md: 125 }, userSelect: "none", pointerEvents: "none" }}
                                                 image={menu.ImageUrl}
                                             />
                                             <Box sx={{ display: "flex", flexDirection: "column", maxWidth: "60%", justifyContent: "flex-start", gap: 0.25 }}>

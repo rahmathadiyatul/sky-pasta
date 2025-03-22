@@ -77,6 +77,8 @@ export default function Home() {
                                 height: { xs: 175, sm: 300, md: 400 },
                                 filter: "brightness(1.1) drop-shadow(1px 1px .5px rgba(0, 0, 0, 0.5))",
                                 zIndex: 12,
+                                userSelect: "none",
+                                pointerEvents: "none",
                             }}
                         />
                         <Box

@@ -72,7 +72,9 @@ const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageU
                                     height: isSelected ? "6em" : "5em",
                                     borderRadius: "10%",
                                     bgcolor: "rgba(255,255,255,.5)",
-                                    padding: "2rem"
+                                    padding: "2rem",
+                                    userSelect: "none",
+                                    pointerEvents: "none",
                                 }}
                                 image={imageUrls[index].imgUrl}
                                 alt="Lower Item"

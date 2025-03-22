@@ -205,12 +205,12 @@ export default function Outlets() {
                                 <Close />
                             </IconButton>
                             <CardMedia
-                                sx={{ mt: 3, mb: 2 }}
+                                sx={{ mt: 3, mb: 2, userSelect: "none", pointerEvents: "none" }}
                                 component="img"
                                 height="140"
                                 image={`${selectedOutlet?.name}.jpg`}
                                 alt={selectedOutlet?.name}
-                            ></CardMedia>
+                            />
                             <Typography mb={1} fontWeight="bolder" color="#c72026" variant="h5">{selectedOutlet?.name}</Typography>
                             <Typography fontSize={14}>{selectedOutlet?.address}</Typography>
                         </CardContent>

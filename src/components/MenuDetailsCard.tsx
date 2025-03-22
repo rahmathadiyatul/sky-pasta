@@ -60,7 +60,7 @@ export default function MenuDetailsCard({ onClose, menu, onClickOrder }: CardDet
                             component="img"
                             image={menu?.ImageUrl}
                             alt={`${menu?.Name} Sky Pasta`}
-                            sx={{ borderRadius: 2, bgcolor: "beige", maxHeight: { xs: 250, md: 275 }, maxWidth: { xs: 250, md: 275 }, }}
+                            sx={{ userSelect: "none", pointerEvents: "none", borderRadius: 2, bgcolor: "beige", maxHeight: { xs: 250, md: 275 }, maxWidth: { xs: 250, md: 275 }, }}
                         />
                     </Box>
                     <CardContent sx={{ padding: 0, pt: 2 }}>

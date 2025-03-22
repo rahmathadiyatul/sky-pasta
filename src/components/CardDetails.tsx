@@ -60,7 +60,7 @@ export default function CardDetails({ onClose, details }: CardDetailsProps) {
                             component="img"
                             image={showSecondPage && details.bg2 ? details.bg2 : details.bg}
                             alt={`${details.title} Sky Pasta`}
-                            sx={{ maxHeight: { xs: 250, md: 350 } }}
+                            sx={{ maxHeight: { xs: 250, md: 350 }, userSelect: "none", pointerEvents: "none" }}
                         />
                     </Box>
                     <CardContent>

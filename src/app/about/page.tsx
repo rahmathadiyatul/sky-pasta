@@ -89,7 +89,7 @@ export default function About() {
                             >
                                 <CardMedia
                                     component="img"
-                                    sx={{ height: { xs: 70, md: 140 } }}
+                                    sx={{ height: { xs: 70, md: 140 }, userSelect: "none", pointerEvents: "none" }}
                                     image={card.imageUrl}
                                     alt={card.title}
                                 />
