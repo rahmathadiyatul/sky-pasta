@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import Header from "../header/page";
 import { MenuCard, menuCategory } from "../../database/page";
-import MenuDetailsCard from "./details-card/page";
+import MenuDetailsCard from "../../components/MenuDetailsCard";
 import OrderCard from "../order/page";
 
 export default function MenuDetails() {
@@ -135,7 +135,7 @@ export default function MenuDetails() {
                                     <Card onClick={() => onClickMenuDetails(menu)} key={idx} sx={{ width: { xs: "100%", md: "48%" } }}>
                                         <CardContent sx={{ display: "flex", flexDirection: "row", gap: 1.5, alignItems: "center" }}>
                                             <CardMedia
-                                                sx={{ padding: "1rem", borderRadius: "2rem", backgroundColor: "beige", height: { xs: 100, md: 125 }, width: { xs: 100, md: 125 } }}
+                                                sx={{ padding: "1rem", borderRadius: "2rem", backgroundColor: "beige", height: { xs: 100, md: 115 }, width: { xs: 100, md: 125 } }}
                                                 image={menu.ImageUrl}
                                             />
                                             <Box sx={{ display: "flex", flexDirection: "column", maxWidth: "60%", justifyContent: "flex-start", gap: 0.25 }}>

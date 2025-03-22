@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MenuItem from './MenuItem/MenuItem';
 import LowerItem from './LowerItem/LowerItem';
 import { Box, Card, Typography } from '@mui/material';
-import MenuDetailsCard from '@/app/menu-details/details-card/page';
+import MenuDetailsCard from '@/components/MenuDetailsCard';
 
 const imageUrls = [
     {
