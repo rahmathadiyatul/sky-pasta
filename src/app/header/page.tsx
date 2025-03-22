@@ -1,6 +1,7 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
     Box,
     Button,
@@ -15,12 +16,24 @@ import { styled } from '@mui/system';
 import { redirect } from "next/navigation";
 
 export default function Header() {
-    const [openOutletList, setOpenOutletList] = useState<boolean>(false)
-    const [openOrderList, setOpenOrderList] = useState<boolean>(false)
-    const [selectedOutlet, setSelectedOutlet] = useState<string>("")
+    const pathname = usePathname();
+    const [openOutletList, setOpenOutletList] = useState<boolean>(false);
+    const [openOrderList, setOpenOrderList] = useState<boolean>(false);
+    const [selectedHeader, setSelectedHeader] = useState<string>("");
+    const [selectedOutlet, setSelectedOutlet] = useState<string>("");
+
+    const onInit = () => {
+        const header = pathname.replace("/", "");
+        setSelectedHeader(header);
+    };
+
+    useEffect(() => {
+        onInit();
+    }, [pathname]);
 
     const onClickHeader = (route: string) => {
-        redirect("/" + route)
+        setSelectedHeader(route);
+        redirect("/" + route);
     }
 
     const handleOnClickOrder = () => {
@@ -92,13 +105,37 @@ export default function Header() {
                 </Box>
                 <Box sx={{ width: { xs: 1000, sm: 300, md: 600 }, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
                     <StyledLink onClick={() => onClickHeader("about")}>
-                        <Typography sx={{ fontWeight: 300, fontSize: { xs: 12, sm: 13, md: 18 } }}>About</Typography>
+                        <Typography
+                            sx={{
+                                color: "white",
+                                textShadow: selectedHeader == "about" ? '0 0 50px rgba(0, 0, 0, 0.1)' : "none",
+                                paddingBottom: selectedHeader == "about" ? '.5%' : 0,
+                                cursor: "pointer",
+                                fontWeight: selectedHeader == "about" ? "bolder" : 300,
+                                fontSize: { xs: 12, sm: 13, md: 18 }
+                            }}>About</Typography>
                     </StyledLink >
                     <StyledLink onClick={() => onClickHeader("menu")} >
-                        <Typography sx={{ fontWeight: 300, fontSize: { xs: 12, sm: 13, md: 18 } }}>Menu</Typography>
+                        <Typography
+                            sx={{
+                                color: "white",
+                                textShadow: selectedHeader == "menu" ? '0 0 50px rgba(0, 0, 0, 0.1)' : "none",
+                                paddingBottom: selectedHeader == "menu" ? '.5%' : 0,
+                                cursor: "pointer",
+                                fontWeight: selectedHeader == "menu" ? "bolder" : 300,
+                                fontSize: { xs: 12, sm: 13, md: 18 }
+                            }}>Menu</Typography>
                     </StyledLink >
                     <StyledLink onClick={() => onClickHeader("outlets")}>
-                        <Typography sx={{ fontWeight: 300, fontSize: { xs: 12, sm: 13, md: 18 } }}>Outlets</Typography>
+                        <Typography
+                            sx={{
+                                color: "white",
+                                textShadow: selectedHeader == "outlets" ? '0 0 50px rgba(0, 0, 0, 0.1)' : "none",
+                                paddingBottom: selectedHeader == "outlets" ? '.5%' : 0,
+                                cursor: "pointer",
+                                fontWeight: selectedHeader == "outlets" ? "bolder" : 300,
+                                fontSize: { xs: 12, sm: 13, md: 18 }
+                            }}>Outlets</Typography>
                     </StyledLink >
                     <Button onClick={handleOnClickOrder} variant="contained" sx={{ backgroundColor: "#c72026", borderRadius: "2rem", px: "2rem", border: "3px solid white" }}>
                         <Typography color="white" textTransform={"capitalize"} sx={{ fontWeight: 550, fontSize: { xs: 12, sm: 13, md: 18 } }}>Order Now</Typography>
