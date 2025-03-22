@@ -6,76 +6,11 @@ import Header from "../header/page";
 import theme from "@/lib/theme";
 import { Description, Person } from "@mui/icons-material";
 import CardDetails from "@/components/CardDetails";
+import { cards } from "../database/page";
 
 export default function About() {
     const [selectedCard, setSelectedCard] = useState<number>(0);
     const [openCard, setOpenCard] = useState<boolean>(false);
-    const cards = [
-        {
-            id: 1,
-            title: 'Vision',
-            imageUrl: '/visi-card.png',
-            bg: '/visi-bg.jpg',
-            description: "Membangun Sky Pasta menjadi brand kuliner lokal berskala internasional yang menyajikan makanan berkelas terbaik dengan harga yang terjangkau dan bisa dinikmati seluruh lapisan masyarakat di Indonesia demi pemenuhan gaya hidup."
-        },
-        {
-            id: 2,
-            title: 'History',
-            imageUrl: '/history-card.png',
-            bg: 'sejarah-bg.jpg',
-            bg2: 'sejarah2-bg.jpg',
-            description: "Brand Sky Pasta didirikan ketika melihat adanya peluang bisnis di bidang kuliner dengan mengusung konsep makan berkualitas dengan harga terjangkau.",
-            description2: (
-                <>
-                    Di 2025 Sky Pasta telah sukses mengembangkan 7 cabang outlet yaitu: <strong>Pamulang, Cinere, Ciledug, Petukangan, Binus Jakbar, Tebet, dan Bekasi.</strong>
-                </>
-            ),
-        },
-        {
-            id: 3,
-            title: 'The Team',
-            imageUrl: '/team-card.png',
-            bg: '/team-bg.jpg',
-            description: ''
-        },
-        {
-            id: 4,
-            title: 'Honours',
-            imageUrl: '/award-card.png',
-            bg: '/prestasi-bg.jpg',
-            description: (
-                <>
-                    <strong>Agus Setiawan</strong> - Barista Sky Pasta yang berhasil meraih Juara 3 kompetisi JCC (Jakarta Coffee Championship)- Kota Kasablanka 8 September 2024.
-                </>
-            )
-        },
-        {
-            id: 5,
-            title: 'Events',
-            imageUrl: '/event-card.png',
-            bg: 'event-bg.jpg',
-            bg2: 'event2-bg.jpg',
-            description: "Berikut merupakan beberapa event yang telah diselenggarakan oleh Sky Pasta.",
-            description2: (<></>),
-        },
-        {
-            id: 6,
-            title: 'Reviews',
-            imageUrl: '/testi-card.png',
-            bg: '/testi-bg.png',
-            bg2: '/testi2-bg.jpg',
-            description: (
-                <>
-                    <strong>Rika Agustina on Google</strong> - Kesan pertama langsung dibuat nyaman, pelayanannya ramah banget..
-                </>
-            ),
-            description2: (
-                <>
-                    <strong>Kaarpuut on Tiktok</strong> - Semua menu di Sky Pasta tidak ada yang mengecewakan. Rasa? Enak. Harga? Affordable. Tempat? Super duper nyaman. Pelayanan? Bintang 100 seluruh staff ramah.
-                </>
-            )
-        },
-    ];
 
     const onClickCard = (index: number) => {
         setSelectedCard(index);
