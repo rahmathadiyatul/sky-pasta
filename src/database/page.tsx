@@ -217,38 +217,302 @@ export const menuCategory: Array<MenuCategoryCard> = [
         ]
     },
     {
-        CategoryName: "Crispy Chicken with Rice",
+        CategoryName: "Chicken Steak Crispy",
         MenuList: [
             {
-                Name: "Fettuchini",
-                Price: 54375,
-                Description: "asdasdasd",
+                Name: "Chicken Crispy Sauce With Rice",
+                Price: 38350,
+                Description: "Crispy chicken fillet drizzled with our signature special sauce, served with fluffy white rice for a satisfying meal.",
                 ImageUrl: "AAAAAAAAAAA"
             },
+            {
+                Name: "Chicken Crispy Sauce With French Fries",
+                Price: 43550,
+                Description: "Golden crispy chicken fillet topped with special sauce, paired with crispy French fries for a perfect crunch.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Tomato Grilled Chicken",
+                Price: 48750,
+                Description: "Tender grilled chicken infused with smoky flavors, topped with a rich marinara cream sauce for a delightful Italian-inspired taste.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Chicken Cordon Bleu With Fries",
+                Price: 51350,
+                Description: "Juicy chicken breast stuffed with smoked beef and Swiss cheese, served with crispy fries and a velvety mushroom cream sauce.",
+                ImageUrl: "AAAAAAAAAAA"
+            }
         ]
     },
     {
         CategoryName: "Snacks",
         MenuList: [
             {
-                Name: "Fettuchini",
-                Price: 54375,
-                Description: "asdasdasd",
+                Name: "Otak - Otak",
+                Price: 19000,
+                Description: "Savory fish cakes fried to perfection, served with a side of zesty dipping sauce.",
                 ImageUrl: "AAAAAAAAAAA"
             },
+            {
+                Name: "Beef Sausage",
+                Price: 24100,
+                Description: "Juicy and flavorful beef sausage, grilled or fried to perfection.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "French Fries Original",
+                Price: 20800,
+                Description: "Classic golden fries with a crispy outside and fluffy inside.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "French Fries BBQ",
+                Price: 22100,
+                Description: "Crispy fries coated with smoky BBQ seasoning and served with BBQ sauce.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "French Fries Cheese",
+                Price: 22750,
+                Description: "Golden fries topped with a generous sprinkle of cheesy goodness.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Cireng Bumbu Rujak",
+                Price: 22750,
+                Description: "Crispy fried tapioca snacks served with a sweet and spicy rujak sauce.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Beef Nachos",
+                Price: 34450,
+                Description: "Crispy tortilla chips topped with special ground beef and drizzled with creamy mayonnaise sauce.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Chicken Wings Original",
+                Price: 33150,
+                Description: "Three pieces of classic fried chicken wings, split into six, crispy and flavorful.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Chicken Wings BBQ",
+                Price: 35750,
+                Description: "Three pieces of chicken wings, split into six, coated in rich BBQ sauce.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Chicken Wings Crispy",
+                Price: 37050,
+                Description: "Three pieces of chicken wings, split into six, fried to crispy perfection.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Chicken Wings Spicy BBQ",
+                Price: 37050,
+                Description: "Three pieces of crispy chicken wings, split into six, tossed in a spicy BBQ sauce.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Crispy Mushroom",
+                Price: 24700,
+                Description: "Crispy-coated mushrooms with a crunchy bite and delicious seasoning.",
+                ImageUrl: "AAAAAAAAAAA"
+            }
         ]
     },
     {
         CategoryName: "Beverages",
         MenuList: [
             {
-                Name: "Fettuchini",
-                Price: 54375,
-                Description: "asdasdasd",
+                Name: "Teh Tawar",
+                Price: 9375,
+                Description: "Refreshing plain tea with a natural taste, served hot or cold.",
                 ImageUrl: "AAAAAAAAAAA"
             },
+            {
+                Name: "Air Mineral",
+                Price: 9375,
+                Description: "Pure and refreshing mineral water to keep you hydrated.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Sweet Ice Tea",
+                Price: 13125,
+                Description: "Classic sweet iced tea, a perfect thirst quencher.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Blackcurrant Tea",
+                Price: 18750,
+                Description: "Delicious blackcurrant-infused tea with a fruity aroma.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Lychee Tea",
+                Price: 18750,
+                Description: "Refreshing tea infused with the sweet and floral taste of lychee.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Peach Tea",
+                Price: 18750,
+                Description: "Aromatic peach-flavored tea, a perfect blend of sweet and tangy.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Lemon Tea",
+                Price: 18750,
+                Description: "Classic tea with a zesty lemon twist, served iced or hot.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Root Beer",
+                Price: 18750,
+                Description: "Classic root beer with a bold and creamy taste.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Teh Tarik",
+                Price: 18750,
+                Description: "Smooth and creamy pulled tea with a rich flavor.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Ice Milo",
+                Price: 18750,
+                Description: "Chilled Milo chocolate malt drink, a nostalgic favorite.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Ice Cappuccino",
+                Price: 30000,
+                Description: "Chilled cappuccino with a smooth coffee flavor.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Virgin Mojito",
+                Price: 30000,
+                Description: "Refreshing blend of lime, mint, and soda for a zesty kick.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Iced Chocolate Mint",
+                Price: 28125,
+                Description: "Smooth iced chocolate infused with a cool minty flavor.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Greentea Vanilla Latte",
+                Price: 26250,
+                Description: "Premium green tea blended with creamer and fresh milk, with a hint of vanilla.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Ice Sky Latte",
+                Price: 26250,
+                Description: "Smooth and creamy latte with a unique sky-blue twist.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Kopi Susu Aren Rajawali",
+                Price: 26250,
+                Description: "Rich and creamy coffee with natural palm sugar sweetness.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Purple Taro",
+                Price: 26250,
+                Description: "Premium taro blend with creamer and fresh milk for a smooth, sweet taste.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Sweet Strawberry",
+                Price: 23750,
+                Description: "Refreshing strawberry drink with a naturally sweet flavor.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Red Velvet",
+                Price: 23750,
+                Description: "Premium red velvet drink blended with creamer and fresh milk.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Choco Oreo Crumb",
+                Price: 31875,
+                Description: "Delicious chocolate drink with fresh milk and crushed Oreo cookies.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Ice Tiramisu",
+                Price: 29375,
+                Description: "Smooth and creamy tiramisu-flavored iced drink.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Mochachino",
+                Price: 33125,
+                Description: "Rich mocha cappuccino blend with a bold coffee and chocolate taste.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Royal Choco Signature",
+                Price: 26250,
+                Description: "Premium chocolate drink blended with fresh milk for a rich taste.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Royal Choco Caramel",
+                Price: 33125,
+                Description: "Luxurious chocolate drink infused with sweet caramel.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Royal Choco Hazelnut",
+                Price: 33125,
+                Description: "Smooth chocolate drink enhanced with the nutty taste of hazelnut.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Sky Caramel Latte",
+                Price: 33125,
+                Description: "Espresso blended with caramel syrup and fresh milk for a smooth finish.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Sky Hazelnut Latte",
+                Price: 33125,
+                Description: "Espresso with a rich hazelnut syrup twist, served with fresh milk.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Vanilla Cookies",
+                Price: 33125,
+                Description: "Smooth vanilla-flavored drink with a hint of cookie sweetness.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Guava Juice",
+                Price: 26000,
+                Description: "Freshly blended guava juice, packed with natural sweetness and vitamins.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Mango Juice",
+                Price: 26000,
+                Description: "Smooth and tropical mango juice, naturally sweet and refreshing.",
+                ImageUrl: "AAAAAAAAAAA"
+            },
+            {
+                Name: "Orange Juice",
+                Price: 26000,
+                Description: "Freshly squeezed orange juice with a vibrant citrus flavor.",
+                ImageUrl: "AAAAAAAAAAA"
+            }
         ]
-    },
+    }
 ];
 
 export const cards = [
