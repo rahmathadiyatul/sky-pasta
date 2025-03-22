@@ -5,7 +5,7 @@ import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import Header from "../header/page";
 import { MenuCard, menuCategory } from "../../database/page";
 import MenuDetailsCard from "../../components/MenuDetailsCard";
-import OrderCard from "../order/page";
+import OrderCard from "../../components/OrderCard";
 
 export default function MenuDetails() {
     const categoryRefs = useRef(menuCategory.map(() => React.createRef<HTMLDivElement>()));
@@ -117,7 +117,7 @@ export default function MenuDetails() {
                 </Box>
                 <Box sx={{ mb: "10%", ml: { xs: "5%", md: "35%" }, width: { xs: "90%", md: "60%" } }}>
                     {(menuCategory ?? []).map((category, index) => (
-                        <Box key={index} ref={categoryRefs.current[index]} sx={{ mb: 4, scrollMarginTop: "7vh" }}>
+                        <Box key={index} ref={categoryRefs.current[index]} sx={{ mb: 4, scrollMarginTop: { xs: "7vh", md: 0 } }}>
                             <Typography
                                 textTransform="uppercase"
                                 color="black"
