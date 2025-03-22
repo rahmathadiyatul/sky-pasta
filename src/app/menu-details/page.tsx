@@ -3,13 +3,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import Header from "../header/page";
-import { MenuCard, menuCategory } from "../database/page";
+import { MenuCard, menuCategory } from "../../database/page";
 import MenuDetailsCard from "./details-card/page";
+import OrderCard from "../order/page";
 
 export default function MenuDetails() {
     const categoryRefs = useRef(menuCategory.map(() => React.createRef<HTMLDivElement>()));
     const [openCard, setOpenCard] = useState<boolean>(false);
-    const [selectedCategory, setSelectedCategory] = useState<string>("");
+    const [openOrderCard, setOpenOrderCard] = useState<boolean>(false);
+    const [selectedCategory, setSelectedCategory] = useState<string>("Creamy Sauced Pasta");
     const [selectedMenu, setSelectedMenu] = useState<MenuCard>();
 
     const handleScrollToCategory = (categoryName: string, index: number) => {
@@ -32,15 +34,50 @@ export default function MenuDetails() {
         setOpenCard(false);
     }
 
+    const onClickOrder = () => {
+
+    }
+
     return (
         <Box sx={{ overflowY: "auto" }}>
-            {
-                openCard && (
-                    <MenuDetailsCard onClose={onCloseMenuDetails} menu={selectedMenu} />
-                )
-            }
+            {/* {openOrderCard && (
+                <OrderCard outlets={outlets} selectedOutlet/>
+            )} */}
+            {openCard && (
+                <MenuDetailsCard onClose={onCloseMenuDetails} menu={selectedMenu} onClickOrder={onClickOrder} />
+            )}
             <Header />
-            <Box sx={{ width: "100%", minHeight: "200vh", bgcolor: "white", display: "flex", flexDirection: "row" }}>
+            <Box sx={{ width: "100%", minHeight: "200vh", bgcolor: "white", display: "flex", flexDirection: { xs: "column", md: "row" } }}>
+                <Box
+                    sx={{
+                        display: { xs: "flex", md: "none" },
+                        flexDirection: "row",
+                        overflowX: "auto",
+                        whiteSpace: "nowrap",
+                        padding: ".5rem 1.25rem",
+                        gap: 2,
+                        position: "sticky",
+                        top: 0,
+                        backgroundColor: "#c72026",
+                        zIndex: 10,
+                    }}
+                >
+                    {(menuCategory ?? []).map((menu, index) => (
+                        <Typography
+                            onClick={() => handleScrollToCategory(menu.CategoryName, index)}
+                            sx={{
+                                color: "white",
+                                fontWeight: menu.CategoryName === selectedCategory ? "bolder" : 350,
+                                cursor: "pointer",
+                                fontFamily: "Nunito",
+                                borderBottom: menu.CategoryName === selectedCategory ? "2px solid white" : "none"
+                            }}
+                            key={index}
+                        >
+                            {menu.CategoryName}
+                        </Typography>
+                    ))}
+                </Box>
                 <Box
                     sx={{
                         display: { xs: "none", md: "block" },
@@ -63,8 +100,8 @@ export default function MenuDetails() {
                                 mb: .5,
                                 pr: "1rem",
                                 '&:hover, &:focus': {
-                                    color: "white",
-                                    backgroundColor: "#c72026",
+                                    color: menu.CategoryName == selectedCategory ? "white" : "#c72026",
+                                    backgroundColor: menu.CategoryName == selectedCategory ? "#c72026" : "rgba(0,0,0,.08)",
                                 },
                             }}
                             color="#c72026"
@@ -80,30 +117,32 @@ export default function MenuDetails() {
                 </Box>
                 <Box sx={{ mb: "10%", ml: { xs: "5%", md: "35%" }, width: { xs: "90%", md: "60%" } }}>
                     {(menuCategory ?? []).map((category, index) => (
-                        <Box key={index} ref={categoryRefs.current[index]} sx={{ mb: 4 }}>
+                        <Box key={index} ref={categoryRefs.current[index]} sx={{ mb: 4, scrollMarginTop: "7vh" }}>
                             <Typography
                                 textTransform="uppercase"
                                 color="black"
-                                lineHeight="3.5rem"
-                                fontSize="2rem"
                                 fontFamily="Nunito"
                                 fontWeight="bolder"
+                                sx={{
+                                    lineHeight: { xs: "2rem", md: "3.5rem" },
+                                    fontSize: { xs: "1.5rem", md: "2rem" }
+                                }}
                             >
                                 {category.CategoryName}
                             </Typography>
                             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
                                 {(category.MenuList ?? []).map((menu: MenuCard, idx: number) => (
-                                    <Card onClick={() => onClickMenuDetails(menu)} key={idx} sx={{ width: "48%" }}>
-                                        <CardContent sx={{ display: "flex", flexDirection: "row", gap: 1.5 }}>
+                                    <Card onClick={() => onClickMenuDetails(menu)} key={idx} sx={{ width: { xs: "100%", md: "48%" } }}>
+                                        <CardContent sx={{ display: "flex", flexDirection: "row", gap: 1.5, alignItems: "center" }}>
                                             <CardMedia
-                                                sx={{ padding: "1rem", borderRadius: "2rem", backgroundColor: "beige", height: 125, width: 125 }}
+                                                sx={{ padding: "1rem", borderRadius: "2rem", backgroundColor: "beige", height: { xs: 100, md: 125 }, width: { xs: 100, md: 125 } }}
                                                 image={menu.ImageUrl}
                                             />
                                             <Box sx={{ display: "flex", flexDirection: "column", maxWidth: "60%", justifyContent: "flex-start", gap: 0.25 }}>
-                                                <Typography lineHeight={"1.25rem"} fontSize="1.25rem" fontFamily="Nunito" fontWeight="bolder" color="#c72026">
+                                                <Typography sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" } }} lineHeight="1.25rem" fontFamily="Nunito" fontWeight="bolder" color="#c72026">
                                                     {menu.Name}
                                                 </Typography>
-                                                <Typography fontSize="1rem" fontFamily="Nunito" fontWeight={600}>
+                                                <Typography sx={{ fontSize: { xs: ".8rem", md: "1rem" } }} fontFamily="Nunito" fontWeight={600}>
                                                     Rp {menu.Price.toLocaleString("id-ID")},00
                                                 </Typography>
                                                 <Typography fontFamily="Nunito" fontSize={10.5} sx={{ overflow: "hidden", textOverflow: "ellipsis" }}>

@@ -3,7 +3,7 @@ import { Box, Button, CardMedia, Typography } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import MenuDetails from '../../MenuDetails/MenuDetails';
 
-const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageUrls, onLowerMenuClick, handleMovesLeft, handleMovesRight }) => {
+const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageUrls, handleOpenCard, handleMovesLeft, handleMovesRight }) => {
     return (
         <Box
             sx={{
@@ -64,7 +64,7 @@ const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageU
                                 padding: isSelected ? ".5rem .25rem" : "0",
                                 boxShadow: isSelected ? "0px 2px 4px rgba(0, 0, 0, 0.3)" : "none",
                             }}
-                            onClick={i === 0 ? handleMovesLeft : i === visibleCount - 1 ? handleMovesRight : undefined}
+                            onClick={i === 0 ? handleMovesLeft : i === visibleCount - 1 ? handleMovesRight : handleOpenCard}
                         >
                             <CardMedia
                                 sx={{

@@ -6,7 +6,7 @@ import Header from "../header/page";
 import theme from "@/lib/theme";
 import { Description, Person } from "@mui/icons-material";
 import CardDetails from "@/components/CardDetails";
-import { cards } from "../database/page";
+import { cards } from "../../database/page";
 
 export default function About() {
     const [selectedCard, setSelectedCard] = useState<number>(0);
