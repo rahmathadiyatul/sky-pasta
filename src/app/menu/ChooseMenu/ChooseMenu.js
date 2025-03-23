@@ -99,7 +99,12 @@ const ChooseMenu = () => {
             shifted.push(first);
             return shifted;
         });
-        setSelectedMenu(imageUrls[(startIndex - 2 + totalImages) % totalImages]);
+        const imageIndex = ((startIndex - 2 + totalImages) % totalImages) + 2;
+        if (imageIndex < 9) {
+            setSelectedMenu(imageUrls[imageIndex]);
+        } else {
+            setSelectedMenu(imageUrls[imageIndex - totalImages]);
+        }
         setStartIndex((prev) => (prev - 1 + totalImages) % totalImages);
     };
 

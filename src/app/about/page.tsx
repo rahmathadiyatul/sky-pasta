@@ -1,10 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Box, CardMedia, ThemeProvider, CssBaseline, Typography, Card, CardActionArea, CardContent, Divider } from "@mui/material";
+import { Box, CardMedia, Typography, Card, CardActionArea, CardContent, Divider } from "@mui/material";
 import Header from "../header/page";
-import theme from "@/lib/theme";
-import { Description, Person } from "@mui/icons-material";
 import CardDetails from "@/components/CardDetails";
 import { cards } from "../../database/page";
 

@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { styled } from '@mui/system';
 import { redirect } from "next/navigation";
+import { outlets } from "@/database/page";
 
 export default function Header() {
     const pathname = usePathname();
@@ -68,17 +69,6 @@ export default function Header() {
         const message = encodeURIComponent("Hi Sky Pasta, saya mau order!");
         window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
     };
-
-    const outlets = [
-        { name: "Sky Pasta - Bekasi", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
-        { name: "Sky Pasta - Binus Jakbar", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
-        { name: "Sky Pasta - Ciledug", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
-        { name: "Sky Pasta - Cinere", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
-        { name: "Sky Pasta - Pamulang", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
-        { name: "Sky Pasta - Petukangan", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
-        { name: "Sky Pasta - Tebet", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
-        { name: "Big Order", onlineFoodUrl: [] },
-    ];
 
     return (
         <>

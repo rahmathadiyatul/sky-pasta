@@ -29,8 +29,8 @@ const MenuItem = ({ imageUrls, positions }) => {
                             pointerEvents: "none",
                         }}
                         component="img"
-                        image={menuData.imgUrl}
-                        alt={menuData.menuName}
+                        image={menuData?.imgUrl}
+                        alt={menuData?.menuName}
                     />
                 ))}
             </Box>

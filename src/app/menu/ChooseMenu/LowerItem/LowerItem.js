@@ -88,7 +88,7 @@ const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageU
                                     color: isSelected ? "white" : "black",
                                 }}
                             >
-                                {imageUrls[index].menuName}
+                                {imageUrls[index]?.menuName}
                             </Typography>
                         </Box>
                     );

@@ -5,24 +5,13 @@ import { Box, CardMedia, ThemeProvider, CssBaseline, Typography } from "@mui/mat
 import Header from "../header/page";
 import theme from "@/lib/theme";
 import WhatsAppComponent from "@/components/WhatsAppComponent";
-const images = [
-    "testi-bg.PNG",
-    "testi2-bg.jpg",
-    "changing1.jpg",
-    "changing2.jpg",
-    "changing3.jpg",
-    "changing4.jpg",
-    "changing5.jpg",
-    "changing6.jpg",
-    "changing7.jpeg",
-    "changing8.png",
-];
+import { recommendedImages } from "@/database/page";
 
 export default function Home() {
     const [currentImage, setCurrentImage] = useState(0);
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImage((prev) => (prev + 1) % images.length);
+            setCurrentImage((prev) => (prev + 1) % recommendedImages.length);
         }, 3000);
 
         return () => clearInterval(interval);
@@ -86,7 +75,7 @@ export default function Home() {
                             sx={{
                                 height: { xs: "30vh", md: "100%" },
                                 width: { xs: "90%", md: "50vw" },
-                                backgroundImage: `url(${images[currentImage]})`,
+                                backgroundImage: `url(${recommendedImages[currentImage]})`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
                                 borderRadius: "10px",

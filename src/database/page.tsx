@@ -1,3 +1,13 @@
+export interface OnlineFoodLinks {
+    merchantName: string
+    merchantUrl: string
+}
+
+export interface Outlet {
+    name: string,
+    onlineFoodUrl: Array<OnlineFoodLinks>
+}
+
 export interface MenuCard {
     Name: string,
     Price: number,
@@ -9,6 +19,30 @@ export interface MenuCategoryCard {
     CategoryName: string,
     MenuList: Array<MenuCard>
 }
+
+export const recommendedImages: Array<string> = [
+    "testi-bg.PNG",
+    "testi2-bg.jpg",
+    "changing1.jpg",
+    "changing2.jpg",
+    "changing3.jpg",
+    "changing4.jpg",
+    "changing5.jpg",
+    "changing6.jpg",
+    "changing7.jpeg",
+    "changing8.png",
+];
+
+export const outlets: Array<Outlet> = [
+    { name: "Sky Pasta - Bekasi", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
+    { name: "Sky Pasta - Binus Jakbar", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
+    { name: "Sky Pasta - Ciledug", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
+    { name: "Sky Pasta - Cinere", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
+    { name: "Sky Pasta - Pamulang", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
+    { name: "Sky Pasta - Petukangan", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
+    { name: "Sky Pasta - Tebet", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
+    { name: "Big Order", onlineFoodUrl: [] },
+];
 
 export const menuCategory: Array<MenuCategoryCard> = [
     {

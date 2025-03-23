@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import DislikeIcon from '@mui/icons-material/ThumbDownOffAlt';
-import StarIcon from '@mui/icons-material/Star';
-import LikeIcon from '@mui/icons-material/ThumbUpAlt';
 import { Box } from '@mui/material';
 import './MenuDetails.css';
 import { ThumbUp } from '@mui/icons-material';
@@ -47,10 +42,9 @@ const MenuDetails = ({ selectedMenu }) => {
                     <ThumbUp sx={{ fontSize: 40, color: "white", filter: "drop-shadow(2px 2px 5px rgba(255, 255, 255, 0.5))" }} />
                 </Box>
                 <CardHeader
-                    //className={`${animateOut ? 'disappear' : ''} ${animateIn ? 'appear' : ''} ${animateOut ? 'slide-out' : (animateIn ? 'slide-in' : '')}`}
                     sx={{ position: 'relative', top: '2em', textAlign: 'left', mb: ".5em", color: "#c72026" }}
                     titleTypographyProps={{ fontSize: '1.2em', fontWeight: 'bolder' }}
-                    title={selectedMenu.menuName}
+                    title={selectedMenu?.menuName}
                 />
                 <CardContent
                     sx={{
@@ -60,17 +54,9 @@ const MenuDetails = ({ selectedMenu }) => {
                     }}
                 >
                     <Typography sx={{ textAlign: 'left', minWidth: '16em', fontWeight: 'bold' }} variant="body2" color="text.secondary">
-                        {selectedMenu.description}
+                        {selectedMenu?.description}
                     </Typography>
                 </CardContent>
-                {/* <CardActions disableSpacing>
-                    <IconButton aria-label="add to favorites">
-                        <LikeIcon />
-                    </IconButton>
-                    <IconButton aria-label="share">
-                        <DislikeIcon />
-                    </IconButton>
-                </CardActions> */}
             </Card>
         </Box>
     );
