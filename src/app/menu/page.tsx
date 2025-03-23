@@ -20,7 +20,6 @@ export default function Menu() {
                 alignItems: "center",
                 justifyContent: "center",
                 overflow: "hidden",
-                backgroundColor: "white",
                 height: "80vh",
                 width: "100%",
                 "&::before": {
