@@ -5,7 +5,6 @@ import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import Header from "../header/page";
 import { MenuCard, menuCategory } from "../../database/page";
 import MenuDetailsCard from "../../components/MenuDetailsCard";
-import OrderCard from "../../components/OrderCard";
 
 export default function MenuDetails() {
     const categoryRefs = useRef(menuCategory.map(() => React.createRef<HTMLDivElement>()));
@@ -26,7 +25,7 @@ export default function MenuDetails() {
 
     const onClickMenuDetails = (menu: MenuCard) => {
         setSelectedMenu(menu);
-        setOpenCard(true)
+        setOpenCard(true);
     }
 
     const onCloseMenuDetails = () => {
@@ -40,9 +39,6 @@ export default function MenuDetails() {
 
     return (
         <Box sx={{ overflowY: "auto" }}>
-            {/* {openOrderCard && (
-                <OrderCard outlets={outlets} selectedOutlet/>
-            )} */}
             {openCard && (
                 <MenuDetailsCard onClose={onCloseMenuDetails} menu={selectedMenu} onClickOrder={onClickOrder} />
             )}

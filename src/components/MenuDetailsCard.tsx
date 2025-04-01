@@ -31,7 +31,7 @@ export default function MenuDetailsCard({ onClose, menu, onClickOrder }: CardDet
             <Card
                 sx={{
                     maxWidth: { xs: "80vw", md: "10vw" },
-                    maxHeight: { xs: "90vh", md: "100vh" },
+                    maxHeight: { xs: "80vh", md: "100vh" },
                     minWidth: "27vw",
                     bgcolor: "white",
                     boxShadow: 24,
@@ -79,7 +79,7 @@ export default function MenuDetailsCard({ onClose, menu, onClickOrder }: CardDet
                         <Typography textAlign={"left"} fontSize="1rem" fontFamily="Nunito" fontWeight={600}>
                             Rp {menu?.Price?.toLocaleString("id-ID")},00
                         </Typography>
-                        <Typography textAlign={"left"} variant="body2" sx={{ color: 'text.secondary' }}>
+                        <Typography textAlign={"left"} variant="body2" sx={{ textOverflow: 'clip', color: 'text.secondary' }}>
                             {menu?.Description}
                         </Typography>
                     </CardContent>

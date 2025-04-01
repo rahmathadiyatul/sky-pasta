@@ -41,7 +41,7 @@ export default function Menu() {
                 sx={{
                     zIndex: 99,
                     position: "fixed",
-                    top: { xs: "2%", md: "65%" },
+                    top: { xs: "2%", md: "55%" },
                     left: { xs: "auto", md: "5%" },
                     "& button": {
                         all: "unset",
@@ -112,7 +112,7 @@ export default function Menu() {
             >
                 <button role="button">
                     <MenuBook />
-                    <p>See Full Menu</p>
+                    <p style={{ fontFamily: "Nunito" }}>See Full Menu</p>
                 </button>
             </Box>
             <Header></Header>

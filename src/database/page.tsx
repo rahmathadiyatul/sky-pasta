@@ -34,7 +34,7 @@ export const recommendedImages: Array<string> = [
 ];
 
 export const outlets: Array<Outlet> = [
-    { name: "Sky Pasta - Bekasi", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
+    { name: "Sky Pasta - Bekasi", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "https://gofood.co.id/jakarta/restaurant/sky-pasta-taman-galaxy-bekasi-c4b7588e-a2e5-4fae-bd07-3a99c66edf22" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
     { name: "Sky Pasta - Binus Jakbar", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
     { name: "Sky Pasta - Ciledug", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
     { name: "Sky Pasta - Cinere", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "gofoodUrl" }, { merchantName: "GrabFood", merchantUrl: "grabfoodUrl" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },

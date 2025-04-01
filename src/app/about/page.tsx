@@ -63,6 +63,7 @@ export default function About() {
                             sx={{
                                 borderRadius: 3,
                                 backgroundColor: "white",
+                                fontFamily: "Nunito",
                                 border: "1px solid silver",
                                 '&:hover': {
                                     transform: 'scale(1.01)'
