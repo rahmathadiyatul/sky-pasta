@@ -115,7 +115,7 @@ export default function MenuDetails() {
                         display: { xs: "none", md: "block" },
                         width: "30%",
                         textAlign: "right",
-                        pt: "5%",
+                        pt: "2%",
                         position: "fixed",
                         top: 0,
                         left: 0,
