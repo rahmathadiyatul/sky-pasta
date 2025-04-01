@@ -1,17 +1,20 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import Header from "../header/page";
-import { MenuCard, menuCategory } from "../../database/page";
+import { MenuCard, menuCategory, outlets } from "../../database/page";
 import MenuDetailsCard from "../../components/MenuDetailsCard";
+import OrderCard from "@/components/OrderCard";
 
 export default function MenuDetails() {
     const categoryRefs = useRef(menuCategory.map(() => React.createRef<HTMLDivElement>()));
     const [openCard, setOpenCard] = useState<boolean>(false);
-    const [openOrderCard, setOpenOrderCard] = useState<boolean>(false);
     const [selectedCategory, setSelectedCategory] = useState<string>("Creamy Sauced Pasta");
     const [selectedMenu, setSelectedMenu] = useState<MenuCard>();
+    const [openOutletList, setOpenOutletList] = useState<boolean>(false);
+    const [openOrderList, setOpenOrderList] = useState<boolean>(false);
+    const [selectedOutlet, setSelectedOutlet] = useState<string>("");
 
     const handleScrollToCategory = (categoryName: string, index: number) => {
         if (categoryRefs.current[index]?.current) {
@@ -34,14 +37,47 @@ export default function MenuDetails() {
     }
 
     const onClickOrder = () => {
-
+        setOpenCard(false);
+        setOpenOutletList(true);
     }
+
+    const handleOpenOrderList = (outlet: any) => {
+        handleCloseModal();
+        if (outlet?.name?.toLowerCase().includes("big")) {
+            handleWhatsAppClick();
+            setOpenCard(false);
+        } else {
+            handleOpenOnlineFoodList(outlet);
+            setSelectedOutlet(outlet?.name);
+            setOpenCard(false);
+        }
+    }
+
+    const handleCloseModal = () => {
+        setOpenOutletList(false);
+    };
+
+    const handleBack = () => {
+        setOpenOutletList(true);
+        setOpenOrderList(false);
+    };
+
+    const handleOpenOnlineFoodList = (outlet: any) => {
+        setOpenOrderList(true);
+    }
+
+    const handleWhatsAppClick = () => {
+        const phoneNumber = "6285922081818";
+        const message = encodeURIComponent("Hi Sky Pasta, saya mau order!");
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+    };
 
     return (
         <Box sx={{ overflowY: "auto" }}>
             {openCard && (
                 <MenuDetailsCard onClose={onCloseMenuDetails} menu={selectedMenu} onClickOrder={onClickOrder} />
             )}
+            <OrderCard selectedOutlet={selectedOutlet} openOrderList={openOrderList} openOutletList={openOutletList} handleBack={handleBack} handleCloseModal={handleCloseModal} handleOpenOrderList={handleOpenOrderList} outlets={outlets} />
             <Header />
             <Box sx={{ width: "100%", minHeight: "200vh", bgcolor: "white", display: "flex", flexDirection: { xs: "column", md: "row" } }}>
                 <Box

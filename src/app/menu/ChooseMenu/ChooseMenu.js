@@ -3,6 +3,8 @@ import MenuItem from './MenuItem/MenuItem';
 import LowerItem from './LowerItem/LowerItem';
 import { Box, Card, Typography } from '@mui/material';
 import MenuDetailsCard from '@/components/MenuDetailsCard';
+import OrderCard from '@/components/OrderCard';
+import { outlets } from '@/database/page';
 
 const imageUrls = [
     {
@@ -79,6 +81,9 @@ const ChooseMenu = () => {
     const [selectedMenu, setSelectedMenu] = useState(imageUrls[4]);
     const [detailedMenu, setDetailedMenu] = useState();
     const [openCard, setOpenCard] = useState(false);
+    const [selectedOutlet, setSelectedOutlet] = useState("");
+    const [openOutletList, setOpenOutletList] = useState(false);
+    const [openOrderList, setOpenOrderList] = useState(false);
     const visibleCount = 3;
     const totalImages = imageUrls.length;
     const handleOpenCard = () => {
@@ -124,8 +129,40 @@ const ChooseMenu = () => {
     }
 
     const onClickOrder = () => {
-
+        setOpenCard(false);
+        setOpenOutletList(true);
     }
+
+    const handleBack = () => {
+        setOpenOutletList(true);
+        setOpenOrderList(false);
+    };
+
+    const handleCloseModal = () => {
+        setOpenOutletList(false);
+    };
+
+    const handleOpenOrderList = (outlet) => {
+        handleCloseModal();
+        if (outlet?.name?.toLowerCase().includes("big")) {
+            handleWhatsAppClick();
+            setOpenCard(false);
+        } else {
+            handleOpenOnlineFoodList(outlet);
+            setSelectedOutlet(outlet?.name);
+            setOpenCard(false);
+        }
+    }
+
+    const handleOpenOnlineFoodList = (outlet) => {
+        setOpenOrderList(true);
+    }
+
+    const handleWhatsAppClick = () => {
+        const phoneNumber = "6285922081818";
+        const message = encodeURIComponent("Hi Sky Pasta, saya mau order!");
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+    };
 
     return (
         <Box
@@ -140,6 +177,7 @@ const ChooseMenu = () => {
             {openCard && (
                 <MenuDetailsCard onClose={onCloseMenuDetails} menu={detailedMenu} onClickOrder={onClickOrder} />
             )}
+            <OrderCard selectedOutlet={selectedOutlet} openOrderList={openOrderList} openOutletList={openOutletList} handleBack={handleBack} handleCloseModal={handleCloseModal} handleOpenOrderList={handleOpenOrderList} outlets={outlets} />
             <Box
                 sx={{
                     display: "flex",

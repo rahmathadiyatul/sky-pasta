@@ -56,6 +56,7 @@ const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageU
                                 justifyContent: "center",
                                 alignItems: "center",
                                 gap: 1,
+                                cursor: "pointer",
                                 transition: "transform 0.3s ease-in-out",
                                 transform: isSelected ? "scale(1.1)" : "scale(1)",
                                 bgcolor: isSelected ? "#c72026" : "white",
