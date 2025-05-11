@@ -1,15 +1,15 @@
-"use client";
+"use client"
 
-import { Box, Typography } from "@mui/material";
-import { motion } from "framer-motion";
-import React from "react";
+import { Box, Typography } from "@mui/material"
+import { motion } from "framer-motion"
+import React from "react"
 
 export default function WhatsAppComponent() {
     const handleWhatsAppClick = () => {
-        const phoneNumber = "6285922081818";
-        const message = encodeURIComponent("Hi Sky Pasta, saya mau order!");
-        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
-    };
+        const phoneNumber = "6285922081818"
+        const message = encodeURIComponent("Hi Sky Pasta, saya mau order!")
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
+    }
 
     return (
         <Box
@@ -26,7 +26,7 @@ export default function WhatsAppComponent() {
             <motion.div
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
+                transition={{ delay: 2.5, duration: 0.5, ease: "easeOut" }}
             >
                 <Typography
                     sx={{
@@ -62,5 +62,5 @@ export default function WhatsAppComponent() {
                 />
             </motion.div>
         </Box>
-    );
+    )
 }

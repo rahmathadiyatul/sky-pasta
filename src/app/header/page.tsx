@@ -1,7 +1,7 @@
 "use client"
 
-import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import {
     Box,
     Button,
@@ -11,56 +11,56 @@ import {
     ListItemText,
     Modal,
     Typography,
-} from "@mui/material";
-import { styled } from '@mui/system';
-import { redirect } from "next/navigation";
-import { outlets } from "@/database/page";
+} from "@mui/material"
+import { styled } from '@mui/system'
+import { redirect } from "next/navigation"
+import { outlets } from "@/database/page"
 
 export default function Header() {
-    const pathname = usePathname();
-    const [openOutletList, setOpenOutletList] = useState<boolean>(false);
-    const [openOrderList, setOpenOrderList] = useState<boolean>(false);
-    const [selectedHeader, setSelectedHeader] = useState<string>("");
-    const [selectedOutlet, setSelectedOutlet] = useState<string>("");
+    const pathname = usePathname()
+    const [openOutletList, setOpenOutletList] = useState<boolean>(false)
+    const [openOrderList, setOpenOrderList] = useState<boolean>(false)
+    const [selectedHeader, setSelectedHeader] = useState<string>("")
+    const [selectedOutlet, setSelectedOutlet] = useState<string>("")
 
     const onInit = () => {
-        const header = pathname.replace("/", "");
-        setSelectedHeader(header);
-    };
+        const header = pathname.replace("/", "")
+        setSelectedHeader(header)
+    }
 
     useEffect(() => {
-        onInit();
-    }, [pathname]);
+        onInit()
+    }, [pathname])
 
     const onClickHeader = (route: string) => {
-        setSelectedHeader(route);
-        redirect("/" + route);
+        setSelectedHeader(route)
+        redirect("/" + route)
     }
 
     const handleOnClickOrder = () => {
-        setOpenOutletList(true);
+        setOpenOutletList(true)
     }
 
     const handleCloseModal = () => {
-        setOpenOutletList(false);
-    };
+        setOpenOutletList(false)
+    }
 
     const handleBack = () => {
-        setOpenOutletList(true);
-        setOpenOrderList(false);
-    };
+        setOpenOutletList(true)
+        setOpenOrderList(false)
+    }
 
     const handleOpenOnlineFoodList = (outlet: any) => {
-        setOpenOrderList(true);
+        setOpenOrderList(true)
     }
 
     const handleOpenOrderList = (outlet: any) => {
-        handleCloseModal();
+        handleCloseModal()
         if (outlet?.name?.toLowerCase().includes("big")) {
-            handleWhatsAppClick();
+            handleWhatsAppClick()
         } else {
-            handleOpenOnlineFoodList(outlet);
-            setSelectedOutlet(outlet?.name);
+            handleOpenOnlineFoodList(outlet)
+            setSelectedOutlet(outlet?.name)
         }
     }
 
@@ -71,10 +71,10 @@ export default function Header() {
     }
 
     const handleWhatsAppClick = () => {
-        const phoneNumber = "6285922081818";
-        const message = encodeURIComponent("Hi Sky Pasta, saya mau order!");
-        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
-    };
+        const phoneNumber = "6285922081818"
+        const message = encodeURIComponent("Hi Sky Pasta, saya mau order!")
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
+    }
 
     return (
         <>
@@ -89,7 +89,7 @@ export default function Header() {
                     left: 0,
                     width: "100%",
                     background: "linear-gradient(3150deg, rgba(255, 25, 25, 0.7), rgba(200, 25, 25, 1))",
-                    padding: "10px 0",
+                    padding: "2px 0",
                 }}
             >
                 <Box sx={{ cursor: "pointer" }} onClick={() => onClickHeader("home")}>
@@ -324,4 +324,4 @@ const StyledLink = styled(Box)(({ theme }) => ({
         paddingBottom: '.5%',
         cursor: "pointer"
     },
-}));
+}))
