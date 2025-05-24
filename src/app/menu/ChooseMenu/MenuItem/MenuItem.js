@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { MenuBook } from '@mui/icons-material';
-import '../MenuItem/MenuItem.css';
-import { Box, Button, CardMedia, Typography } from '@mui/material';
-import '@fontsource/roboto';
+import React, { useState } from 'react'
+import { MenuBook } from '@mui/icons-material'
+import '../MenuItem/MenuItem.css'
+import { Box, Button, CardMedia, Typography } from '@mui/material'
+import '@fontsource/roboto'
 
 const MenuItem = ({ imageUrls, positions }) => {
     return (
@@ -23,8 +23,8 @@ const MenuItem = ({ imageUrls, positions }) => {
                             width: { xs: 250, md: 300 },
                             transform: positions[index],
                             zIndex: 1,
-                            transition: "transform 0.3s ease-in-out",
-                            filter: "drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.5))",
+                            transition: "transform .6s ease-in-out",
+                            filter: "drop-shadow(-15px 10px 50px rgba(0, 0, 0, 0.5))",
                             userSelect: "none",
                             pointerEvents: "none",
                         }}
@@ -35,7 +35,7 @@ const MenuItem = ({ imageUrls, positions }) => {
                 ))}
             </Box>
         </Box>
-    );
-};
+    )
+}
 
-export default MenuItem;
+export default MenuItem

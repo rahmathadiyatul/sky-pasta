@@ -140,7 +140,7 @@ export default function Home() {
                     >
                         <Box
                             sx={{
-                                pt: { xs: "1rem", md: 0 },
+                                pt: { xs: "1.25rem", md: 0 },
                                 pb: { xs: "1rem", md: 0 },
                                 mt: { xs: "15vh", md: 0 },
                                 justifyContent: { xs: "flex-start", md: "flex-start" },

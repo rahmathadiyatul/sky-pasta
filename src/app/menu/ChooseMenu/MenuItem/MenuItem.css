@@ -61,11 +61,3 @@
         transform: translateX(0%);
     }
 }
-
-.typography-slide-out {
-    animation: slideOut 1s forwards;
-}
-
-.typography-slide-in {
-    animation: slideIn 1s forwards;
-}

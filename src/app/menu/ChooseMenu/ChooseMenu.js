@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import MenuItem from './MenuItem/MenuItem';
-import LowerItem from './LowerItem/LowerItem';
-import { Box, Card, Typography } from '@mui/material';
-import MenuDetailsCard from '@/components/MenuDetailsCard';
-import OrderCard from '@/components/OrderCard';
-import { outlets } from '@/database/page';
+import React, { useState } from 'react'
+import MenuItem from './MenuItem/MenuItem'
+import LowerItem from './LowerItem/LowerItem'
+import { Box, Card, Typography } from '@mui/material'
+import MenuDetailsCard from '@/components/MenuDetailsCard'
+import OrderCard from '@/components/OrderCard'
+import { outlets } from '@/database/page'
 
 const imageUrls = [
     {
@@ -61,31 +61,33 @@ const imageUrls = [
         description: "A harmonious blend of milk, coffee, and rich caramel sauce, topped with a velvety swirl of whipped cream. This creamy coffee treat offers a perfect balance of sweetness with a hint of salty caramel indulgence!",
         price: 38000
     },
-];
+]
 
 const initialPositions = [
-    "translate(-430%, -170%)",
-    "translate(-340%, -120%)",
-    "translate(-240%, -80%)",
-    "translate(-140%, -40%)",
-    "translate(-35%, 0%)",
-    "translate(80%, -40%)",
-    "translate(180%, -80%)",
-    "translate(280%, -120%)",
-    "translate(380%, -170%)"
-];
+    "translate(-150%, -150%)",
+    "translate(-150%, -150%)",
+    "translate(-150%, -150%)",
+    "translate(-150%, -150%)",
+    "translate(-118%, 0%)",
+    "translate(150%, -150%)",
+    "translate(150%, -150%)",
+    "translate(150%, -150%)",
+    "translate(150%, -150%)"
+]
 
 const ChooseMenu = () => {
-    const [positions, setPositions] = useState(initialPositions);
-    const [startIndex, setStartIndex] = useState(3);
-    const [selectedMenu, setSelectedMenu] = useState(imageUrls[4]);
-    const [detailedMenu, setDetailedMenu] = useState();
-    const [openCard, setOpenCard] = useState(false);
-    const [selectedOutlet, setSelectedOutlet] = useState("");
-    const [openOutletList, setOpenOutletList] = useState(false);
-    const [openOrderList, setOpenOrderList] = useState(false);
-    const visibleCount = 3;
-    const totalImages = imageUrls.length;
+    const [positions, setPositions] = useState(initialPositions)
+    const [startIndex, setStartIndex] = useState(3)
+    const [selectedMenu, setSelectedMenu] = useState(imageUrls[4])
+    const [detailedMenu, setDetailedMenu] = useState()
+    const [openCard, setOpenCard] = useState(false)
+    const [slide, setSlide] = useState(false)
+    const [isAnimating, setIsAnimating] = useState(false)
+    const [selectedOutlet, setSelectedOutlet] = useState("")
+    const [openOutletList, setOpenOutletList] = useState(false)
+    const [openOrderList, setOpenOrderList] = useState(false)
+    const visibleCount = 3
+    const totalImages = imageUrls.length
     const handleOpenCard = () => {
         const data = {
             Name: selectedMenu.menuName,
@@ -93,76 +95,99 @@ const ChooseMenu = () => {
             ImageUrl: selectedMenu.imgUrl,
             Price: selectedMenu.price
         }
-        setDetailedMenu(data);
-        setOpenCard(true);
-    };
+        setDetailedMenu(data)
+        setOpenCard(true)
+    }
 
     const handleMovesLeft = () => {
-        setPositions((prev) => {
-            const shifted = [...prev];
-            const first = shifted.shift();
-            shifted.push(first);
-            return shifted;
-        });
-        const imageIndex = ((startIndex - 2 + totalImages) % totalImages) + 2;
-        if (imageIndex < 9) {
-            setSelectedMenu(imageUrls[imageIndex]);
-        } else {
-            setSelectedMenu(imageUrls[imageIndex - totalImages]);
-        }
-        setStartIndex((prev) => (prev - 1 + totalImages) % totalImages);
-    };
+        if (isAnimating) return
+        setIsAnimating(true)
+        setSlide(true)
+
+        setTimeout(() => {
+            const imageIndex = ((startIndex - 2 + totalImages) % totalImages) + 2
+            const newMenu = imageIndex < 9
+                ? imageUrls[imageIndex]
+                : imageUrls[imageIndex - totalImages]
+
+            setSelectedMenu(newMenu)
+            setPositions((prev) => {
+                const shifted = [...prev]
+                const first = shifted.shift()
+                shifted.push(first)
+                return shifted
+            })
+
+            setStartIndex((prev) => (prev - 1 + totalImages) % totalImages)
+
+            setSlide(false)
+
+            setTimeout(() => {
+                setIsAnimating(false)
+            }, 100)
+        }, 100)
+    }
 
     const handleMovesRight = () => {
-        setPositions((prev) => {
-            const shifted = [...prev];
-            const last = shifted.pop();
-            shifted.unshift(last);
-            return shifted;
-        });
-        setSelectedMenu(imageUrls[(startIndex + 2) % totalImages]);
-        setStartIndex((prev) => (prev + 1) % totalImages);
-    };
+        if (isAnimating) return
+        setIsAnimating(true)
+        setSlide(true)
+        setTimeout(() => {
+            setPositions((prev) => {
+                const shifted = [...prev]
+                const last = shifted.pop()
+                shifted.unshift(last)
+                return shifted
+            })
+            setSelectedMenu(imageUrls[(startIndex + 2) % totalImages])
+            setStartIndex((prev) => (prev + 1) % totalImages)
+            setSlide(false)
+
+            setTimeout(() => {
+                setIsAnimating(false)
+            }, 100)
+        }, 100)
+    }
 
     const onCloseMenuDetails = () => {
-        setOpenCard(false);
+        setOpenCard(false)
     }
 
     const onClickOrder = () => {
-        setOpenCard(false);
-        setOpenOutletList(true);
+        setOpenCard(false)
+        setOpenOutletList(true)
     }
 
     const handleBack = () => {
-        setOpenOutletList(true);
-        setOpenOrderList(false);
-    };
+        setOpenOutletList(true)
+        setOpenOrderList(false)
+    }
 
     const handleCloseModal = () => {
-        setOpenOutletList(false);
-    };
+        setOpenOutletList(false)
+    }
 
     const handleOpenOrderList = (outlet) => {
-        handleCloseModal();
+        handleCloseModal()
         if (outlet?.name?.toLowerCase().includes("big")) {
-            handleWhatsAppClick();
-            setOpenCard(false);
+            handleWhatsAppClick()
+            setOpenCard(false)
         } else {
-            handleOpenOnlineFoodList(outlet);
-            setSelectedOutlet(outlet?.name);
-            setOpenCard(false);
+            handleOpenOnlineFoodList(outlet)
+            setSelectedOutlet(outlet?.name)
+            setOpenCard(false)
         }
     }
 
     const handleOpenOnlineFoodList = (outlet) => {
-        setOpenOrderList(true);
+        setOpenOrderList(true)
     }
 
     const handleWhatsAppClick = () => {
-        const phoneNumber = "6285922081818";
-        const message = encodeURIComponent("Hi Sky Pasta, saya mau order!");
-        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
-    };
+        const phoneNumber = "6285922081818"
+        const message = encodeURIComponent("Hi Sky Pasta, saya mau order!")
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
+    }
 
     return (
         <Box
@@ -181,16 +206,17 @@ const ChooseMenu = () => {
             <Box
                 sx={{
                     display: "flex",
-                    justifyContent: "space-aroundf",
+                    justifyContent: "space-around",
                     height: "40vh",
-                    mb: { xs: "15rem", md: "10rem" }
+                    mb: { xs: "15rem", md: "10rem" },
+                    ml: { xs: "26.5rem", md: 0 },
                 }}>
-                <MenuItem positions={positions} imageUrls={imageUrls} initialPositions={initialPositions} />
+                <MenuItem slide={slide} positions={positions} imageUrls={imageUrls} initialPositions={initialPositions} />
             </Box>
             <Box
                 sx={{
                     position: "absolute",
-                    left: { xs: "28%", md: "48.25%" },
+                    left: { xs: "37%", md: "42%" },
                     bottom: { xs: "12%", md: "10%" },
                     display: "flex",
                     flexDirection: "row",
@@ -199,10 +225,10 @@ const ChooseMenu = () => {
                     gap: "1em",
                     margin: 0,
                 }}>
-                <LowerItem handleOpenCard={handleOpenCard} selectedMenu={selectedMenu} totalImages={totalImages} visibleCount={visibleCount} startIndex={startIndex} handleMovesRight={handleMovesRight} handleMovesLeft={handleMovesLeft} imageUrls={imageUrls}></LowerItem>
+                <LowerItem slide={slide} handleOpenCard={handleOpenCard} selectedMenu={selectedMenu} totalImages={totalImages} visibleCount={visibleCount} startIndex={startIndex} handleMovesRight={handleMovesRight} handleMovesLeft={handleMovesLeft} imageUrls={imageUrls}></LowerItem>
             </Box>
         </Box >
-    );
-};
+    )
+}
 
-export default ChooseMenu;
+export default ChooseMenu

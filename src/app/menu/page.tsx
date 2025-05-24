@@ -1,12 +1,12 @@
-"use client";
+"use client"
 
-import React from 'react';
-import { Box } from "@mui/material";
-import Header from "../header/page";
+import React from 'react'
+import { Box } from "@mui/material"
+import Header from "../header/page"
 import ChooseMenu from "./ChooseMenu/ChooseMenu.js"
-import './page.css';
-import { MenuBook } from '@mui/icons-material';
-import { redirect } from 'next/navigation';
+import './page.css'
+import { MenuBook } from '@mui/icons-material'
+import { redirect } from 'next/navigation'
 
 export default function Menu() {
     const handleOpenMenu = () => {
@@ -42,7 +42,7 @@ export default function Menu() {
                     zIndex: 99,
                     position: "fixed",
                     top: { xs: "2%", md: "55%" },
-                    left: { xs: "auto", md: "5%" },
+                    left: { xs: "auto", md: "48%" },
                     "& button": {
                         all: "unset",
                         width: "9rem",
@@ -79,13 +79,13 @@ export default function Menu() {
                         "&::after": {
                             content: '""',
                             position: "absolute",
-                            bottom: 0,
-                            right: 0,
+                            bottom: 2,
+                            right: 2,
                             zIndex: -99999,
                             transition: "all .4s",
                             transform: "translate(10px, 10px)",
-                            width: "35px",
-                            height: "35px",
+                            width: "18px",
+                            height: "18px",
                             background: "#ffffff15",
                             backdropFilter: "blur(5px)",
                             WebkitBackdropFilter: "blur(5px)",
@@ -130,5 +130,5 @@ export default function Menu() {
                 <ChooseMenu></ChooseMenu>
             </Box>
         </Box>
-    );
+    )
 }

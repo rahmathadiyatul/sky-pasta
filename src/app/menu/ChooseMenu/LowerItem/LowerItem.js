@@ -1,9 +1,9 @@
-import React from 'react';
-import { Box, Button, CardMedia, Typography } from '@mui/material';
-import { ChevronLeft, ChevronRight } from '@mui/icons-material';
-import MenuDetails from '../../MenuDetails/MenuDetails';
+import React from 'react'
+import { Box, Button, CardMedia, Typography } from '@mui/material'
+import { ChevronLeft, ChevronRight } from '@mui/icons-material'
+import MenuDetails from '../../MenuDetails/MenuDetails'
 
-const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageUrls, handleOpenCard, handleMovesLeft, handleMovesRight }) => {
+const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageUrls, handleOpenCard, handleMovesLeft, handleMovesRight, slide }) => {
     return (
         <Box
             sx={{
@@ -13,7 +13,7 @@ const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageU
                 justifyContent: "center",
                 padding: "0.5em",
                 mt: "2rem",
-                width: "10em",
+                width: "6em",
                 gap: "2rem",
                 transition: "background-color 0.3s, border-radius 0.3s",
                 "&:hover": {
@@ -44,8 +44,8 @@ const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageU
             </Button>
             <Box sx={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: 2 }}>
                 {Array.from({ length: visibleCount }).map((_, i) => {
-                    const index = (startIndex + i) % totalImages;
-                    const isSelected = i === 1;
+                    const index = (startIndex + i) % totalImages
+                    const isSelected = i === 1
 
                     return (
                         <Box
@@ -92,7 +92,7 @@ const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageU
                                 {imageUrls[index]?.menuName}
                             </Typography>
                         </Box>
-                    );
+                    )
                 })}
             </Box>
             <Button
@@ -115,9 +115,9 @@ const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageU
             >
                 <ChevronRight />
             </Button>
-            <MenuDetails selectedMenu={selectedMenu}></MenuDetails>
+            <MenuDetails selectedMenu={selectedMenu} slide={slide}></MenuDetails>
         </Box>
-    );
-};
+    )
+}
 
-export default LowerItem;
+export default LowerItem
