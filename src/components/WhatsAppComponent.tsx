@@ -17,7 +17,8 @@ export default function WhatsAppComponent() {
             sx={{
                 position: "fixed",
                 right: "2%",
-                bottom: "3.25%",
+                top: { xs: "2%", sm: "2%", md: "auto" },
+                bottom: { xs: "auto", sm: "auto", md: "3.25%" },
                 zIndex: 15,
                 display: "flex",
                 alignItems: "center",
