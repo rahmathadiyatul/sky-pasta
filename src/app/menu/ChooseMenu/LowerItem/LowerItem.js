@@ -87,6 +87,13 @@ const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageU
                                     fontWeight: isSelected ? "bolder" : 550,
                                     textAlign: "center",
                                     color: isSelected ? "white" : "black",
+                                    lineHeight: 1.2,
+                                    display: "-webkit-box",
+                                    WebkitLineClamp: 2,
+                                    WebkitBoxOrient: "vertical",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    height: "2.4em",
                                 }}
                             >
                                 {imageUrls[index]?.menuName}
