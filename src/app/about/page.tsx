@@ -1,27 +1,34 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { Box, CardMedia, Typography, Card, CardActionArea, CardContent, Divider } from "@mui/material";
-import Header from "../header/page";
-import CardDetails from "@/components/CardDetails";
-import { cards } from "../../database/page";
+import React, { useState } from "react"
+import { Box, CardMedia, Typography, Card, CardActionArea, CardContent, Divider } from "@mui/material"
+import Header from "../header/page"
+import CardDetails from "@/components/CardDetails"
+import { cards } from "../../database/page"
 
 export default function About() {
-    const [selectedCard, setSelectedCard] = useState<number>(0);
-    const [openCard, setOpenCard] = useState<boolean>(false);
+    const [selectedCard, setSelectedCard] = useState<number>(0)
+    const [openCard, setOpenCard] = useState<boolean>(false)
 
     const onClickCard = (index: number) => {
-        setSelectedCard(index);
-        setOpenCard(true);
+        setSelectedCard(index)
+        setOpenCard(true)
     }
 
     const onCloseCard = () => {
-        setSelectedCard(0);
-        setOpenCard(false);
+        setSelectedCard(0)
+        setOpenCard(false)
     }
 
     return (
-        <Box>
+        <Box
+            sx={{
+                backgroundImage: "url('/history-card.png')",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "left center",
+                backgroundSize: "250px 300px",
+            }}
+        >
             {openCard && (
                 <CardDetails onClose={onCloseCard} details={cards[selectedCard]} />
             )}
@@ -30,7 +37,7 @@ export default function About() {
                 sx={{
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "center",
+                    justifyContent: "flex-end",
                     alignItems: "center",
                     minHeight: { xs: 450, md: 600 },
                     width: "100%",
@@ -49,12 +56,30 @@ export default function About() {
                         zIndex: -1,
                     },
                 }}>
+                <Typography
+                    sx={{
+                        fontSize: { xs: "1.5rem", md: "2rem" },
+                        fontWeight: "bold",
+                        maxWidth: "60%",
+                        color: "#c72026",
+                        fontStyle: "italic",
+                        textAlign: "center",
+                        mb: 8,
+                        fontFamily: "Nunito",
+                    }}
+                >"We don't just serve pasta, we serve the feeling of coming home to something better."</Typography>
                 <Box
                     sx={{
-                        width: '70%',
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fill, minmax(min(200px, 40%), 1fr))',
-                        gap: 5,
+                        width: '60%',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        mb: 15,
+                        ml: 4,
+                        //gridAutoFlow: 'column',
+                        //gridAutoColumns: 'minmax(200px, 1fr)',
+                        gap: 3,
+                        //overflowX: 'auto',
+                        //padding: 1, // optional padding
                     }}
                 >
                     {cards.map((card, index) => (
@@ -65,6 +90,7 @@ export default function About() {
                                 backgroundColor: "white",
                                 fontFamily: "Nunito",
                                 border: "1px solid silver",
+                                width: 100,
                                 '&:hover': {
                                     transform: 'scale(1.01)'
                                 }
@@ -87,7 +113,7 @@ export default function About() {
                             >
                                 <CardMedia
                                     component="img"
-                                    sx={{ height: { xs: 70, md: 140 }, userSelect: "none", pointerEvents: "none" }}
+                                    sx={{ height: { xs: 70, md: 80 }, userSelect: "none", pointerEvents: "none" }}
                                     image={card.imageUrl}
                                     alt={card.title}
                                 />
@@ -97,7 +123,7 @@ export default function About() {
                                     sx={{
                                         backgroundColor: "#c72026",
                                         height: '1rem',
-                                        padding: { xs: "1rem 0", md: "1.5rem 0" },
+                                        padding: { xs: "1rem 0", md: "1rem 0" },
                                         display: "flex",
                                         flexDirection: "column",
                                         justifyContent: "center",
@@ -112,7 +138,7 @@ export default function About() {
                                         }
                                     }}>
                                     <Typography
-                                        sx={{ fontSize: { xs: ".85rem", md: "1.25rem" } }}
+                                        sx={{ fontSize: { xs: ".85rem", md: ".85rem" } }}
                                         color="white"
                                         fontWeight={"bolder"}
                                         textAlign={"center"}
@@ -130,5 +156,5 @@ export default function About() {
                 </Box>
             </Box>
         </Box >
-    );
+    )
 }

@@ -1,16 +1,16 @@
-"use client";
+"use client"
 
-import { Close } from "@mui/icons-material";
-import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { Close } from "@mui/icons-material"
+import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography } from "@mui/material"
+import React, { useState } from "react"
 
 interface CardDetailsProps {
-    onClose: () => void;
-    details: any;
+    onClose: () => void
+    details: any
 }
 
 export default function CardDetails({ onClose, details }: CardDetailsProps) {
-    const [showSecondPage, setShowSecondPage] = useState(false);
+    const [showSecondPage, setShowSecondPage] = useState(false)
 
     return (
         <Box
@@ -42,7 +42,12 @@ export default function CardDetails({ onClose, details }: CardDetailsProps) {
                 onClick={(e) => e.stopPropagation()}
             >
                 <CardActionArea>
-                    <Box sx={{ position: "relative" }}>
+                    <CardContent
+                        sx={{
+                            mt: '10%',
+                            padding: '0 4rem',
+                        }}
+                    >
                         <IconButton
                             onClick={onClose}
                             sx={{
@@ -56,14 +61,6 @@ export default function CardDetails({ onClose, details }: CardDetailsProps) {
                         >
                             <Close />
                         </IconButton>
-                        <CardMedia
-                            component="img"
-                            image={showSecondPage && details.bg2 ? details.bg2 : details.bg}
-                            alt={`${details.title} Sky Pasta`}
-                            sx={{ maxHeight: { xs: 250, md: 350 }, userSelect: "none", pointerEvents: "none" }}
-                        />
-                    </Box>
-                    <CardContent>
                         <Typography
                             fontSize={30}
                             fontWeight={"bolder"}
@@ -72,13 +69,34 @@ export default function CardDetails({ onClose, details }: CardDetailsProps) {
                             color="#c72026"
                             gutterBottom
                             variant="h5"
+                            marginBottom={0}
                         >
                             {!showSecondPage ? details.title : ""}
                         </Typography>
-                        <Typography textAlign={"center"} variant="body2" sx={{ color: 'text.secondary' }}>
+                        {details.title == 'History' && (
+                            <Box sx={{ mt: 4, position: "relative", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                <CardMedia
+                                    component="img"
+                                    image={showSecondPage && details.bg2 ? details.bg2 : details.bg}
+                                    alt={`${details.title} Sky Pasta`}
+                                    sx={{ borderRadius: '5px', maxHeight: { xs: 250, md: 250 }, maxWidth: 250, userSelect: "none", pointerEvents: "none" }}
+                                />
+                            </Box>
+                        )}
+                        <Typography textAlign={"center"} variant="body2" sx={{ mb: 3, mt: 4, color: 'text.secondary', fontWeight: "bold", fontFamily: "Nunito", fontSize: 16 }}>
                             {showSecondPage && details.description2 ? details.description2 : details.description}
                         </Typography>
                     </CardContent>
+                    {details.title != 'History' && (
+                        <Box sx={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", mb: details.id == 3 ? 5 : 0 }}>
+                            <CardMedia
+                                component="img"
+                                image={showSecondPage && details.bg2 ? details.bg2 : details.bg}
+                                alt={`${details.title} Sky Pasta`}
+                                sx={{ maxHeight: { xs: 250, md: 250 }, maxWidth: details.id == 3 ? 500 : 250, userSelect: "none", pointerEvents: "none" }}
+                            />
+                        </Box>
+                    )}
                 </CardActionArea>
 
                 <CardActions sx={{ justifyContent: "space-between" }}>
@@ -104,5 +122,5 @@ export default function CardDetails({ onClose, details }: CardDetailsProps) {
                 </CardActions>
             </Card>
         </Box>
-    );
+    )
 }

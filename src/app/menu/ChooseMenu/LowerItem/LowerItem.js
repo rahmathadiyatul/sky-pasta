@@ -3,126 +3,131 @@ import { Box, Button, CardMedia, Typography } from '@mui/material'
 import { ChevronLeft, ChevronRight } from '@mui/icons-material'
 import MenuDetails from '../../MenuDetails/MenuDetails'
 
-const LowerItem = ({ selectedMenu, totalImages, visibleCount, startIndex, imageUrls, handleOpenCard, handleMovesLeft, handleMovesRight, slide }) => {
+const LowerItem = ({ gradientIndex, selectedMenu, totalImages, visibleCount, startIndex, imageUrls, handleOpenCard, handleMovesLeft, handleMovesRight, slide }) => {
     return (
         <Box
             sx={{
                 display: "flex",
-                flexDirection: "row",
-                alignItems: "flex-end",
-                justifyContent: "center",
-                padding: "0.5em",
-                mt: "2rem",
-                width: "6em",
-                gap: "2rem",
-                transition: "background-color 0.3s, border-radius 0.3s",
-                "&:hover": {
-                    backgroundColor: "rgba(255, 255, 255, 0.5)",
-                    borderRadius: "10%",
-                },
+                flexDirection: "column",
             }}
         >
-            <Button
+            <MenuDetails gradientIndex={gradientIndex} selectedMenu={selectedMenu} slide={slide}></MenuDetails>
+            <Box
                 sx={{
-                    display: { xs: "none", md: "flex" },
-                    zIndex: 20,
-                    borderRadius: "50%",
-                    width: 40,
-                    height: 40,
-                    minWidth: "unset",
-                    bgcolor: "#c72026",
-                    backdropFilter: "blur(5px)",
-                    color: "white",
+                    ml: 52,
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "flex-end",
+                    justifyContent: "center",
+                    padding: "0.5em",
+                    mt: "2rem",
+                    mb: "1rem",
+                    width: "6em",
+                    gap: "2rem",
+                    transition: "background-color 0.3s, border-radius 0.3s",
                     "&:hover": {
-                        bgcolor: "#a92026",
+                        backgroundColor: "rgba(255, 255, 255, 0.5)",
+                        borderRadius: "10%",
                     },
                 }}
-                variant="contained"
-                onClick={handleMovesLeft}
             >
-                <ChevronLeft />
-            </Button>
-            <Box sx={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: 2 }}>
-                {Array.from({ length: visibleCount }).map((_, i) => {
-                    const index = (startIndex + i) % totalImages
-                    const isSelected = i === 1
+                <Button
+                    sx={{
+                        display: { xs: "none", md: "flex" },
+                        zIndex: 20,
+                        borderRadius: "50%",
+                        width: 40,
+                        height: 40,
+                        minWidth: "unset",
+                        bgcolor: "#fff",
+                        boxShadow: 'none',
+                        color: "#c72026",
+                        mb: '4rem'
+                    }}
+                    variant="contained"
+                    onClick={handleMovesLeft}
+                >
+                    <ChevronLeft fontSize='large' />
+                </Button>
+                <Box sx={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: 2 }}>
+                    {Array.from({ length: visibleCount }).map((_, i) => {
+                        const index = (startIndex + i) % totalImages
+                        const isSelected = i === 1
 
-                    return (
-                        <Box
-                            key={index}
-                            sx={{
-                                display: "flex",
-                                flexDirection: "column",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                gap: 1,
-                                cursor: "pointer",
-                                transition: "transform 0.3s ease-in-out",
-                                transform: isSelected ? "scale(1.1)" : "scale(1)",
-                                bgcolor: isSelected ? "#c72026" : "white",
-                                borderRadius: "10%",
-                                width: isSelected ? "7.5rem" : "6rem",
-                                padding: isSelected ? ".5rem .25rem" : "0",
-                                boxShadow: isSelected ? "0px 2px 4px rgba(0, 0, 0, 0.3)" : "none",
-                            }}
-                            onClick={i === 0 ? handleMovesLeft : i === visibleCount - 1 ? handleMovesRight : handleOpenCard}
-                        >
-                            <CardMedia
+                        return (
+                            <Box
+                                key={index}
                                 sx={{
-                                    width: isSelected ? "6em" : "5em",
-                                    height: isSelected ? "6em" : "5em",
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: 1,
+                                    cursor: "pointer",
+                                    transition: "transform 0.3s ease-in-out",
+                                    // transform: isSelected ? "scale(1.1)" : "scale(1)",
+                                    bgcolor: isSelected ? "rgba(0, 0, 0, 0.075)" : "white",
                                     borderRadius: "10%",
-                                    bgcolor: "rgba(255,255,255,.5)",
-                                    padding: "2rem",
-                                    userSelect: "none",
-                                    pointerEvents: "none",
+                                    width: "6rem",
+                                    padding: '.5rem .5rem',
+                                    boxShadow: isSelected ? "0px 0px 10px rgba(0, 0, 0, 0.1)" : "none",
                                 }}
-                                image={imageUrls[index].imgUrl}
-                                alt="Lower Item"
-                            />
-                            <Typography
-                                variant="h2"
-                                sx={{
-                                    fontSize: isSelected ? { xs: ".7rem", md: ".8em" } : ".7em",
-                                    fontWeight: isSelected ? "bolder" : 550,
-                                    textAlign: "center",
-                                    color: isSelected ? "white" : "black",
-                                    lineHeight: 1.2,
-                                    display: "-webkit-box",
-                                    WebkitLineClamp: 2,
-                                    WebkitBoxOrient: "vertical",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    height: "2.4em",
-                                }}
+                                onClick={i === 0 ? handleMovesLeft : i === visibleCount - 1 ? handleMovesRight : handleOpenCard}
                             >
-                                {imageUrls[index]?.menuName}
-                            </Typography>
-                        </Box>
-                    )
-                })}
+                                <CardMedia
+                                    sx={{
+                                        width: "5em",
+                                        height: "5em",
+                                        borderRadius: "10%",
+                                        bgcolor: "rgba(255,255,255,.5)",
+                                        padding: "2rem",
+                                        userSelect: "none",
+                                        pointerEvents: "none",
+                                    }}
+                                    image={imageUrls[index].imgUrl}
+                                    alt="Lower Item"
+                                />
+                                <Typography
+                                    variant="h2"
+                                    sx={{
+                                        fontSize: ".7em",
+                                        fontWeight: 'bolder',
+                                        textAlign: "center",
+                                        color: "#c72026",
+                                        lineHeight: 1.2,
+                                        display: "-webkit-box",
+                                        WebkitLineClamp: 2,
+                                        WebkitBoxOrient: "vertical",
+                                        overflow: "hidden",
+                                        textOverflow: "ellipsis",
+                                        height: "2.4em",
+                                    }}
+                                >
+                                    {imageUrls[index]?.menuName}
+                                </Typography>
+                            </Box>
+                        )
+                    })}
+                </Box>
+                <Button
+                    sx={{
+                        display: { xs: "none", md: "flex" },
+                        zIndex: 20,
+                        borderRadius: "50%",
+                        width: 40,
+                        height: 40,
+                        minWidth: "unset",
+                        bgcolor: "#fff",
+                        boxShadow: 'none',
+                        color: "#c72026",
+                        mb: '4rem'
+                    }}
+                    variant="contained"
+                    onClick={handleMovesRight}
+                >
+                    <ChevronRight fontSize='large' />
+                </Button>
             </Box>
-            <Button
-                sx={{
-                    display: { xs: "none", md: "flex" },
-                    zIndex: 20,
-                    borderRadius: "50%",
-                    width: 40,
-                    height: 40,
-                    minWidth: "unset",
-                    bgcolor: "#c72026",
-                    backdropFilter: "blur(5px)",
-                    color: "white",
-                    "&:hover": {
-                        bgcolor: "#a92026",
-                    },
-                }}
-                variant="contained"
-                onClick={handleMovesRight}
-            >
-                <ChevronRight />
-            </Button>
-            <MenuDetails selectedMenu={selectedMenu} slide={slide}></MenuDetails>
         </Box>
     )
 }

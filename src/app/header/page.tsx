@@ -94,7 +94,7 @@ export default function Header() {
             >
                 <Box sx={{ cursor: "pointer" }} onClick={() => onClickHeader("home")}>
                     <CardMedia
-                        sx={{ userSelect: "none", pointerEvents: "none", width: 90, height: 60, margin: 1, mr: { xs: "auto", sm: 13, md: 20 } }}
+                        sx={{ userSelect: "none", pointerEvents: "none", width: 80, height: 52, margin: 1, mr: { xs: "auto", sm: 13, md: 20 } }}
                         image='https://res.cloudinary.com/dxyxg3egs/image/upload/v1724437471/skypasta/skypasta_logo_nobg_myujfv.png'
                         title='sky-pasta-logo'
                     />
@@ -108,8 +108,8 @@ export default function Header() {
                                 textShadow: selectedHeader == "about" ? '0 0 50px rgba(0, 0, 0, 0.1)' : "none",
                                 paddingBottom: selectedHeader == "about" ? '.5%' : 0,
                                 cursor: "pointer",
-                                fontWeight: selectedHeader == "about" ? "bolder" : 300,
-                                fontSize: { xs: 12, sm: 13, md: 18 }
+                                fontWeight: "bolder",
+                                fontSize: { xs: 12, sm: 13, md: 15 }
                             }}>About</Typography>
                     </StyledLink >
                     <StyledLink onClick={() => onClickHeader("menu")} >
@@ -120,8 +120,8 @@ export default function Header() {
                                 textShadow: selectedHeader == "menu" ? '0 0 50px rgba(0, 0, 0, 0.1)' : "none",
                                 paddingBottom: selectedHeader == "menu" ? '.5%' : 0,
                                 cursor: "pointer",
-                                fontWeight: selectedHeader == "menu" ? "bolder" : 300,
-                                fontSize: { xs: 12, sm: 13, md: 18 }
+                                fontWeight: "bolder",
+                                fontSize: { xs: 12, sm: 13, md: 15 }
                             }}>Menu</Typography>
                     </StyledLink >
                     <StyledLink onClick={() => onClickHeader("outlets")}>
@@ -132,12 +132,12 @@ export default function Header() {
                                 textShadow: selectedHeader == "outlets" ? '0 0 50px rgba(0, 0, 0, 0.1)' : "none",
                                 paddingBottom: selectedHeader == "outlets" ? '.5%' : 0,
                                 cursor: "pointer",
-                                fontWeight: selectedHeader == "outlets" ? "bolder" : 300,
-                                fontSize: { xs: 12, sm: 13, md: 18 }
+                                fontWeight: "bolder",
+                                fontSize: { xs: 12, sm: 13, md: 15 }
                             }}>Outlets</Typography>
                     </StyledLink >
-                    <Button onClick={handleOnClickOrder} variant="contained" sx={{ fontFamily: "Nunito", backgroundColor: "#c72026", borderRadius: "2rem", px: "2rem", border: "3px solid white" }}>
-                        <Typography color="white" textTransform={"capitalize"} sx={{ fontWeight: 550, fontSize: { xs: 12, sm: 13, md: 18 } }}>Order Now</Typography>
+                    <Button onClick={handleOnClickOrder} variant="contained" sx={{ fontFamily: "Nunito", backgroundColor: "#c72026", borderRadius: "2rem", px: "1rem", border: "3px solid white" }}>
+                        <Typography color="white" textTransform={"capitalize"} sx={{ fontWeight: 550, fontSize: { xs: 12, sm: 13, md: 15 } }}>Order Now</Typography>
                     </Button >
                 </Box>
             </Box>
@@ -321,7 +321,7 @@ const StyledLink = styled(Box)(({ theme }) => ({
     '&:hover': {
         color: '#f7dfaf',
         textShadow: '0 0 50px rgba(0, 0, 0, 0.1)',
-        paddingBottom: '.5%',
+        paddingBottom: '1%',
         cursor: "pointer"
     },
 }))

@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MenuItem from './MenuItem/MenuItem'
 import LowerItem from './LowerItem/LowerItem'
 import { Box, Card, Typography } from '@mui/material'
 import MenuDetailsCard from '@/components/MenuDetailsCard'
 import OrderCard from '@/components/OrderCard'
-import { outlets } from '@/database/page'
+import { gradients, outlets } from '@/database/page'
 
 const imageUrls = [
     {
@@ -64,29 +64,34 @@ const imageUrls = [
 ]
 
 const initialPositions = [
-    "translate(-150%, -150%)",
-    "translate(-150%, -150%)",
-    "translate(-150%, -150%)",
-    "translate(-150%, -150%)",
+    "translate(-350%, -150%)",
+    "translate(-350%, -150%)",
+    "translate(-350%, -150%)",
+    "translate(-350%, -150%)",
     "translate(-118%, 0%)",
-    "translate(150%, -150%)",
-    "translate(150%, -150%)",
-    "translate(150%, -150%)",
-    "translate(150%, -150%)"
+    "translate(50%, -150%)",
+    "translate(50%, -150%)",
+    "translate(50%, -150%)",
+    "translate(50%, -150%)"
 ]
 
 const ChooseMenu = () => {
+    const [gradientIndex, setGradientIndex] = useState(0)
     const [positions, setPositions] = useState(initialPositions)
     const [startIndex, setStartIndex] = useState(3)
     const [selectedMenu, setSelectedMenu] = useState(imageUrls[4])
+    const [positions2, setPositions2] = useState(initialPositions)
+    const [startIndex2, setStartIndex2] = useState(3)
+    const [selectedMenu2, setSelectedMenu2] = useState(imageUrls[4])
     const [detailedMenu, setDetailedMenu] = useState()
     const [openCard, setOpenCard] = useState(false)
     const [slide, setSlide] = useState(false)
+    const [slide2, setSlide2] = useState(false)
     const [isAnimating, setIsAnimating] = useState(false)
     const [selectedOutlet, setSelectedOutlet] = useState("")
     const [openOutletList, setOpenOutletList] = useState(false)
     const [openOrderList, setOpenOrderList] = useState(false)
-    const visibleCount = 3
+    const visibleCount = 5
     const totalImages = imageUrls.length
     const handleOpenCard = () => {
         const data = {
@@ -103,6 +108,8 @@ const ChooseMenu = () => {
         if (isAnimating) return
         setIsAnimating(true)
         setSlide(true)
+        setSlide2(true)
+        setGradientIndex(prev => (prev + 1) % gradients.length)
 
         setTimeout(() => {
             const imageIndex = ((startIndex - 2 + totalImages) % totalImages) + 2
@@ -132,6 +139,9 @@ const ChooseMenu = () => {
         if (isAnimating) return
         setIsAnimating(true)
         setSlide(true)
+        setSlide2(true)
+        setGradientIndex(prev => (prev + 1) % gradients.length)
+
         setTimeout(() => {
             setPositions((prev) => {
                 const shifted = [...prev]
@@ -148,6 +158,15 @@ const ChooseMenu = () => {
             }, 100)
         }, 100)
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+            setSlide2(slide)
+            setPositions2(positions)
+            setSelectedMenu2(selectedMenu)
+            setStartIndex2(startIndex)
+        }, 400)
+    }, [slide])
 
     const onCloseMenuDetails = () => {
         setOpenCard(false)
@@ -197,8 +216,23 @@ const ChooseMenu = () => {
                 alignItems: "flex-start",
                 justifyContent: "center",
                 height: "90vh",
-                marginTop: "5%",
+                marginTop: "10%",
             }}>
+            <Box
+                sx={{
+                    width: 1000,
+                    height: 1000,
+                    position: "absolute",
+                    zIndex: -111,
+                    left: -180,
+                    top: -650,
+                    borderRadius: "50%",
+                    background: gradients[gradientIndex],
+                    WebkitMask: "radial-gradient(circle at center, transparent 50%, black 51%)",
+                    mask: "radial-gradient(circle at center, transparent 50%, black 51%)",
+                }}
+            />
+
             {openCard && (
                 <MenuDetailsCard onClose={onCloseMenuDetails} menu={detailedMenu} onClickOrder={onClickOrder} />
             )}
@@ -216,7 +250,7 @@ const ChooseMenu = () => {
             <Box
                 sx={{
                     position: "absolute",
-                    left: { xs: "37%", md: "42%" },
+                    left: { xs: "37%", md: 0 },
                     bottom: { xs: "12%", md: "10%" },
                     display: "flex",
                     flexDirection: "row",
@@ -225,7 +259,7 @@ const ChooseMenu = () => {
                     gap: "1em",
                     margin: 0,
                 }}>
-                <LowerItem slide={slide} handleOpenCard={handleOpenCard} selectedMenu={selectedMenu} totalImages={totalImages} visibleCount={visibleCount} startIndex={startIndex} handleMovesRight={handleMovesRight} handleMovesLeft={handleMovesLeft} imageUrls={imageUrls}></LowerItem>
+                <LowerItem gradientIndex={gradientIndex} slide={slide2} handleOpenCard={handleOpenCard} selectedMenu={selectedMenu2} totalImages={totalImages} visibleCount={visibleCount} startIndex={startIndex2} handleMovesRight={handleMovesRight} handleMovesLeft={handleMovesLeft} imageUrls={imageUrls}></LowerItem>
             </Box>
         </Box >
     )

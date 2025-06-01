@@ -14,7 +14,7 @@ const MenuItem = ({ imageUrls, positions }) => {
             height: "70%",
             gap: "2em",
         }}>
-            <Box sx={{ position: "relative", width: "23vw", height: "23vw" }}>
+            <Box sx={{ position: "absolute", width: "23vw", height: "23vw" }}>
                 {imageUrls.map((menuData, index) => (
                     <CardMedia
                         key={index}
@@ -24,7 +24,7 @@ const MenuItem = ({ imageUrls, positions }) => {
                             transform: positions[index],
                             zIndex: 1,
                             transition: "transform .6s ease-in-out",
-                            filter: "drop-shadow(-15px 10px 50px rgba(0, 0, 0, 0.5))",
+                            filter: "drop-shadow(-25px -10px 40px rgba(0, 0, 0, 0.3))",
                             userSelect: "none",
                             pointerEvents: "none",
                         }}

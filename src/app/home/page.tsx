@@ -72,7 +72,7 @@ export default function Home() {
                                 sx={{
                                     width: 175,
                                     height: 175,
-                                    backgroundColor: "#fff",
+                                    // backgroundColor: "#fff",
                                     borderRadius: "50%",
                                     display: "flex",
                                     alignItems: "center",
@@ -80,7 +80,7 @@ export default function Home() {
                                 }}
                             >
                                 <motion.img
-                                    src="/logo-2.png"
+                                    src="https://res.cloudinary.com/dxyxg3egs/image/upload/v1724437471/skypasta/skypasta_logo_nobg_myujfv.png"
                                     alt="Logo"
                                     initial={{ rotate: 0 }}
                                     animate={{ rotate: 360 }}
@@ -103,7 +103,7 @@ export default function Home() {
                     sx={{
                         height: "100vh",
                         width: "100vw",
-                        backgroundImage: `url("/home-bg.JPG")`,
+                        backgroundImage: `url("/home-bg-2.png")`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         backgroundRepeat: "no-repeat",
@@ -129,7 +129,7 @@ export default function Home() {
                             left: 0,
                             width: "100%",
                             height: "100%",
-                            background: "linear-gradient(to bottom right, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05))",
+                            // background: "linear-gradient(to bottom right, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05))",
                             zIndex: 1,
                         }}
                     />
@@ -153,11 +153,11 @@ export default function Home() {
                             display={"flex"}
                         >
                             <CardMedia
-                                image="logo-2.png"
+                                image="https://res.cloudinary.com/dxyxg3egs/image/upload/v1724437471/skypasta/skypasta_logo_nobg_myujfv.png"
                                 sx={{
                                     position: "relative",
-                                    width: { xs: 300, sm: 300, md: 135 },
-                                    height: { xs: 195, sm: 300, md: 90 },
+                                    width: { xs: 300, sm: 300, md: 109 },
+                                    height: { xs: 195, sm: 300, md: 72 },
                                     filter: "brightness(1.1) drop-shadow(1px 1px .5px rgba(0, 0, 0, 0.5))",
                                     zIndex: 12,
                                     userSelect: "none",

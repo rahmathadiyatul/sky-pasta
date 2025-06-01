@@ -1,3 +1,15 @@
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 @keyframes slideOut {
     0% {
         transform: translateX(0);
@@ -10,9 +22,21 @@
     }
 }
 
-@keyframes slideIn {
+@keyframes slideOut2 {
     0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
         transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes slideIn2 {
+    0% {
+        transform: translateX(100%);
         opacity: 0;
     }
 
@@ -62,10 +86,138 @@
     animation: slideIn 0.5s forwards 0.5s;
 }
 
-.typography-slide-out {
-    animation: slideOut 1s forwards;
+.typography-slide-out-2 {
+    animation: foldOut2 0.3s ease-in-out forwards;
+}
+
+.typography-slide-in-2 {
+    animation: foldIn2 0.8s ease-in-out forwards;
 }
 
 .typography-slide-in {
-    animation: slideIn 1s forwards;
+    animation: foldIn 0.8s ease-in-out forwards;
+}
+
+.typography-slide-out {
+    animation: foldOut 0.3s ease-in-out forwards;
+}
+
+.typography-fade-in {
+    animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+.typography-fade-out-left {
+    animation: fadeOutLeft 0.8s ease-in-out forwards;
+}
+
+.typography-fade-in-left {
+    animation: fadeInLeft 0.8s ease-in-out forwards;
+}
+
+.typography-fade-out {
+    animation: fadeOutUp 0.8s ease-in-out forwards;
+}
+
+@keyframes foldIn {
+    from {
+        transform: scaleX(0);
+        transform-origin: left;
+        opacity: 0;
+    }
+
+    to {
+        transform: scaleX(1);
+        transform-origin: left;
+        opacity: 1;
+    }
+}
+
+@keyframes foldIn2 {
+    from {
+        transform: scaleX(0);
+        transform-origin: right;
+        opacity: 0;
+    }
+
+    to {
+        transform: scaleX(1);
+        transform-origin: right;
+        opacity: 1;
+    }
+}
+
+@keyframes foldOut {
+    from {
+        transform: scaleX(1);
+        transform-origin: left;
+        opacity: 1;
+    }
+
+    to {
+        transform: scaleX(0);
+        transform-origin: left;
+        opacity: 0;
+    }
+}
+
+@keyframes foldOut2 {
+    from {
+        transform: scaleX(1);
+        transform-origin: right;
+        opacity: 1;
+    }
+
+    to {
+        transform: scaleX(0);
+        transform-origin: right;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOutUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

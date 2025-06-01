@@ -31,7 +31,7 @@ export const recommendedImages: Array<string> = [
     "changing6.jpg",
     "changing7.jpeg",
     "changing8.png",
-];
+]
 
 export const outlets: Array<Outlet> = [
     { name: "Sky Pasta - Bekasi", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "https://gofood.co.id/jakarta/restaurant/sky-pasta-taman-galaxy-bekasi-c4b7588e-a2e5-4fae-bd07-3a99c66edf22" }, { merchantName: "GrabFood", merchantUrl: "https://r.grab.com/g/6-20250401_234524_821A0C170C38448AB60EBBD45B7DB038_MEXMPS-6-C63GVP4JT2J2GJ" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
@@ -42,7 +42,7 @@ export const outlets: Array<Outlet> = [
     { name: "Sky Pasta - Petukangan", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "https://gofood.co.id/jakarta/restaurant/sky-pasta-petukangan-03ba0e0d-e52b-4531-a140-69cac28c986f" }, { merchantName: "GrabFood", merchantUrl: "https://r.grab.com/g/6-20250401_234434_821A0C170C38448AB60EBBD45B7DB038_MEXMPS-6-C2BDENKVLYN2A2" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
     { name: "Sky Pasta - Tebet", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "https://gofood.co.id/jakarta/restaurant/sky-pasta-tebet-594d2e42-b1fd-44f2-83a9-da53b2210842" }, { merchantName: "GrabFood", merchantUrl: "https://r.grab.com/g/6-20250401_234421_821A0C170C38448AB60EBBD45B7DB038_MEXMPS-6-C6ADTJNYJFTKWA" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
     { name: "Big Order", onlineFoodUrl: [] },
-];
+]
 
 export const menuCategory: Array<MenuCategoryCard> = [
     {
@@ -547,28 +547,62 @@ export const menuCategory: Array<MenuCategoryCard> = [
             }
         ]
     }
-];
+]
+
+export const gradients = [
+    "linear-gradient(160deg, rgba(255, 0, 0, 0.30), rgba(255, 102, 0, 0.30))",      // Red → Reddish Orange
+    "linear-gradient(160deg, rgba(255, 102, 0, 0.30), rgba(255, 165, 0, 0.30))",    // Reddish Orange → Orange
+    "linear-gradient(160deg, rgba(255, 165, 0, 0.30), rgba(255, 255, 0, 0.30))",    // Orange → Yellow
+    "linear-gradient(160deg, rgba(255, 255, 0, 0.30), rgba(173, 255, 47, 0.30))",   // Yellow → Yellow-Green
+    "linear-gradient(160deg, rgba(173, 255, 47, 0.30), rgba(0, 255, 0, 0.30))",     // Yellow-Green → Green
+    "linear-gradient(160deg, rgba(0, 255, 0, 0.30), rgba(0, 255, 127, 0.30))",      // Green → Spring Green
+    "linear-gradient(160deg, rgba(0, 255, 127, 0.30), rgba(0, 255, 255, 0.30))",    // Spring Green → Cyan
+    "linear-gradient(160deg, rgba(0, 255, 255, 0.30), rgba(0, 127, 255, 0.30))",    // Cyan → Azure
+    "linear-gradient(160deg, rgba(0, 127, 255, 0.30), rgba(0, 0, 255, 0.30))",      // Azure → Blue
+    "linear-gradient(160deg, rgba(0, 0, 255, 0.30), rgba(75, 0, 130, 0.30))",       // Blue → Indigo
+    "linear-gradient(160deg, rgba(75, 0, 130, 0.30), rgba(138, 43, 226, 0.30))",    // Indigo → Violet
+    "linear-gradient(160deg, rgba(138, 43, 226, 0.30), rgba(255, 0, 255, 0.30))",   // Violet → Magenta
+    "linear-gradient(160deg, rgba(255, 0, 255, 0.30), rgba(255, 0, 127, 0.30))",    // Magenta → Rose
+    "linear-gradient(160deg, rgba(255, 0, 127, 0.30), rgba(255, 0, 0, 0.30))",      // Rose → Red (loop)
+]
+
+export const gradients2 = [
+    "linear-gradient(160deg, rgba(255, 0, 0, 1), rgba(255, 102, 0, 1))",      // Red → Reddish Orange
+    "linear-gradient(160deg, rgba(255, 102, 0, 1), rgba(255, 165, 0, 1))",    // Reddish Orange → Orange
+    "linear-gradient(160deg, rgba(255, 165, 0, 1), rgba(255, 255, 0, 1))",    // Orange → Yellow
+    "linear-gradient(160deg, rgba(255, 255, 0, 1), rgba(173, 255, 47, 1))",   // Yellow → Yellow-Green
+    "linear-gradient(160deg, rgba(173, 255, 47, 1), rgba(0, 255, 0, 1))",     // Yellow-Green → Green
+    "linear-gradient(160deg, rgba(0, 255, 0, 1), rgba(0, 255, 127, 1))",      // Green → Spring Green
+    "linear-gradient(160deg, rgba(0, 255, 127, 1), rgba(0, 255, 255, 1))",    // Spring Green → Cyan
+    "linear-gradient(160deg, rgba(0, 255, 255, 1), rgba(0, 127, 255, 1))",    // Cyan → Azure
+    "linear-gradient(160deg, rgba(0, 127, 255, 1), rgba(0, 0, 255, 1))",      // Azure → Blue
+    "linear-gradient(160deg, rgba(0, 0, 255, 1), rgba(75, 0, 130, 1))",       // Blue → Indigo
+    "linear-gradient(160deg, rgba(75, 0, 130, 1), rgba(138, 43, 226, 1))",    // Indigo → Violet
+    "linear-gradient(160deg, rgba(138, 43, 226, 1), rgba(255, 0, 255, 1))",   // Violet → Magenta
+    "linear-gradient(160deg, rgba(255, 0, 255, 1), rgba(255, 0, 127, 1))",    // Magenta → Rose
+    "linear-gradient(160deg, rgba(255, 0, 127, 1), rgba(255, 0, 0, 1))",      // Rose → Red (loop)
+]
 
 export const cards = [
     {
         id: 1,
         title: 'Vision',
         imageUrl: '/visi-card.png',
-        bg: '/visi-bg.jpg',
-        description: "Membangun Sky Pasta menjadi brand kuliner lokal berskala internasional yang menyajikan makanan berkelas terbaik dengan harga yang terjangkau dan bisa dinikmati seluruh lapisan masyarakat di Indonesia demi pemenuhan gaya hidup."
+        bg: '/vision.png',
+        description: "Sky Pasta is here to serve the ultimate pasta fusion experience with high-quality taste, affordable, and perfect for your mood-boosting craving moments, supporting your modern lifestyle."
     },
     {
         id: 2,
         title: 'History',
         imageUrl: '/history-card.png',
-        bg: 'sejarah-bg.jpg',
-        bg2: 'sejarah2-bg.jpg',
-        description: "Brand Sky Pasta didirikan ketika melihat adanya peluang bisnis di bidang kuliner dengan mengusung konsep makan berkualitas dengan harga terjangkau.",
-        description2: (
-            <>
-                Di 2025 Sky Pasta telah sukses mengembangkan 7 cabang outlet yaitu: <strong>Pamulang, Cinere, Ciledug, Petukangan, Binus Jakbar, Tebet, dan Bekasi.</strong>
-            </>
-        ),
+        bg: 'history-bg-2.jpeg',
+        // bg2: 'sejarah2-bg.jpg',
+        description: "Sky Pasta was born from a small dream in a humble kitchen back in 2016 — driven only by the belief that food can be a language of love and a bridge between people. We began this journey with so many limitations: a small team, basic equipment, and just a handful of customers. But from that, we learned one important truth — that sincerity in serving flavor never lies.",
+        // description2: (
+        //     <>
+        //         Di 2025 Sky Pasta telah sukses mengembangkan 7 cabang outlet yaitu: <strong>Pamulang, Cinere, Ciledug, Petukangan, Binus Jakbar, Tebet, dan Bekasi.</strong>
+        //     </>
+        // ),
     },
     {
         id: 3,
@@ -614,4 +648,4 @@ export const cards = [
             </>
         )
     },
-];
+]
