@@ -67,7 +67,7 @@ export default function About() {
                         mb: 8,
                         fontFamily: "Nunito",
                     }}
-                >&quot;We don't just serve pasta, we serve the feeling of coming home to something better.&quot;</Typography>
+                >&quot;We don&quot;t just serve pasta, we serve the feeling of coming home to something better.&quot;</Typography>
                 <Box
                     sx={{
                         width: '60%',
