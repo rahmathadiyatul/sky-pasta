@@ -3,7 +3,7 @@ import { Box, Button, CardMedia, Typography } from '@mui/material'
 import { ChevronLeft, ChevronRight } from '@mui/icons-material'
 import MenuDetails from '../../MenuDetails/MenuDetails'
 
-const LowerItem = ({ gradientIndex, selectedMenu, totalImages, visibleCount, startIndex, imageUrls, handleOpenCard, handleMovesLeft, handleMovesRight, slide }) => {
+const LowerItem = ({ handleHighlightLeft, handleHighlightRight, highlightIndex, gradientIndex, selectedMenu, totalImages, visibleCount, startIndex, imageUrls, handleOpenCard, handleMovesLeft, handleMovesRight, slide }) => {
     return (
         <Box
             sx={{
@@ -33,7 +33,7 @@ const LowerItem = ({ gradientIndex, selectedMenu, totalImages, visibleCount, sta
             >
                 <Button
                     sx={{
-                        display: { xs: "none", md: "flex" },
+                        display: "flex",
                         zIndex: 20,
                         borderRadius: "50%",
                         width: 40,
@@ -45,34 +45,40 @@ const LowerItem = ({ gradientIndex, selectedMenu, totalImages, visibleCount, sta
                         mb: '4rem'
                     }}
                     variant="contained"
-                    onClick={handleMovesLeft}
+                    onClick={handleHighlightLeft}
                 >
                     <ChevronLeft fontSize='large' />
                 </Button>
-                <Box sx={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: 2 }}>
+                <Box sx={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: { xs: .5, md: 2 } }}>
                     {Array.from({ length: visibleCount }).map((_, i) => {
                         const index = (startIndex + i) % totalImages
-                        const isSelected = i === 1
-
+                        const isSelected = i === highlightIndex
                         return (
                             <Box
                                 key={index}
                                 sx={{
-                                    display: "flex",
+                                    display: { xs: i !== 2 ? "none" : "flex", md: "flex" },
                                     flexDirection: "column",
                                     justifyContent: "center",
                                     alignItems: "center",
                                     gap: 1,
                                     cursor: "pointer",
-                                    transition: "transform 0.3s ease-in-out",
-                                    // transform: isSelected ? "scale(1.1)" : "scale(1)",
+                                    transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease, background-color 0.3s ease",
+                                    transform: isSelected ? "scale(1.1) translateY(-3px)" : "scale(1)",
                                     bgcolor: isSelected ? "rgba(0, 0, 0, 0.075)" : "white",
                                     borderRadius: "10%",
                                     width: "6rem",
                                     padding: '.5rem .5rem',
                                     boxShadow: isSelected ? "0px 0px 10px rgba(0, 0, 0, 0.1)" : "none",
+                                    zIndex: 99
                                 }}
-                                onClick={i === 0 ? handleMovesLeft : i === visibleCount - 1 ? handleMovesRight : handleOpenCard}
+                                onClick={
+                                    i === highlightIndex
+                                        ? handleOpenCard
+                                        : i < highlightIndex
+                                            ? handleHighlightLeft
+                                            : handleHighlightRight
+                                }
                             >
                                 <CardMedia
                                     sx={{
@@ -111,7 +117,7 @@ const LowerItem = ({ gradientIndex, selectedMenu, totalImages, visibleCount, sta
                 </Box>
                 <Button
                     sx={{
-                        display: { xs: "none", md: "flex" },
+                        display: "flex",
                         zIndex: 20,
                         borderRadius: "50%",
                         width: 40,
@@ -123,7 +129,7 @@ const LowerItem = ({ gradientIndex, selectedMenu, totalImages, visibleCount, sta
                         mb: '4rem'
                     }}
                     variant="contained"
-                    onClick={handleMovesRight}
+                    onClick={handleHighlightRight}
                 >
                     <ChevronRight fontSize='large' />
                 </Button>

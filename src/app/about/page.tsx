@@ -25,7 +25,7 @@ export default function About() {
             sx={{
                 backgroundImage: "url('/history-card.png')",
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "left center",
+                backgroundPosition: { xs: "left bottom", md: "left center" },
                 backgroundSize: "250px 300px",
             }}
         >
@@ -58,7 +58,7 @@ export default function About() {
                 }}>
                 <Typography
                     sx={{
-                        fontSize: { xs: "1.5rem", md: "2rem" },
+                        fontSize: { xs: "1.25rem", md: "2rem" },
                         fontWeight: "bold",
                         maxWidth: "60%",
                         color: "#c72026",
@@ -70,16 +70,17 @@ export default function About() {
                 >&quot;We don&quot;t just serve pasta, we serve the feeling of coming home to something better.&quot;</Typography>
                 <Box
                     sx={{
-                        width: '60%',
-                        display: 'flex',
-                        flexDirection: 'row',
+                        width: { xs: '70%', md: '60%' },
+                        display: 'grid',
+                        gridTemplateColumns: {
+                            xs: 'repeat(2, 1fr)',  // 2 columns on small screens
+                            md: 'repeat(6, auto)' // all 6 in a row on medium and up
+                        },
+                        justifyContent: { xs: 'center', md: 'flex-start' },
+                        alignItems: 'center',
+                        gap: { xs: 1, md: 3 },
                         mb: 15,
-                        ml: 4,
-                        //gridAutoFlow: 'column',
-                        //gridAutoColumns: 'minmax(200px, 1fr)',
-                        gap: 3,
-                        //overflowX: 'auto',
-                        //padding: 1, // optional padding
+                        ml: { xs: 0, md: 4 },
                     }}
                 >
                     {cards.map((card, index) => (
@@ -91,6 +92,7 @@ export default function About() {
                                 fontFamily: "Nunito",
                                 border: "1px solid silver",
                                 width: 100,
+                                justifySelf: 'center',
                                 '&:hover': {
                                     transform: 'scale(1.01)'
                                 }
@@ -123,7 +125,7 @@ export default function About() {
                                     sx={{
                                         backgroundColor: "#c72026",
                                         height: '1rem',
-                                        padding: { xs: "1rem 0", md: "1rem 0" },
+                                        padding: "1rem 0",
                                         display: "flex",
                                         flexDirection: "column",
                                         justifyContent: "center",
@@ -136,13 +138,14 @@ export default function About() {
                                                 boxShadow: 6,
                                             },
                                         }
-                                    }}>
+                                    }}
+                                >
                                     <Typography
-                                        sx={{ fontSize: { xs: ".85rem", md: ".85rem" } }}
+                                        sx={{ fontSize: ".85rem" }}
                                         color="white"
-                                        fontWeight={"bolder"}
-                                        textAlign={"center"}
-                                        fontFamily={"Nunito"}
+                                        fontWeight="bolder"
+                                        textAlign="center"
+                                        fontFamily="Nunito"
                                         variant="h5"
                                         component="div"
                                         whiteSpace="nowrap"

@@ -31,7 +31,7 @@ export default function CardDetails({ onClose, details }: CardDetailsProps) {
             <Card
                 sx={{
                     maxWidth: { xs: 350, md: 400 },
-                    maxHeight: { xs: "75vh", md: "100vh" },
+                    maxHeight: { xs: "85vh", md: "100vh" },
                     minWidth: "50vw",
                     bgcolor: "white",
                     boxShadow: 24,
@@ -83,7 +83,7 @@ export default function CardDetails({ onClose, details }: CardDetailsProps) {
                                 />
                             </Box>
                         )}
-                        <Typography textAlign={"center"} variant="body2" sx={{ mb: 3, mt: 4, color: 'text.secondary', fontWeight: "bold", fontFamily: "Nunito", fontSize: 16 }}>
+                        <Typography textAlign={"center"} variant="body2" sx={{ mb: 3, mt: 4, color: 'text.secondary', fontWeight: "bold", fontFamily: "Nunito", fontSize: { xs: 12, md: 16 } }}>
                             {showSecondPage && details.description2 ? details.description2 : details.description}
                         </Typography>
                     </CardContent>
@@ -93,12 +93,11 @@ export default function CardDetails({ onClose, details }: CardDetailsProps) {
                                 component="img"
                                 image={showSecondPage && details.bg2 ? details.bg2 : details.bg}
                                 alt={`${details.title} Sky Pasta`}
-                                sx={{ maxHeight: { xs: 250, md: 250 }, maxWidth: details.id == 3 ? 500 : 250, userSelect: "none", pointerEvents: "none" }}
+                                sx={{ maxHeight: { xs: 125, md: 250 }, maxWidth: details.id == 3 ? 500 : 250, userSelect: "none", pointerEvents: "none" }}
                             />
                         </Box>
                     )}
                 </CardActionArea>
-
                 <CardActions sx={{ justifyContent: "space-between" }}>
                     {showSecondPage && (
                         <Button
