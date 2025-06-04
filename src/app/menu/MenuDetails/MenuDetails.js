@@ -64,7 +64,7 @@ const MenuDetails = ({ gradientIndex, selectedMenu, slide }) => {
                             justifyContent: "center",
                             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
                             backdropFilter: "blur(10px)",
-                            transition: "all 0.3s ease-in-out",
+                            transition: "all 0.6s ease",
                             "&:hover": {
                                 background: gradients2[gradientIndex],
                                 transform: "scale(1.1)",
@@ -75,7 +75,18 @@ const MenuDetails = ({ gradientIndex, selectedMenu, slide }) => {
                     </Box>
                     <CardHeader
                         className={slide ? 'typography-fade-out' : 'typography-fade-in'}
-                        sx={{ position: 'relative', top: '2em', textAlign: 'left', mb: ".5em", color: "#c72026" }}
+                        sx={{
+                            position: 'relative',
+                            top: '2em',
+                            textAlign: 'left',
+                            mb: ".5em",
+                            color: "#c72026",
+                            display: '-webkit-box',
+                            overflow: 'hidden',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical',
+                            textOverflow: 'ellipsis',
+                        }}
                         titleTypographyProps={{ fontSize: '1.2em', fontWeight: 'bolder' }}
                         title={selectedMenu?.menuName}
                     />
@@ -88,7 +99,18 @@ const MenuDetails = ({ gradientIndex, selectedMenu, slide }) => {
                     >
                         <Typography
                             className={slide ? 'typography-fade-out-left' : 'typography-fade-in-left'}
-                            sx={{ textAlign: 'left', minWidth: '16em', fontWeight: 'bold' }} variant="body2" color="text.secondary">
+                            sx={{
+                                textAlign: 'left',
+                                minWidth: '16em',
+                                fontWeight: 'bold',
+                                display: '-webkit-box',
+                                overflow: 'hidden',
+                                WebkitLineClamp: 7,
+                                WebkitBoxOrient: 'vertical',
+                                textOverflow: 'ellipsis',
+                            }}
+                            variant="body2"
+                            color="text.secondary">
                             {selectedMenu?.description}
                         </Typography>
                     </CardContent>

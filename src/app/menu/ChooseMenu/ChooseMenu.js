@@ -11,13 +11,13 @@ import { MenuBook } from '@mui/icons-material'
 const initialPositions = [
     "translate(-350%, -100%)",
     "translate(-350%, -100%)",
-    "translate(-118%, 0%)",
-    "translate(180%, -250%)",
-    "translate(180%, -250%)",
-    "translate(180%, -250%)",
-    "translate(180%, -250%)",
-    "translate(180%, -250%)",
-    "translate(180%, -250%)"
+    "translate(-90%, 0%)",
+    "translate(250%, -250%)",
+    "translate(250%, -250%)",
+    "translate(250%, -250%)",
+    "translate(250%, -250%)",
+    "translate(250%, -250%)",
+    "translate(250%, -250%)"
 ]
 
 const ChooseMenu = () => {
@@ -218,6 +218,8 @@ const ChooseMenu = () => {
         redirect("/menu-details")
     }
 
+    const rotation = gradientIndex * 40
+
     return (
         <Box
             sx={{
@@ -233,16 +235,29 @@ const ChooseMenu = () => {
                     width: 1000,
                     height: 1000,
                     position: "absolute",
-                    zIndex: -111,
-                    left: -320,
-                    top: { xs: -800, md: -650 },
+                    zIndex: 0,
+                    left: { xs: -315, md: -260 },
+                    top: { xs: -700, md: -550 },
                     borderRadius: "50%",
                     background: gradients[gradientIndex],
-                    WebkitMask: "radial-gradient(circle at center, transparent 50%, black 51%)",
-                    mask: "radial-gradient(circle at center, transparent 50%, black 51%)",
+                    maskImage: `radial-gradient(circle at center,
+                                    transparent 38%,
+                                    rgba(0,0,0,0.7) 40%,
+                                    black 58%,
+                                    rgba(0,0,0,0.7) 60%,
+                                    transparent 62%)`,
+                    WebkitMaskImage: `radial-gradient(circle at center,
+                                    transparent 38%,
+                                    rgba(0,0,0,0.7) 40%,
+                                    black 58%,
+                                    rgba(0,0,0,0.7) 60%,
+                                    transparent 62%)`,
+                    filter: "blur(0.4px)",
+                    opacity: 1,
+                    transform: `rotate(${rotation}deg)`,
+                    transition: "transform 0.6s ease",
                 }}
             />
-
             {openCard && (
                 <MenuDetailsCard onClose={onCloseMenuDetails} menu={detailedMenu} onClickOrder={onClickOrder} />
             )}
@@ -253,7 +268,16 @@ const ChooseMenu = () => {
                     justifyContent: "space-around",
                     height: "40vh",
                     mb: { xs: "18rem", md: "10rem" },
-                    ml: { xs: "36.5rem", md: 0 },
+                    ml: { xs: "39.5rem", md: 0 },
+                    animation: "scaleUpDown 3s ease-in-out infinite",
+                    "@keyframes scaleUpDown": {
+                        "0%, 100%": {
+                            transform: "scale(1)",
+                        },
+                        "50%": {
+                            transform: "scale(1.025)",
+                        },
+                    },
                 }}>
                 <MenuItem
                     slide={slide}
@@ -282,7 +306,7 @@ const ChooseMenu = () => {
                     zIndex: 99,
                     width: "50%",
                     position: "absolute",
-                    ml: 25,
+                    ml: 27.5,
                     bottom: "45%",
                     "& button": {
                         all: "unset",

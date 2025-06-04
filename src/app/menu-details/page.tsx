@@ -152,7 +152,7 @@ export default function MenuDetails() {
                         <Box key={index} ref={categoryRefs.current[index]} sx={{ mb: 4, scrollMarginTop: { xs: "7vh", md: 0 } }}>
                             <Typography
                                 textTransform="uppercase"
-                                color="black"
+                                color="#c72026"
                                 fontFamily="Nunito"
                                 fontWeight="bolder"
                                 sx={{

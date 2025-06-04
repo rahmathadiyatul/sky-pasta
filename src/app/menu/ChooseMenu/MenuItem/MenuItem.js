@@ -20,7 +20,7 @@ const MenuItem = ({ imageUrls, positions }) => {
                     alt={menuData?.menuName}
                     sx={{
                         position: "absolute",
-                        width: { xs: 250, md: 300 },
+                        width: { xs: 350, md: 400 },
                         transform: positions[index],
                         zIndex: 1,
                         transition: "transform 0.6s ease-in-out",
