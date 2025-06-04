@@ -148,7 +148,7 @@ export default function Home() {
                                 width: "100vw",
                                 height: { xs: "35vh", md: 0 },
                                 flexDirection: { xs: "column", md: "row" },
-                                backgroundColor: "rgba(255, 255, 255, 0.5)",
+                                //backgroundColor: "rgba(255, 255, 255, 0.5)",
                             }}
                             display={"flex"}
                         >
