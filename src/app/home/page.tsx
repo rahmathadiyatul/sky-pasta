@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { Box, CardMedia, ThemeProvider, CssBaseline, Typography } from "@mui/material"
+import { Box, CardMedia, ThemeProvider, CssBaseline } from "@mui/material"
 import Header from "../header/page"
 import theme from "@/lib/theme"
 import WhatsAppComponent from "@/components/WhatsAppComponent"
@@ -12,17 +12,25 @@ export default function Home() {
     const [isExiting, setIsExiting] = useState(false)
 
     useEffect(() => {
-        const moveTimeout = setTimeout(() => {
-            setIsExiting(true)
-        }, 2000)
+        const hasVisited = sessionStorage.getItem("hasVisited")
 
-        const fadeTimeout = setTimeout(() => {
+        if (hasVisited) {
             setShowIntro(false)
-        }, 3500)
+        } else {
+            sessionStorage.setItem("hasVisited", "true")
 
-        return () => {
-            clearTimeout(moveTimeout)
-            clearTimeout(fadeTimeout)
+            const moveTimeout = setTimeout(() => {
+                setIsExiting(true)
+            }, 2000)
+
+            const fadeTimeout = setTimeout(() => {
+                setShowIntro(false)
+            }, 3500)
+
+            return () => {
+                clearTimeout(moveTimeout)
+                clearTimeout(fadeTimeout)
+            }
         }
     }, [])
 
@@ -72,7 +80,6 @@ export default function Home() {
                                 sx={{
                                     width: 175,
                                     height: 175,
-                                    // backgroundColor: "#fff",
                                     borderRadius: "50%",
                                     display: "flex",
                                     alignItems: "center",
@@ -96,6 +103,7 @@ export default function Home() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
             <Box>
                 <Header />
                 <WhatsAppComponent />
@@ -129,14 +137,13 @@ export default function Home() {
                             left: 0,
                             width: "100%",
                             height: "100%",
-                            // background: "linear-gradient(to bottom right, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05))",
                             zIndex: 1,
                         }}
                     />
                     <motion.div
                         initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 2.5, duration: 0.5, ease: "anticipate" }}
+                        transition={{ delay: 2.1, duration: 0.5, ease: "anticipate" }}
                     >
                         <Box
                             sx={{
@@ -148,7 +155,6 @@ export default function Home() {
                                 width: "100vw",
                                 height: { xs: "35vh", md: 0 },
                                 flexDirection: { xs: "column", md: "row" },
-                                //backgroundColor: "rgba(255, 255, 255, 0.5)",
                             }}
                             display={"flex"}
                         >
@@ -172,3 +178,4 @@ export default function Home() {
         </ThemeProvider>
     )
 }
+

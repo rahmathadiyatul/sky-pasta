@@ -237,7 +237,7 @@ const ChooseMenu = () => {
                     position: "absolute",
                     zIndex: 0,
                     left: { xs: -315, md: -260 },
-                    top: { xs: -700, md: -550 },
+                    top: { xs: -650, md: -550 },
                     borderRadius: "50%",
                     background: gradients[gradientIndex],
                     maskImage: `radial-gradient(circle at center,

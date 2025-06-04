@@ -23,7 +23,7 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--foreground);
-  /* background-image: url('/sky-white-bg.png'); */
+  background-image: url('/sky-white-bg.png');
   background-position: bottom;
   background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
