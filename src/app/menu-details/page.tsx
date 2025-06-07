@@ -164,7 +164,9 @@ export default function MenuDetails() {
                             </Typography>
                             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
                                 {(category.MenuList ?? []).map((menu: MenuCard, idx: number) => (
-                                    <Card onClick={() => onClickMenuDetails(menu)} key={idx} sx={{ width: { xs: "100%", md: "48%" }, cursor: "pointer" }}>
+                                    <Card onClick={() => onClickMenuDetails(menu)} key={idx} sx={{
+                                        width: { xs: "100%", md: "48%" }, cursor: "pointer", ":hover": { border: "1px solid red", transform: 'scale(1.01)', boxShadow: 3 }, transition: "all 0.6s ease", borderRadius: "1rem", backgroundColor: "white", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between"
+                                    }}>
                                         <CardContent sx={{ display: "flex", flexDirection: "row", gap: 1.5, alignItems: "center" }}>
                                             <CardMedia
                                                 sx={{ padding: "1rem", borderRadius: "2rem", backgroundColor: "beige", height: { xs: 100, md: 115 }, width: { xs: 100, md: 125 }, userSelect: "none", pointerEvents: "none" }}

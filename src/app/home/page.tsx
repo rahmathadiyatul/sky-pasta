@@ -147,9 +147,9 @@ export default function Home() {
                     >
                         <Box
                             sx={{
-                                pt: { xs: "1.25rem", md: 0 },
+                                pt: { xs: 0, md: 0 },
                                 pb: { xs: "1rem", md: 0 },
-                                mt: { xs: "15vh", md: 0 },
+                                mt: { xs: 1, md: 0 },
                                 justifyContent: { xs: "flex-start", md: "flex-start" },
                                 alignItems: "flex-start",
                                 width: "100vw",
@@ -162,13 +162,14 @@ export default function Home() {
                                 image="https://res.cloudinary.com/dxyxg3egs/image/upload/v1724437471/skypasta/skypasta_logo_nobg_myujfv.png"
                                 sx={{
                                     position: "relative",
-                                    width: { xs: 300, sm: 300, md: 109 },
-                                    height: { xs: 195, sm: 300, md: 72 },
+                                    width: { xs: 110, sm: 300, md: 109 },
+                                    height: { xs: 65, sm: 300, md: 72 },
                                     filter: "brightness(1.1) drop-shadow(1px 1px .5px rgba(0, 0, 0, 0.5))",
                                     zIndex: 12,
                                     userSelect: "none",
                                     pointerEvents: "none",
-                                    margin: { xs: "0 auto", md: 2 },
+                                    marginLeft: { xs: 0, md: 2 },
+                                    marginRight: { xs: "auto", md: 0 },
                                 }}
                             />
                         </Box>
