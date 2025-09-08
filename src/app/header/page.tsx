@@ -40,7 +40,7 @@ export default function Header() {
     }, [pathname])
 
     const onClickHeader = (route: string) => {
-        if (route != "home") {
+        if (route != "home" && route != selectedHeader) {
             setPageLoading(true)
         }
         setSelectedHeader(route)
