@@ -17,6 +17,7 @@ const initialPositions = [
     "translate(250%, -250%)",
     "translate(250%, -250%)",
     "translate(250%, -250%)",
+    "translate(250%, -250%)",
     "translate(250%, -250%)"
 ]
 

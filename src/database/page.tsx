@@ -52,10 +52,16 @@ export const imageUrls = [
         price: 33800
     },
     {
-        menuName: "Ultimate Meat Lovers",
-        imgUrl: "/recommended/sky2.png",
-        description: "A bold and unique pizza with spicy sauce, ground beef, smoked beef, mushrooms, and onions—topped with fresh basil leaves, cherry tomatoes, real chili, and gooey mozzarella cheese. A perfect balance of heat, savory goodness, and pure addictiveness!",
-        price: 102500
+        menuName: "Japanese Creamy Miso",
+        imgUrl: "/recommended/sky10.png",
+        description: "A comforting fusion of savory miso and silky cream, creating a rich umami flavor with a touch of sweetness. This Japanese-inspired delight delivers a smooth and balanced taste, perfect for those who crave warmth and depth in every sip!",
+        price: 38000
+    },
+    {
+        menuName: "Spaghetti Aglio Olio Chilli Oil",
+        imgUrl: "/recommended/sky6.png",
+        description: "A fusion pasta with bold oriental flavors, featuring slow-infused chili oil, tender chicken, mushrooms, cherry tomatoes, and parmesan cheese. Every bite delivers a rich, spicy, and savory sensation with a delightfully indulgent touch!",
+        price: 54375
     },
     {
         menuName: "Tortilla Prime Cheese",
@@ -64,22 +70,22 @@ export const imageUrls = [
         price: 109000
     },
     {
-        menuName: "Tomato Grilled Chicken",
-        imgUrl: "/recommended/sky4.png",
-        description: "Juicy chicken thigh steak, coated in a rich and creamy tomato sauce that brings out a perfect blend of savory and umami flavors. Served with crispy french fries and fresh salad, making it a complete and satisfying dinner choice!",
-        price: 48750
-    },
-    {
         menuName: "Fettuccine Premium Crispy",
         imgUrl: "/recommended/sky5.png",
         description: "A rich and creamy pasta dish topped with premium smoked beef, mushrooms, and torched mozzarella. The perfect blend of creaminess, savory goodness, and deep umami flavors in every bite!",
         price: 51000
     },
     {
-        menuName: "Spaghetti Aglio Olio Chilli Oil",
-        imgUrl: "/recommended/sky6.png",
-        description: "A fusion pasta with bold oriental flavors, featuring slow-infused chili oil, tender chicken, mushrooms, cherry tomatoes, and parmesan cheese. Every bite delivers a rich, spicy, and savory sensation with a delightfully indulgent touch!",
-        price: 54375
+        menuName: "Ultimate Meat Lovers",
+        imgUrl: "/recommended/sky2.png",
+        description: "A bold and unique pizza with spicy sauce, ground beef, smoked beef, mushrooms, and onions—topped with fresh basil leaves, cherry tomatoes, real chili, and gooey mozzarella cheese. A perfect balance of heat, savory goodness, and pure addictiveness!",
+        price: 102500
+    },
+    {
+        menuName: "Tomato Grilled Chicken",
+        imgUrl: "/recommended/sky4.png",
+        description: "Juicy chicken thigh steak, coated in a rich and creamy tomato sauce that brings out a perfect blend of savory and umami flavors. Served with crispy french fries and fresh salad, making it a complete and satisfying dinner choice!",
+        price: 48750
     },
     {
         menuName: "Crispy Chicken Sauce with Fries",
