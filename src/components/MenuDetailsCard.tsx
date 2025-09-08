@@ -24,7 +24,7 @@ export default function MenuDetailsCard({ onClose, menu, onClickOrder }: CardDet
                 display: "flex",
                 justifyContent: "center",
                 alignItems: { xs: "flex-start", md: "center" },
-                zIndex: 9999,
+                zIndex: 888,
             }}
             onClick={onClose}
         >
@@ -52,7 +52,7 @@ export default function MenuDetailsCard({ onClose, menu, onClickOrder }: CardDet
                                 enabled: true,
                                 phase: 'write',
                                 fn({ state }) {
-                                    state.styles.popper.zIndex = "9999"
+                                    state.styles.popper.zIndex = "888"
                                 }
                             }
                         ]

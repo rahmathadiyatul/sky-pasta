@@ -7,6 +7,7 @@ import OrderCard from '@/components/OrderCard'
 import { imageUrls, gradients, outlets } from '@/database/page'
 import { redirect } from 'next/navigation'
 import { MenuBook } from '@mui/icons-material'
+import useLoadingStore from '@/store/LoadingStore'
 
 const initialPositions = [
     "translate(-350%, -100%)",
@@ -41,7 +42,7 @@ const ChooseMenu = () => {
     const [openOrderList, setOpenOrderList] = useState(false)
     const visibleCount = 5
     const totalImages = imageUrls.length
-
+    const pageLoading = useLoadingStore((state) => state.pageLoading)
     const handleHighlightLeft = () => {
         if (highlightIndex > 0 && !isSmallScreen) {
             if (isAnimating) return
@@ -287,7 +288,7 @@ const ChooseMenu = () => {
                     initialPositions={initialPositions}
                 />
             </Box>
-            <Box
+            {!pageLoading.loading && (<Box
                 sx={{
                     position: "absolute",
                     left: { xs: -277, md: 0 },
@@ -300,7 +301,7 @@ const ChooseMenu = () => {
                     margin: 0,
                 }}>
                 <LowerItem handleHighlightRight={handleHighlightRight} handleHighlightLeft={handleHighlightLeft} highlightIndex={highlightIndex} gradientIndex={gradientIndex} slide={slide2} handleOpenCard={handleOpenCard} selectedMenu={selectedMenu2} totalImages={totalImages} visibleCount={visibleCount} startIndex={startIndex2} handleMovesRight={handleMovesRight} handleMovesLeft={handleMovesLeft} imageUrls={imageUrls}></LowerItem>
-            </Box>
+            </Box>)}
             <Box
                 sx={{
                     display: isSmallScreen ? "flex" : "none",
@@ -334,7 +335,7 @@ const ChooseMenu = () => {
                             position: "absolute",
                             bottom: 0,
                             right: 0,
-                            zIndex: -99999,
+                            zIndex: -888,
                             transition: "all .4s",
                             transform: "translate(0%, 0%)",
                             width: "100%",
@@ -347,7 +348,7 @@ const ChooseMenu = () => {
                             position: "absolute",
                             bottom: 2,
                             right: 2,
-                            zIndex: -99999,
+                            zIndex: -888,
                             transition: "all .4s",
                             transform: "translate(10px, 10px)",
                             width: "18px",

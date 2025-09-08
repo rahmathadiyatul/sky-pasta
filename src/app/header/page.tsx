@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import {
     Box,
     Button,
@@ -13,28 +13,38 @@ import {
     Typography,
 } from "@mui/material"
 import { styled } from '@mui/system'
-import { redirect } from "next/navigation"
 import { outlets } from "@/database/page"
+import LoadingLogo from "@/components/LoadingLogo"
+import useLoadingStore from "@/store/LoadingStore"
 
 export default function Header() {
+    const router = useRouter()
     const pathname = usePathname()
+    const setPageLoading = useLoadingStore((state) => state.setPageLoading)
+    const pageLoading = useLoadingStore(state => state.pageLoading)
     const [openOutletList, setOpenOutletList] = useState<boolean>(false)
     const [openOrderList, setOpenOrderList] = useState<boolean>(false)
     const [selectedHeader, setSelectedHeader] = useState<string>("")
     const [selectedOutlet, setSelectedOutlet] = useState<string>("")
 
-    const onInit = () => {
+    useEffect(() => {
         const header = pathname.replace("/", "")
         setSelectedHeader(header)
-    }
 
-    useEffect(() => {
-        onInit()
+        if (header !== "home") {
+            const timer = setTimeout(() => {
+                setPageLoading(false)
+            }, 1000)
+            return () => clearTimeout(timer)
+        }
     }, [pathname])
 
     const onClickHeader = (route: string) => {
+        if (route != "home") {
+            setPageLoading(true)
+        }
         setSelectedHeader(route)
-        redirect("/" + route)
+        router.push("/" + route)
     }
 
     const handleOnClickOrder = () => {
@@ -92,6 +102,9 @@ export default function Header() {
                     padding: "2px 0",
                 }}
             >
+                <Box zIndex={999} sx={{ position: "relative" }}>
+                    <LoadingLogo showLoadingLogo={pageLoading.loading} />
+                </Box>
                 <Box sx={{ cursor: "pointer" }} onClick={() => onClickHeader("home")}>
                     <CardMedia
                         sx={{ userSelect: "none", pointerEvents: "none", width: 80, height: 52, margin: 1, mr: { xs: "auto", sm: 13, md: 20 } }}

@@ -20,19 +20,6 @@ export interface MenuCategoryCard {
     MenuList: Array<MenuCard>
 }
 
-export const recommendedImages: Array<string> = [
-    "testi-bg.PNG",
-    "testi2-bg.jpg",
-    "changing1.jpg",
-    "changing2.jpg",
-    "changing3.jpg",
-    "changing4.jpg",
-    "changing5.jpg",
-    "changing6.jpg",
-    "changing7.jpeg",
-    "changing8.png",
-]
-
 export const outlets: Array<Outlet> = [
     { name: "Sky Pasta - Bekasi", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "https://gofood.co.id/jakarta/restaurant/sky-pasta-taman-galaxy-bekasi-c4b7588e-a2e5-4fae-bd07-3a99c66edf22" }, { merchantName: "GrabFood", merchantUrl: "https://r.grab.com/g/6-20250401_234524_821A0C170C38448AB60EBBD45B7DB038_MEXMPS-6-C63GVP4JT2J2GJ" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
     { name: "Sky Pasta - Binus Jakbar", onlineFoodUrl: [{ merchantName: "GoFood", merchantUrl: "https://gofood.co.id/jakarta/restaurant/sky-pasta-binus-jakbar-2e05c08c-0485-47a6-b128-acaf8d39271f" }, { merchantName: "GrabFood", merchantUrl: "https://r.grab.com/g/6-20250401_234354_821A0C170C38448AB60EBBD45B7DB038_MEXMPS-6-C3A3AFNUBBEDL6" }, { merchantName: "ShopeeFood", merchantUrl: "shopeefoodUrl" }] },
@@ -64,16 +51,16 @@ export const imageUrls = [
         price: 54375
     },
     {
-        menuName: "Tortilla Prime Cheese",
-        imgUrl: "/recommended/sky3.png",
-        description: "A delightful fusion of three types of cheese paired with sweet corn and crispy tortilla, topped with savory pepperoni, sausages, and melty mozzarella. This pizza delivers a cheesy, rich, and slightly sweet flavor that’s simply irresistible!",
-        price: 109000
-    },
-    {
         menuName: "Fettuccine Premium Crispy",
         imgUrl: "/recommended/sky5.png",
         description: "A rich and creamy pasta dish topped with premium smoked beef, mushrooms, and torched mozzarella. The perfect blend of creaminess, savory goodness, and deep umami flavors in every bite!",
         price: 51000
+    },
+    {
+        menuName: "Tortilla Prime Cheese",
+        imgUrl: "/recommended/sky3.png",
+        description: "A delightful fusion of three types of cheese paired with sweet corn and crispy tortilla, topped with savory pepperoni, sausages, and melty mozzarella. This pizza delivers a cheesy, rich, and slightly sweet flavor that’s simply irresistible!",
+        price: 109000
     },
     {
         menuName: "Ultimate Meat Lovers",
@@ -158,6 +145,12 @@ export const menuCategory: Array<MenuCategoryCard> = [
                 Price: 35750,
                 Description: "A fiery take on carbonara, featuring fettuccine pasta in a creamy, spicy sauce with smoked beef, fresh chili, and cheese for a flavorful kick.",
                 ImageUrl: "/menu2/11.png",
+            },
+            {
+                Name: "Japanese Creamy Miso",
+                Price: 38000,
+                Description: "A comforting fusion of savory miso and silky cream, creating a rich umami flavor with a touch of sweetness. This Japanese-inspired delight delivers a smooth and balanced taste, perfect for those who crave warmth and depth in every sip!",
+                ImageUrl: "/menu2/87.png",
             },
             {
                 Name: "Fusilli Spicy Tuna Cream",

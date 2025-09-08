@@ -1,14 +1,16 @@
 "use client"
 
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material"
 import Header from "../header/page"
 import { MenuCard, menuCategory, outlets } from "../../database/page"
 import MenuDetailsCard from "../../components/MenuDetailsCard"
 import OrderCard from "@/components/OrderCard"
+import useLoadingStore from "@/store/LoadingStore"
 
 export default function MenuDetails() {
     const categoryRefs = useRef(menuCategory.map(() => React.createRef<HTMLDivElement>()))
+    const setPageLoading = useLoadingStore((state) => state.setPageLoading)
     const [openCard, setOpenCard] = useState<boolean>(false)
     const [selectedCategory, setSelectedCategory] = useState<string>("Creamy Sauced Pasta")
     const [selectedMenu, setSelectedMenu] = useState<MenuCard>()
@@ -72,6 +74,11 @@ export default function MenuDetails() {
         window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            setPageLoading(false)
+        }, 1000)
+    }, [])
     return (
         <Box sx={{ overflowY: "auto" }}>
             {openCard && (

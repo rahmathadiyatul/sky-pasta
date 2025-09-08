@@ -6,15 +6,19 @@ import Typography from '@mui/material/Typography'
 import { Box } from '@mui/material'
 import './MenuDetails.css'
 import { MenuBook, ThumbUp } from '@mui/icons-material'
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { gradients2 } from '@/database/page'
+import useLoadingStore from '@/store/LoadingStore'
 
 const MenuDetails = ({ gradientIndex, selectedMenu, slide }) => {
+    const router = useRouter()
+    const setPageLoading = useLoadingStore((state) => state.setPageLoading)
     const words = selectedMenu.menuName.split(' ')
     const menuName1 = words.length > 2 ? words.slice(0, 2).join(' ') : words[0]
     const menuName2 = words.length > 2 ? words.slice(2).join(' ') : words[1]
     const handleOpenMenu = () => {
-        redirect("/menu-details")
+        setPageLoading(true)
+        router.push("/menu-details")
     }
 
     return (
@@ -145,7 +149,7 @@ const MenuDetails = ({ gradientIndex, selectedMenu, slide }) => {
                                 position: "absolute",
                                 bottom: 0,
                                 right: 0,
-                                zIndex: -99999,
+                                zIndex: -888,
                                 transition: "all .4s",
                                 transform: "translate(0%, 0%)",
                                 width: "100%",
@@ -158,7 +162,7 @@ const MenuDetails = ({ gradientIndex, selectedMenu, slide }) => {
                                 position: "absolute",
                                 bottom: 2,
                                 right: 2,
-                                zIndex: -99999,
+                                zIndex: -888,
                                 transition: "all .4s",
                                 transform: "translate(10px, 10px)",
                                 width: "18px",

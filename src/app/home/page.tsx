@@ -6,10 +6,12 @@ import Header from "../header/page"
 import theme from "@/lib/theme"
 import WhatsAppComponent from "@/components/WhatsAppComponent"
 import { motion, AnimatePresence } from "framer-motion"
+import useLoadingStore from "@/store/LoadingStore"
 
 export default function Home() {
     const [showIntro, setShowIntro] = useState(true)
     const [isExiting, setIsExiting] = useState(false)
+    const pageLoading = useLoadingStore(state => state.pageLoading)
 
     useEffect(() => {
         const hasVisited = sessionStorage.getItem("hasVisited")
@@ -38,7 +40,7 @@ export default function Home() {
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <AnimatePresence>
-                {showIntro && (
+                {showIntro && !pageLoading.loading && (
                     <motion.div
                         key="intro"
                         initial={{ opacity: 1 }}
@@ -106,96 +108,100 @@ export default function Home() {
 
             <Box>
                 <Header />
-                <WhatsAppComponent />
-                <Box
-                    sx={{
-                        height: "100vh",
-                        width: "100vw",
-                        backgroundImage: `url("https://res.cloudinary.com/dxyxg3egs/image/upload/v1757009917/skypasta/home-cover-2_jgixdt.jpg")`,
-                        backgroundSize: "100% auto",
-                        backgroundPosition: "30% 43%",
-                        backgroundRepeat: "no-repeat",
-                        position: "relative",
-                        overflow: "hidden",
-                        '&::before': {
-                            content: '""',
-                            position: "absolute",
-                            top: 0,
-                            left: 0,
-                            width: "100%",
-                            height: "100%",
-                            zIndex: 1,
-                        },
-                    }}
-                >
-                    <Typography
-                        sx={{
-                            position: "absolute",
-                            textAlign: "center",
-                            width: "100%",
-                            top: { xs: "30%", md: "35%" },
-                            color: "white",
-                            fontWeight: "bold",
-                            textShadow: "40px 40px 80px rgba(0, 0, 0, 1)",
-                            fontSize: { xs: 24, md: 60 },
-                        }}
-                    >Home of Fusion Pasta</Typography>
-                    <Typography
-                        sx={{
-                            position: "absolute",
-                            textAlign: "center",
-                            width: "100%",
-                            top: { xs: "30%", md: "47%" },
-                            color: "white",
-                            textShadow: "40px 40px 80px rgba(0, 0, 0, 1)",
-                            fontSize: { xs: 24, md: 20 },
-                        }}
-                    >The Perfect Pasta Experience</Typography>
+                {!pageLoading.loading && (
+                    <WhatsAppComponent />
+                )}
+                {!pageLoading.loading && (
                     <Box
                         sx={{
-                            position: "absolute",
-                            top: 0,
-                            left: 0,
-                            width: "100%",
-                            height: "100%",
-                            zIndex: 1,
+                            height: "100vh",
+                            width: "100vw",
+                            backgroundImage: `url("https://res.cloudinary.com/dxyxg3egs/image/upload/v1757009917/skypasta/home-cover-2_jgixdt.jpg")`,
+                            backgroundSize: "100% auto",
+                            backgroundPosition: "30% 43%",
+                            backgroundRepeat: "no-repeat",
+                            position: "relative",
+                            overflow: "hidden",
+                            '&::before': {
+                                content: '""',
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                width: "100%",
+                                height: "100%",
+                                zIndex: 1,
+                            },
                         }}
-                    />
-                    <motion.div
-                        initial={{ opacity: 0, x: 10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 2.1, duration: 0.5, ease: "anticipate" }}
                     >
+                        <Typography
+                            sx={{
+                                position: "absolute",
+                                textAlign: "center",
+                                width: "100%",
+                                top: { xs: "30%", md: "35%" },
+                                color: "white",
+                                fontWeight: "bold",
+                                textShadow: "40px 40px 80px rgba(0, 0, 0, 1)",
+                                fontSize: { xs: 24, md: 60 },
+                            }}
+                        >Home of Fusion Pasta</Typography>
+                        <Typography
+                            sx={{
+                                position: "absolute",
+                                textAlign: "center",
+                                width: "100%",
+                                top: { xs: "30%", md: "47%" },
+                                color: "white",
+                                textShadow: "40px 40px 80px rgba(0, 0, 0, 1)",
+                                fontSize: { xs: 24, md: 20 },
+                            }}
+                        >The Perfect Pasta Experience</Typography>
                         <Box
                             sx={{
-                                pt: { xs: 0, md: 0 },
-                                pb: { xs: "1rem", md: 0 },
-                                mt: { xs: 1, md: 0 },
-                                justifyContent: { xs: "flex-start", md: "flex-start" },
-                                alignItems: "flex-start",
-                                width: "100vw",
-                                height: { xs: "35vh", md: 0 },
-                                flexDirection: { xs: "column", md: "row" },
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                width: "100%",
+                                height: "100%",
+                                zIndex: 1,
                             }}
-                            display={"flex"}
+                        />
+                        <motion.div
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 2.1, duration: 0.5, ease: "anticipate" }}
                         >
-                            <CardMedia
-                                image="https://res.cloudinary.com/dxyxg3egs/image/upload/v1724437471/skypasta/skypasta_logo_nobg_myujfv.png"
+                            <Box
                                 sx={{
-                                    position: "relative",
-                                    width: { xs: 110, sm: 300, md: 109 },
-                                    height: { xs: 65, sm: 300, md: 72 },
-                                    filter: "brightness(1.1) drop-shadow(1px 1px .5px rgba(0, 0, 0, 0.5))",
-                                    zIndex: 12,
-                                    userSelect: "none",
-                                    pointerEvents: "none",
-                                    marginLeft: { xs: 0, md: 2 },
-                                    marginRight: { xs: "auto", md: 0 },
+                                    pt: { xs: 0, md: 0 },
+                                    pb: { xs: "1rem", md: 0 },
+                                    mt: { xs: 1, md: 0 },
+                                    justifyContent: { xs: "flex-start", md: "flex-start" },
+                                    alignItems: "flex-start",
+                                    width: "100vw",
+                                    height: { xs: "35vh", md: 0 },
+                                    flexDirection: { xs: "column", md: "row" },
                                 }}
-                            />
-                        </Box>
-                    </motion.div>
-                </Box>
+                                display={"flex"}
+                            >
+                                <CardMedia
+                                    image="https://res.cloudinary.com/dxyxg3egs/image/upload/v1724437471/skypasta/skypasta_logo_nobg_myujfv.png"
+                                    sx={{
+                                        position: "relative",
+                                        width: { xs: 110, sm: 300, md: 109 },
+                                        height: { xs: 65, sm: 300, md: 72 },
+                                        filter: "brightness(1.1) drop-shadow(1px 1px .5px rgba(0, 0, 0, 0.5))",
+                                        zIndex: 12,
+                                        userSelect: "none",
+                                        pointerEvents: "none",
+                                        marginLeft: { xs: 0, md: 2 },
+                                        marginRight: { xs: "auto", md: 0 },
+                                    }}
+                                />
+                            </Box>
+                        </motion.div>
+                    </Box>
+                )}
             </Box>
         </ThemeProvider>
     )

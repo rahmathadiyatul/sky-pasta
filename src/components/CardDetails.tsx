@@ -24,7 +24,7 @@ export default function CardDetails({ onClose, details }: CardDetailsProps) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: { xs: "flex-start", md: "center" },
-                zIndex: 9999,
+                zIndex: 888,
             }}
             onClick={onClose}
         >
