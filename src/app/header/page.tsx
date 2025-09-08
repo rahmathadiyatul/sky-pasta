@@ -136,6 +136,18 @@ export default function Header() {
                                 fontSize: { xs: 12, sm: 13, md: 15 }
                             }}>Outlets</Typography>
                     </StyledLink >
+                    <StyledLink onClick={() => onClickHeader("gallery")}>
+                        <Typography
+                            sx={{
+                                fontFamily: "Nunito",
+                                color: "white",
+                                textShadow: selectedHeader == "outlets" ? '0 0 50px rgba(0, 0, 0, 0.1)' : "none",
+                                paddingBottom: selectedHeader == "outlets" ? '.5%' : 0,
+                                cursor: "pointer",
+                                fontWeight: "bolder",
+                                fontSize: { xs: 12, sm: 13, md: 15 }
+                            }}>Gallery</Typography>
+                    </StyledLink >
                     <Button onClick={handleOnClickOrder} variant="contained" sx={{ fontFamily: "Nunito", backgroundColor: "#c72026", borderRadius: "2rem", px: "1rem", border: "3px solid white" }}>
                         <Typography color="white" textTransform={"capitalize"} sx={{ fontWeight: 550, fontSize: { xs: 12, sm: 13, md: 15 } }}>Order Now</Typography>
                     </Button >

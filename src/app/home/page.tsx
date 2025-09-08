@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { Box, CardMedia, ThemeProvider, CssBaseline } from "@mui/material"
+import { Box, CardMedia, ThemeProvider, CssBaseline, Typography } from "@mui/material"
 import Header from "../header/page"
 import theme from "@/lib/theme"
 import WhatsAppComponent from "@/components/WhatsAppComponent"
@@ -111,13 +111,11 @@ export default function Home() {
                     sx={{
                         height: "100vh",
                         width: "100vw",
-                        backgroundImage: `url("/home-bg-2.png")`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
+                        backgroundImage: `url("https://res.cloudinary.com/dxyxg3egs/image/upload/v1757009917/skypasta/home-cover-2_jgixdt.jpg")`,
+                        backgroundSize: "100% auto",
+                        backgroundPosition: "30% 43%",
                         backgroundRepeat: "no-repeat",
-                        display: "flex",
-                        alignItems: { xs: "flex-start", md: "flex-start" },
-                        justifyContent: "center",
+                        position: "relative",
                         overflow: "hidden",
                         '&::before': {
                             content: '""',
@@ -130,6 +128,29 @@ export default function Home() {
                         },
                     }}
                 >
+                    <Typography
+                        sx={{
+                            position: "absolute",
+                            textAlign: "center",
+                            width: "100%",
+                            top: { xs: "30%", md: "35%" },
+                            color: "white",
+                            fontWeight: "bold",
+                            textShadow: "40px 40px 80px rgba(0, 0, 0, 1)",
+                            fontSize: { xs: 24, md: 60 },
+                        }}
+                    >Home of Fusion Pasta</Typography>
+                    <Typography
+                        sx={{
+                            position: "absolute",
+                            textAlign: "center",
+                            width: "100%",
+                            top: { xs: "30%", md: "47%" },
+                            color: "white",
+                            textShadow: "40px 40px 80px rgba(0, 0, 0, 1)",
+                            fontSize: { xs: 24, md: 20 },
+                        }}
+                    >The Perfect Pasta Experience</Typography>
                     <Box
                         sx={{
                             position: "absolute",
