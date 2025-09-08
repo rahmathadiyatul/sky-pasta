@@ -117,7 +117,7 @@ export default function Home() {
                             height: "100vh",
                             width: "100vw",
                             backgroundImage: `url("https://res.cloudinary.com/dxyxg3egs/image/upload/v1757009917/skypasta/home-cover-2_jgixdt.jpg")`,
-                            backgroundSize: "100% auto",
+                            backgroundSize: { xs: "auto 100%", md: "100% auto" },
                             backgroundPosition: "30% 43%",
                             backgroundRepeat: "no-repeat",
                             position: "relative",
@@ -138,11 +138,12 @@ export default function Home() {
                                 position: "absolute",
                                 textAlign: "center",
                                 width: "100%",
-                                top: { xs: "30%", md: "35%" },
+                                top: { xs: "42%", md: "35%" },
                                 color: "white",
                                 fontWeight: "bold",
                                 textShadow: "40px 40px 80px rgba(0, 0, 0, 1)",
-                                fontSize: { xs: 24, md: 60 },
+                                fontSize: { xs: 32, md: 60 },
+                                backgroundColor: { xs: "rgba(0, 0, 0, 0.3)", md: "rgba(0, 0, 0, 0)" },
                             }}
                         >Home of Fusion Pasta</Typography>
                         <Typography
@@ -150,10 +151,11 @@ export default function Home() {
                                 position: "absolute",
                                 textAlign: "center",
                                 width: "100%",
-                                top: { xs: "30%", md: "47%" },
+                                top: { xs: "49.5%", md: "47%" },
                                 color: "white",
                                 textShadow: "40px 40px 80px rgba(0, 0, 0, 1)",
-                                fontSize: { xs: 24, md: 20 },
+                                fontSize: { xs: 18, md: 20 },
+                                backgroundColor: { xs: "rgba(0, 0, 0, 0.3)", md: "rgba(0, 0, 0, 0)" },
                             }}
                         >The Perfect Pasta Experience</Typography>
                         <Box

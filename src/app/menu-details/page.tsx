@@ -12,7 +12,7 @@ export default function MenuDetails() {
     const categoryRefs = useRef(menuCategory.map(() => React.createRef<HTMLDivElement>()))
     const setPageLoading = useLoadingStore((state) => state.setPageLoading)
     const [openCard, setOpenCard] = useState<boolean>(false)
-    const [selectedCategory, setSelectedCategory] = useState<string>("Creamy Sauced Pasta")
+    const [selectedCategory, setSelectedCategory] = useState<string>("Fusion Pasta")
     const [selectedMenu, setSelectedMenu] = useState<MenuCard>()
     const [openOutletList, setOpenOutletList] = useState<boolean>(false)
     const [openOrderList, setOpenOrderList] = useState<boolean>(false)

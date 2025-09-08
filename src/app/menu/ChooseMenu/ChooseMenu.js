@@ -5,7 +5,7 @@ import { Box, useMediaQuery } from '@mui/material'
 import MenuDetailsCard from '@/components/MenuDetailsCard'
 import OrderCard from '@/components/OrderCard'
 import { imageUrls, gradients, outlets } from '@/database/page'
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { MenuBook } from '@mui/icons-material'
 import useLoadingStore from '@/store/LoadingStore'
 
@@ -24,6 +24,7 @@ const initialPositions = [
 
 const ChooseMenu = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)')
+    const router = useRouter()
     const [gradientIndex, setGradientIndex] = useState(0)
     const [positions, setPositions] = useState(initialPositions)
     const [highlightIndex, setHighlightIndex] = useState(2)
@@ -43,6 +44,7 @@ const ChooseMenu = () => {
     const visibleCount = 5
     const totalImages = imageUrls.length
     const pageLoading = useLoadingStore((state) => state.pageLoading)
+    const setPageLoading = useLoadingStore((state) => state.setPageLoading)
     const handleHighlightLeft = () => {
         if (highlightIndex > 0 && !isSmallScreen) {
             if (isAnimating) return
@@ -217,7 +219,8 @@ const ChooseMenu = () => {
     }
 
     const handleOpenMenu = () => {
-        redirect("/menu-details")
+        setPageLoading(true)
+        router.push("/menu-details")
     }
 
     const rotation = gradientIndex * 40
@@ -302,86 +305,88 @@ const ChooseMenu = () => {
                 }}>
                 <LowerItem handleHighlightRight={handleHighlightRight} handleHighlightLeft={handleHighlightLeft} highlightIndex={highlightIndex} gradientIndex={gradientIndex} slide={slide2} handleOpenCard={handleOpenCard} selectedMenu={selectedMenu2} totalImages={totalImages} visibleCount={visibleCount} startIndex={startIndex2} handleMovesRight={handleMovesRight} handleMovesLeft={handleMovesLeft} imageUrls={imageUrls}></LowerItem>
             </Box>)}
-            <Box
-                sx={{
-                    display: isSmallScreen ? "flex" : "none",
-                    zIndex: 99,
-                    width: "50%",
-                    position: "absolute",
-                    ml: 27.5,
-                    bottom: "45%",
-                    "& button": {
-                        all: "unset",
-                        height: "30px",
-                        width: "100%",
-                        fontSize: "16px",
-                        background: "transparent",
-                        border: "none",
-                        position: "relative",
-                        color: "#f0f0f0",
-                        cursor: "pointer",
-                        zIndex: 1,
-                        padding: "10px 20px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        whiteSpace: "nowrap",
-                        userSelect: "none",
-                        WebkitUserSelect: "none",
-                        touchAction: "manipulation",
-                        gap: "0.3em",
-                        "&::before": {
-                            content: '""',
-                            position: "absolute",
-                            bottom: 0,
-                            right: 0,
-                            zIndex: -888,
-                            transition: "all .4s",
-                            transform: "translate(0%, 0%)",
+            {!pageLoading.loading && (
+                <Box
+                    sx={{
+                        display: isSmallScreen ? "flex" : "none",
+                        zIndex: 99,
+                        width: "50%",
+                        position: "absolute",
+                        ml: 27.5,
+                        bottom: "45%",
+                        "& button": {
+                            all: "unset",
+                            height: "30px",
                             width: "100%",
-                            height: "100%",
-                            background: "rgba(0,0,0,.1)",
-                            borderRadius: "10px",
+                            fontSize: "16px",
+                            background: "transparent",
+                            border: "none",
+                            position: "relative",
+                            color: "#f0f0f0",
+                            cursor: "pointer",
+                            zIndex: 1,
+                            padding: "10px 20px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            whiteSpace: "nowrap",
+                            userSelect: "none",
+                            WebkitUserSelect: "none",
+                            touchAction: "manipulation",
+                            gap: "0.3em",
+                            "&::before": {
+                                content: '""',
+                                position: "absolute",
+                                bottom: 0,
+                                right: 0,
+                                zIndex: -888,
+                                transition: "all .4s",
+                                transform: "translate(0%, 0%)",
+                                width: "100%",
+                                height: "100%",
+                                background: "rgba(0,0,0,.1)",
+                                borderRadius: "10px",
+                            },
+                            "&::after": {
+                                content: '""',
+                                position: "absolute",
+                                bottom: 2,
+                                right: 2,
+                                zIndex: -888,
+                                transition: "all .4s",
+                                transform: "translate(10px, 10px)",
+                                width: "18px",
+                                height: "18px",
+                                background: "#aaaaaa85",
+                                backdropFilter: "blur(5px)",
+                                WebkitBackdropFilter: "blur(5px)",
+                                borderRadius: "50px",
+                            },
+                            "&:hover::before": {
+                                transform: "translate(5%, 20%)",
+                                width: "110%",
+                                height: "110%",
+                            },
+                            "&:hover::after": {
+                                borderRadius: "10px",
+                                transform: "translate(0, 0)",
+                                width: "100%",
+                                height: "100%",
+                            },
+                            "&:active::after": {
+                                transition: "0s",
+                                transform: "translate(0, 5%)",
+                            },
                         },
-                        "&::after": {
-                            content: '""',
-                            position: "absolute",
-                            bottom: 2,
-                            right: 2,
-                            zIndex: -888,
-                            transition: "all .4s",
-                            transform: "translate(10px, 10px)",
-                            width: "18px",
-                            height: "18px",
-                            background: "#aaaaaa85",
-                            backdropFilter: "blur(5px)",
-                            WebkitBackdropFilter: "blur(5px)",
-                            borderRadius: "50px",
-                        },
-                        "&:hover::before": {
-                            transform: "translate(5%, 20%)",
-                            width: "110%",
-                            height: "110%",
-                        },
-                        "&:hover::after": {
-                            borderRadius: "10px",
-                            transform: "translate(0, 0)",
-                            width: "100%",
-                            height: "100%",
-                        },
-                        "&:active::after": {
-                            transition: "0s",
-                            transform: "translate(0, 5%)",
-                        },
-                    },
-                }}
-                onClick={handleOpenMenu}
-            >
-                <button role="button">
-                    <MenuBook sx={{ color: '#c72026' }} />
-                    <p style={{ fontFamily: "Nunito", fontWeight: 'bolder', color: '#c72026' }}>See Full Menu</p>
-                </button>
-            </Box>
+                    }}
+                    onClick={handleOpenMenu}
+                >
+                    <button role="button">
+                        <MenuBook sx={{ color: '#c72026' }} />
+                        <p style={{ fontFamily: "Nunito", fontWeight: 'bolder', color: '#c72026' }}>See Full Menu</p>
+                    </button>
+                </Box>
+            )}
         </Box >
     )
 }

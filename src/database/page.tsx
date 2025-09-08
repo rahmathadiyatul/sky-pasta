@@ -96,6 +96,23 @@ export const imageUrls = [
 
 export const menuCategory: Array<MenuCategoryCard> = [
     {
+        CategoryName: "Fusion Pasta",
+        MenuList: [
+            {
+                Name: "Japanese Chicken Creamy Miso",
+                Price: 48000,
+                Description: "A comforting fusion of savory miso and silky cream, creating a rich umami flavor with a touch of sweetness. This Japanese-inspired delight delivers a smooth and balanced taste, perfect for those who crave warmth and depth in every sip!",
+                ImageUrl: "/menu2/87.png",
+            },
+            {
+                Name: "Spaghetti Aglio Olio Chili Oil",
+                Price: 44500,
+                Description: "A fusion of aglio e olio and chili oil, featuring spaghetti tossed with succulent chicken thigh, mushrooms, butter, parmesan cheese, homemade chili oil, and fresh parsley.",
+                ImageUrl: "/menu2/19.png",
+            }
+        ]
+    },
+    {
         CategoryName: "Creamy Sauced Pasta",
         MenuList: [
             {
@@ -147,12 +164,6 @@ export const menuCategory: Array<MenuCategoryCard> = [
                 ImageUrl: "/menu2/11.png",
             },
             {
-                Name: "Japanese Creamy Miso",
-                Price: 38000,
-                Description: "A comforting fusion of savory miso and silky cream, creating a rich umami flavor with a touch of sweetness. This Japanese-inspired delight delivers a smooth and balanced taste, perfect for those who crave warmth and depth in every sip!",
-                ImageUrl: "/menu2/87.png",
-            },
-            {
                 Name: "Fusilli Spicy Tuna Cream",
                 Price: 51350,
                 Description: "Spiral fusilli pasta coated in a spicy, creamy sauce, mixed with tender tuna chunks, fresh chili, and melted cheese for a perfect balance of heat and richness.",
@@ -198,12 +209,6 @@ export const menuCategory: Array<MenuCategoryCard> = [
                 Price: 43550,
                 Description: "Twisted fusilli pasta mixed with tender tuna chunks, garlic, chili, parsley, and cheese. A spicy and savory delight with an authentic touch.",
                 ImageUrl: "/menu2/8.png",
-            },
-            {
-                Name: "Spaghetti Aglio Chili Oil",
-                Price: 54375,
-                Description: "A fusion of aglio e olio and chili oil, featuring spaghetti tossed with succulent chicken thigh, mushrooms, butter, parmesan cheese, homemade chili oil, and fresh parsley.",
-                ImageUrl: "/menu2/19.png",
             }
         ]
     },
