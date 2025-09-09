@@ -77,7 +77,7 @@ export default function MenuDetails() {
     useEffect(() => {
         setTimeout(() => {
             setPageLoading(false)
-        }, 1000)
+        }, 500)
     }, [])
     return (
         <Box sx={{ overflowY: "auto" }}>

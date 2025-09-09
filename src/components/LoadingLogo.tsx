@@ -41,13 +41,6 @@ export default function LoadingLogo({ showLoadingLogo }: LoadingLogoProps) {
                         <motion.img
                             src="https://res.cloudinary.com/dxyxg3egs/image/upload/v1724437471/skypasta/skypasta_logo_nobg_myujfv.png"
                             alt="Logo"
-                            animate={{ rotate: [0, 360] }}
-                            transition={{
-                                repeat: Infinity,
-                                repeatType: "loop",
-                                duration: 2.5,
-                                ease: "linear",
-                            }}
                             style={{ width: 135, height: 90 }}
                         />
                     </Box>

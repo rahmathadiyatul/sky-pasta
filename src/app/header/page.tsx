@@ -30,17 +30,14 @@ export default function Header() {
     useEffect(() => {
         const header = pathname.replace("/", "")
         setSelectedHeader(header)
-
-        if (header !== "home") {
-            const timer = setTimeout(() => {
-                setPageLoading(false)
-            }, 1000)
-            return () => clearTimeout(timer)
-        }
+        const timer = setTimeout(() => {
+            setPageLoading(false)
+        }, 500)
+        return () => clearTimeout(timer)
     }, [pathname])
 
     const onClickHeader = (route: string) => {
-        if (route != "home" && route != selectedHeader) {
+        if (route != selectedHeader) {
             setPageLoading(true)
         }
         setSelectedHeader(route)
