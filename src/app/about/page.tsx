@@ -2,9 +2,9 @@
 
 import React, { useState } from "react"
 import { Box, CardMedia, Typography, Card, CardActionArea, CardContent, Divider } from "@mui/material"
-import Header from "../header/page"
 import CardDetails from "@/components/CardDetails"
 import { cards } from "../../database/page"
+import Header from "@/components/Header"
 
 export default function About() {
     const [selectedCard, setSelectedCard] = useState<number>(0)

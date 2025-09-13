@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { Box } from "@mui/material"
-import Header from "../header/page"
 import ChooseMenu from "./ChooseMenu/ChooseMenu.js"
 import './page.css'
+import Header from '@/components/Header'
 
 export default function Menu() {
     return (
@@ -32,7 +32,7 @@ export default function Menu() {
                 },
             }}
         >
-            <Header></Header>
+            <Header />
             <Box sx={{
                 position: "relative",
                 overflow: "hidden",

@@ -1,20 +1,20 @@
-"use client";
+"use client"
 
-import React, { useEffect, useRef, useState } from "react";
-import mapboxgl from "mapbox-gl";
-import { Box, Button, Card, CardActions, CardContent, CardMedia, IconButton, Typography } from "@mui/material";
-import Header from "../header/page";
-import 'mapbox-gl/dist/mapbox-gl.css';
-import { Close } from "@mui/icons-material";
+import React, { useEffect, useRef, useState } from "react"
+import mapboxgl from "mapbox-gl"
+import { Box, Button, Card, CardActions, CardContent, CardMedia, IconButton, Typography } from "@mui/material"
+import 'mapbox-gl/dist/mapbox-gl.css'
+import { Close } from "@mui/icons-material"
+import Header from "@/components/Header"
 
-mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!;
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!
 
 interface Outlet {
-    name: string;
-    coordinates: [number, number];
-    address: string;
-    properties: any;
-    gmapsUrl: string;
+    name: string
+    coordinates: [number, number]
+    address: string
+    properties: any
+    gmapsUrl: string
 }
 
 const outlets: Outlet[] = [
@@ -95,73 +95,73 @@ const outlets: Outlet[] = [
         },
         gmapsUrl: "https://maps.app.goo.gl/9SsfpyRK5HmSNXwP7",
     },
-];
+]
 
 export default function Outlets() {
-    const mapContainerRef = useRef<HTMLDivElement>(null);
-    const [selectedOutlet, setSelectedOutlet] = useState<Outlet | null>(null);
+    const mapContainerRef = useRef<HTMLDivElement>(null)
+    const [selectedOutlet, setSelectedOutlet] = useState<Outlet | null>(null)
 
     useEffect(() => {
-        if (!mapContainerRef.current) return;
+        if (!mapContainerRef.current) return
 
         const map = new mapboxgl.Map({
             container: mapContainerRef.current,
             style: "mapbox://styles/mapbox/light-v11",
             center: [106.83008806816571, -6.304073764480272],
             zoom: 10,
-        });
+        })
 
-        const markers: mapboxgl.Marker[] = [];
+        const markers: mapboxgl.Marker[] = []
 
         outlets.forEach((outlet) => {
-            const el = document.createElement("div");
-            const width = outlet.properties.iconSize[0];
-            const height = outlet.properties.iconSize[1];
-            el.className = 'marker';
-            el.style.backgroundImage = `url('/logo.png')`;
-            el.style.width = `${width}px`;
-            el.style.height = `${height}px`;
-            el.style.backgroundSize = "contain";
-            el.style.display = 'block';
-            el.style.border = 'none';
-            el.style.borderRadius = '50%';
-            el.style.cursor = 'pointer';
-            el.style.padding = "none";
+            const el = document.createElement("div")
+            const width = outlet.properties.iconSize[0]
+            const height = outlet.properties.iconSize[1]
+            el.className = 'marker'
+            el.style.backgroundImage = `url('/logo.png')`
+            el.style.width = `${width}px`
+            el.style.height = `${height}px`
+            el.style.backgroundSize = "contain"
+            el.style.display = 'block'
+            el.style.border = 'none'
+            el.style.borderRadius = '50%'
+            el.style.cursor = 'pointer'
+            el.style.padding = "none"
 
-            const marker = new mapboxgl.Marker(el).setLngLat(outlet.coordinates).addTo(map);
-            markers.push(marker);
+            const marker = new mapboxgl.Marker(el).setLngLat(outlet.coordinates).addTo(map)
+            markers.push(marker)
 
             marker.getElement().addEventListener("click", () => {
-                setSelectedOutlet(outlet);
-            });
-        });
+                setSelectedOutlet(outlet)
+            })
+        })
 
         map.on("click", (e) => {
-            const { lng, lat } = e.lngLat;
+            const { lng, lat } = e.lngLat
 
-            let closestOutlet = null;
-            let minDistance = Number.MAX_VALUE;
+            let closestOutlet = null
+            let minDistance = Number.MAX_VALUE
 
             outlets.forEach((outlet) => {
-                const [outletLng, outletLat] = outlet.coordinates;
+                const [outletLng, outletLat] = outlet.coordinates
                 const distance = Math.sqrt(
                     Math.pow(outletLng - lng, 2) + Math.pow(outletLat - lat, 2)
-                );
+                )
 
                 if (distance < minDistance) {
-                    minDistance = distance;
-                    closestOutlet = outlet;
+                    minDistance = distance
+                    closestOutlet = outlet
                 }
-            });
+            })
 
-            if (closestOutlet) setSelectedOutlet(closestOutlet);
-        });
+            if (closestOutlet) setSelectedOutlet(closestOutlet)
+        })
 
         return () => {
-            map.remove();
-            markers.forEach((marker) => marker.remove());
-        };
-    }, []);
+            map.remove()
+            markers.forEach((marker) => marker.remove())
+        }
+    }, [])
 
     const handleNavigation = (selectedOutlet: any) => {
         console.log(selectedOutlet.gmapsUrl)
@@ -228,5 +228,5 @@ export default function Outlets() {
                 )}
             </Box>
         </Box>
-    );
+    )
 }

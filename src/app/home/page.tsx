@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from "react"
 import { Box, CardMedia, ThemeProvider, CssBaseline, Typography } from "@mui/material"
-import Header from "../header/page"
 import theme from "@/lib/theme"
 import WhatsAppComponent from "@/components/WhatsAppComponent"
 import { motion, AnimatePresence } from "framer-motion"
 import useLoadingStore from "@/store/LoadingStore"
+import Header from "@/components/Header"
 
 export default function Home() {
     const [showIntro, setShowIntro] = useState(true)

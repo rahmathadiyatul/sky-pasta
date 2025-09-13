@@ -1,11 +1,10 @@
 "use client"
 
 import React, { useState, useRef } from "react"
-import { Box, Stack, IconButton, CardMedia, Typography, Card, CardActionArea, CardContent, Divider } from "@mui/material"
-import Header from "../header/page"
+import { Box, Stack, IconButton, CardMedia, Typography } from "@mui/material"
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew"
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
-import { cards } from "../../database/page"
+import Header from "@/components/Header"
 
 export default function Gallery() {
     const [selectedCard, setSelectedCard] = useState<number>(0)

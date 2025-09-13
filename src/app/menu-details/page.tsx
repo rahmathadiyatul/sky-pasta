@@ -2,11 +2,11 @@
 
 import React, { useEffect, useRef, useState } from "react"
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material"
-import Header from "../header/page"
 import { MenuCard, menuCategory, outlets } from "../../database/page"
 import MenuDetailsCard from "../../components/MenuDetailsCard"
 import OrderCard from "@/components/OrderCard"
 import useLoadingStore from "@/store/LoadingStore"
+import Header from "@/components/Header"
 
 export default function MenuDetails() {
     const categoryRefs = useRef(menuCategory.map(() => React.createRef<HTMLDivElement>()))
