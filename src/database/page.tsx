@@ -58,13 +58,13 @@ export const imageUrls = [
     },
     {
         menuName: "Tortilla Prime Cheese",
-        imgUrl: "/recommended/sky3.png",
+        imgUrl: "/recommended/sky2.png",
         description: "A delightful fusion of three types of cheese paired with sweet corn and crispy tortilla, topped with savory pepperoni, sausages, and melty mozzarella. This pizza delivers a cheesy, rich, and slightly sweet flavor that’s simply irresistible!",
         price: 109000
     },
     {
         menuName: "Ultimate Meat Lovers",
-        imgUrl: "/recommended/sky2.png",
+        imgUrl: "/recommended/sky3.png",
         description: "A bold and unique pizza with spicy sauce, ground beef, smoked beef, mushrooms, and onions—topped with fresh basil leaves, cherry tomatoes, real chili, and gooey mozzarella cheese. A perfect balance of heat, savory goodness, and pure addictiveness!",
         price: 102500
     },
