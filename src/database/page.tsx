@@ -301,13 +301,13 @@ export const menuCategory: Array<MenuCategoryCard> = [
                 Name: "Pizza Ultimate Meat Lovers",
                 Price: 102500,
                 Description: "A feast for meat lovers! Packed with pepperoni, smoked beef, sausage, and melted cheese over a rich tomato base.",
-                ImageUrl: "/menu2/27.png",
+                ImageUrl: "/menu2/28.png",
             },
             {
                 Name: "Pizza Tortila Prime Cheese",
                 Price: 109000,
                 Description: "A gourmet delight with a thin, crispy tortilla crust, layered with premium cheese blends for an indulgent cheesy treat.",
-                ImageUrl: "/menu2/28.png",
+                ImageUrl: "/menu2/27.png",
             }
         ]
     },
